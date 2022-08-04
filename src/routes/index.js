@@ -11,7 +11,7 @@ import TrainingsToPass from "../pages/trainings/trainingsToPass";
 
 export const routes = [
   {
-    path: "/main",
+    path: "/",
     title: "ძირითადი",
     component: <Main />,
   },

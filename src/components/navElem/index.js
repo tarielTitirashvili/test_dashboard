@@ -5,7 +5,7 @@ import MuiAccordion from "@mui/material/Accordion";
 import MuiAccordionSummary from "@mui/material/AccordionSummary";
 import MuiAccordionDetails from "@mui/material/AccordionDetails";
 import Typography from "@mui/material/Typography";
-import { Link, ListItem, ListItemButton, ListItemText } from "@mui/material";
+import { ListItem, ListItemButton, ListItemText } from "@mui/material";
 import Box from "@mui/material/Box";
 import { routes } from "../../routes";
 import { NavLink } from "react-router-dom";
@@ -52,7 +52,6 @@ export default function NavElements(props) {
   const handleChange = (panel) => (event, newExpanded) => {
     setExpanded(newExpanded ? panel : false);
   };
-  console.log(expanded);
   return (
     <div>
       {routes.map((route) => {
