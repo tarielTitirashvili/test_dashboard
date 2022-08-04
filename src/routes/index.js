@@ -1,8 +1,13 @@
 import Insurance from "../pages/additional/insurance";
+import IPC from "../pages/additional/IPC";
+import PCB from "../pages/additional/PCB";
 import Vocation from "../pages/additional/vocation";
 import Error404 from "../pages/Error404";
 import Main from "../pages/main";
-import Trainings from "../pages/trainings";
+import Requests from "../pages/requests";
+import PassedTrainings from "../pages/trainings/passedTrainings";
+import TestResults from "../pages/trainings/testResults";
+import TrainingsToPass from "../pages/trainings/trainingsToPass";
 
 export const routes = [
   {
@@ -24,6 +29,21 @@ export const routes = [
         title: "დასვენება",
         component: <Vocation />,
       },
+      {
+        path: "/IPC",
+        title: "IPC აქციები",
+        component: <IPC />,
+      },
+      {
+        path: "/survey",
+        title: "გამოკითხვა",
+        component: <Vocation />,
+      },
+      {
+        path: "/PCB",
+        title: "PCB კლუბები",
+        component: <PCB />,
+      },
     ],
   },
   {
@@ -33,19 +53,24 @@ export const routes = [
       {
         path: "/passedTrainings",
         title: "გავლილი სემინარები",
-        component: <Insurance />,
+        component: <PassedTrainings />,
       },
       {
         path: "/trainingsToPass",
         title: "გასავლელი სემინარები",
-        component: <Insurance />,
+        component: <TrainingsToPass />,
       },
       {
         path: "/testResults",
         title: "ტესტირების შედეგები",
-        component: <Insurance />,
+        component: <TestResults />,
       },
     ],
+  },
+  {
+    path: "/request",
+    title: "request",
+    component: <Requests />,
   },
   {
     path: "/Error404",
