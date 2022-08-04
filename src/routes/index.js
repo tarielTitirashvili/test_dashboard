@@ -69,7 +69,17 @@ export const routes = [
   },
   {
     path: "/request",
-    title: "request",
+    title: "მოთხოვნები",
+    component: <Requests />,
+  },
+  {
+    path: "/HRDocs",
+    title: "HR დოკუმენტაცია",
+    component: <Requests />,
+  },
+  {
+    path: "/MidtermEvaluation",
+    title: "შუალედური შეფასება",
     component: <Requests />,
   },
   {
