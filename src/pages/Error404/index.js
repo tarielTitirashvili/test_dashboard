@@ -25,7 +25,7 @@ export default function Error404() {
         <NavLink to="/">
           <IconButton>
             <KeyboardBackspaceIcon />
-            ძირითადი
+            ძირითადი 
           </IconButton>
         </NavLink>
       </Box>
