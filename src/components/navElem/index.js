@@ -17,9 +17,6 @@ const Accordion = styled((props) => (
   "&:not(:last-child)": {
     borderBottom: 0,
   },
-  "&:before": {
-    display: "none",
-  },
 }));
 
 const AccordionSummary = styled((props) => (
@@ -56,7 +53,7 @@ export default function NavElements(props) {
     <div>
       {routes.map((route) => {
         if (route.title === "Error404") {
-          return;
+          return "";
         }
         if (route.children) {
           return (
