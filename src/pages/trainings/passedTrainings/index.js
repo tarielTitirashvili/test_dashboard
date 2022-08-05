@@ -1,7 +1,12 @@
-import React from 'react'
+import React from "react";
+import DataTable from "../../../components/otherTable";
 
 export default function PassedTrainings() {
   return (
-    <div>passedTrainings</div>
-  )
+    <div>
+      <DataTable />
+    </div>
+  );
 }
+
+

@@ -7,7 +7,7 @@ import Main from "../pages/main";
 import Requests from "../pages/requests";
 import PassedTrainings from "../pages/trainings/passedTrainings";
 import TestResults from "../pages/trainings/testResults";
-import TrainingsToPass from "../pages/trainings/trainingsToPass";
+import Trainings from "../pages/trainings/trainings";
 
 export const routes = [
   {
@@ -51,14 +51,14 @@ export const routes = [
     title: "ტრენინგები",
     children: [
       {
+        path: "/trainings",
+        title: "მიმდინარე სემინარები",
+        component: <Trainings />,
+      },
+      {
         path: "/passedTrainings",
         title: "გავლილი სემინარები",
         component: <PassedTrainings />,
-      },
-      {
-        path: "/trainingsToPass",
-        title: "გასავლელი სემინარები",
-        component: <TrainingsToPass />,
       },
       {
         path: "/testResults",

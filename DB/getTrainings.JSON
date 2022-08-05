@@ -4,14 +4,33 @@
     "test": "EMS ყოველწლიური სემინარი",
     "date": "19.05.2020",
     "registration": "true",
-    "registered": "false"
+    "registered": "false",
+    "schedule": [
+      {
+        "date": "19.05.2020",
+        "hour": "12:00",
+        "teacher": " ტარიელ თითირაშვილი"
+      },
+      {
+        "date": "19.05.2020",
+        "hour": "14:00",
+        "teacher": "ტარიელ თითირაშვილი"
+      }
+    ]
   },
   {
     "seminar": "Yearly ECO Seminar",
     "test": "EMS ყოველწლიური სემინარი",
     "date": "20.05.2020",
     "registration": "true",
-    "registered": "false"
+    "registered": "false",
+    "schedule": [
+      {
+        "date": "19.05.2020",
+        "hour": "12:00",
+        "teacher": " ტარიელ თითირაშვილი"
+      }
+    ]
   },
   {
     "seminar": "AML Training",
@@ -25,90 +44,103 @@
     "test": "EMS ყოველწლიური სემინარი",
     "date": "21.07.2020",
     "registration": "true",
-    "registered": "false"
+    "registered": "false",
+    "schedule": []
   },
   {
     "seminar": "Yearly ECO Seminar",
     "test": "EMS ყოველწლიური სემინარი",
     "date": "21.07.2020",
     "registration": "true",
-    "registered": "false"
+    "registered": "false",
+    "schedule": []
   },
   {
     "seminar": "Operational Risk and Information Security",
     "test": "საოპერაციო რისკები და ინფორმაციის უსაფრთხოება",
     "date": "28.07.2020",
     "registration": "true",
-    "registered": "false"
+    "registered": "false",
+    "schedule": []
   },
   {
     "seminar": "Operational Risk and Information Security",
     "test": "საოპერაციო რისკები და ინფორმაციის უსაფრთხოება",
     "date": "30.07.2020",
     "registration": "true",
-    "registered": "false"
+    "registered": "false",
+    "schedule": []
   },
   {
     "seminar": "Operational Risk and Information Security",
     "test": "საოპერაციო რისკები და ინფორმაციის უსაფრთხოება",
     "date": "31.07.2020",
     "registration": "true",
-    "registered": "false"
+    "registered": "false",
+    "schedule": []
   },
   {
     "seminar": "Operational Risk and Information Security",
     "test": "საოპერაციო რისკები და ინფორმაციის უსაფრთხოება",
     "date": "17.08.2020",
     "registration": "true",
-    "registered": "false"
+    "registered": "false",
+    "schedule": []
   },
   {
     "seminar": "Operational Risk and Information Security",
     "test": "საოპერაციო რისკები და ინფორმაციის უსაფრთხოება",
     "date": "19.08.2020",
     "registration": "true",
-    "registered": "false"
+    "registered": "false",
+    "schedule": []
   },
   {
     "seminar": "Operational Risk and Information Security",
     "test": "საოპერაციო რისკები და ინფორმაციის უსაფრთხოება",
     "date": "21.08.2020",
     "registration": "true",
-    "registered": "false"
+    "registered": "false",
+    "schedule": []
   },
   {
     "seminar": "Operational Risk and Information Security",
     "test": "საოპერაციო რისკები და ინფორმაციის უსაფრთხოება",
     "date": "24.08.2020",
     "registration": "true",
-    "registered": "false"
+    "registered": "false",
+    "schedule": []
   },
   {
     "seminar": "Operational Risk and Information Security",
     "test": "საოპერაციო რისკები და ინფორმაციის უსაფრთხოება",
     "date": "26.08.2020",
     "registration": "true",
-    "registered": "false"
+    "registered": "false",
+    "schedule": []
   },
   {
     "seminar": "Operational Risk and Information Security",
     "test": "საოპერაციო რისკები და ინფორმაციის უსაფრთხოება",
     "date": "27.08.2020",
     "registration": "true",
-    "registered": "false"
+    "registered": "false",
+    "schedule": []
   },
   {
     "seminar": "AML Training",
     "test": "ფულის გათეთრების აღკვეთა (AML)",
     "date": "12.08.2020",
     "registration": "true",
-    "registered": "false"
+    "registered": "false",
+    "schedule": []
   },
   {
     "seminar": "Operational Risk and Information security",
     "test": "საოპერაციო რისკები და ინფორმაციის უსაფრთხოება",
     "date": "13.10.2020",
     "registration": "true",
-    "registered": "false"
+    "registered": "false",
+    "schedule": []
   }
 ]
