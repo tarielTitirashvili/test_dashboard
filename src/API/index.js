@@ -7,11 +7,11 @@ let instance = axios.create({
 export const getPersonDataAPI = async () => {
   return await instance.get("/person");
 };
-export const getTrainingAPI = async () => {
+export const getTrainingsAPI = async () => {
   return await instance.get("/gettraining");
 };
 
-export const getTrailersAPI = async (id) => {
+export const getPassedTrainingsAPI = async (id) => {
   return await instance.get("/getPassedTrainings");
 };
 

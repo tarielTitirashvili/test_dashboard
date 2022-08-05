@@ -1,16 +1,15 @@
-import { SET_TRAININGS_FROM_API } from "../../constants";
-import { getTrainingAPI } from "../../../API";
+import { SET_TESTS_FROM_API } from "../../constants";
+import { getTestResultsAPI } from "../../../API";
 
 export const getTestsThunk = () => {
   return (dispatch) => {
-    getTrainingAPI().then((data) => {
-      console.log(data);
-      dispatch(setTrainingsAC(data.data));
+    getTestResultsAPI().then((data) => {
+      dispatch(setTestResultsAC(data.data));
     });
   };
 };
 
-const setTrainingsAC = (trainings) => ({
-  type: SET_TRAININGS_FROM_API,
-  trainings,
+const setTestResultsAC = (tests) => ({
+  type: SET_TESTS_FROM_API,
+  tests,
 });

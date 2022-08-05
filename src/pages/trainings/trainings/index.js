@@ -7,7 +7,6 @@ function Trainings(props) {
   React.useEffect(() => {
     getTrainingsThunk();
   }, []);
-  console.log(trainings, props);
 
   return <div>Trainings</div>;
 }

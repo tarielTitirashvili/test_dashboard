@@ -4,7 +4,7 @@ const initState = {
   tests: [],
 };
 
-export default function trainingsReducer(state = initState, action) {
+export default function testsResultsReducer(state = initState, action) {
   switch (action.type) {
     case SET_TESTS_FROM_API:
       return {
