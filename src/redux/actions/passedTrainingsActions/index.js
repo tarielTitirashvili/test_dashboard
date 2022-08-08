@@ -1,5 +1,5 @@
-import { SET_PASSED_TRAININGS_FROM_API } from "../../constants";
-import { getPassedTrainingsAPI } from "../../../API";
+import { SET_PASSED_TRAININGS_FROM_API } from '../../constants';
+import { getPassedTrainingsAPI } from '../../../API';
 
 export const getPassedTrainingsThunk = () => {
   return (dispatch) => {
