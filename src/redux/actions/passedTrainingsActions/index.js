@@ -13,4 +13,3 @@ const setPassedTrainingsAC = (passedTrainings) => ({
   type: SET_PASSED_TRAININGS_FROM_API,
   passedTrainings,
 });
-"getting all trainings dat from API"
