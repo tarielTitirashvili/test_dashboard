@@ -1,56 +1,25 @@
 import * as React from "react";
-import { styled } from "@mui/material/styles";
-import ArrowForwardIosSharpIcon from "@mui/icons-material/ArrowForwardIosSharp";
-import MuiAccordion from "@mui/material/Accordion";
-import MuiAccordionSummary from "@mui/material/AccordionSummary";
-import MuiAccordionDetails from "@mui/material/AccordionDetails";
 import Typography from "@mui/material/Typography";
-import { ListItem, ListItemButton, ListItemText } from "@mui/material";
+import {
+  Accordion,
+  AccordionDetails,
+  ListItem,
+  ListItemButton,
+  ListItemText,
+} from "@mui/material";
 import Box from "@mui/material/Box";
 import { routes } from "../../routes";
 import { NavLink } from "react-router-dom";
+import { CustomizedAccordionSummary } from "../../ui/navElem";
 
-const Accordion = styled((props) => (
-  <MuiAccordion disableGutters elevation={0} square {...props} />
-))(({ theme }) => ({
-  border: `1px solid ${theme.palette.divider}`,
-  "&:not(:last-child)": {
-    borderBottom: 0,
-  },
-}));
-
-const AccordionSummary = styled((props) => (
-  <MuiAccordionSummary
-    expandIcon={<ArrowForwardIosSharpIcon sx={{ fontSize: "0.9rem" }} />}
-    {...props}
-  />
-))(({ theme }) => ({
-  backgroundColor:
-    theme.palette.mode === "dark"
-      ? "rgba(255, 255, 255, .05)"
-      : "rgba(0, 0, 0, .03)",
-  flexDirection: "row-reverse",
-  "& .MuiAccordionSummary-expandIconWrapper.Mui-expanded": {
-    transform: "rotate(90deg)",
-  },
-  "& .MuiAccordionSummary-content": {
-    marginLeft: theme.spacing(1),
-  },
-}));
-
-const AccordionDetails = styled(MuiAccordionDetails)(({ theme }) => ({
-  padding: theme.spacing(2),
-  borderTop: "1px solid rgba(0, 0, 0, .125)",
-}));
-
-export default function NavElements(props) {
+export default function NavElements() {
   const [expanded, setExpanded] = React.useState();
 
-  const handleChange = (panel) => (event, newExpanded) => {
-    setExpanded(newExpanded ? panel : false);
+  const handleChange = (panel) => {
+    setExpanded(panel);
   };
   return (
-    <div>
+    <>
       {routes.map((route) => {
         if (route.title === "Error404") {
           return "";
@@ -60,15 +29,17 @@ export default function NavElements(props) {
             <Box key={route.path}>
               <Accordion
                 expanded={expanded === `${route.path}`}
-                onChange={handleChange(`${route.path}`)}
+                onMouseOver={() => handleChange(`${route.path}`)}
+                onMouseOut={() => {
+                  handleChange("");
+                }}
               >
-                <AccordionSummary
+                <CustomizedAccordionSummary
                   aria-controls={`${route.path}`}
                   id="panel1d-header"
                 >
                   <Typography>{route.title}</Typography>
-                </AccordionSummary>
-
+                </CustomizedAccordionSummary>
                 <AccordionDetails>
                   {route.children.map((child) => {
                     return (
@@ -106,6 +77,6 @@ export default function NavElements(props) {
           );
         }
       })}
-    </div>
+    </>
   );
 }
