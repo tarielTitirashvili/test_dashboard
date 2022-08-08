@@ -1,50 +1,65 @@
-import React from 'react';
-import { getTrainingsThunk, setTrainingsAC } from '../../../redux/actions/trainingsActions';
-import { connect } from 'react-redux';
-import data from '../../../DB/getTrainings.js';
-import { DataGrid } from '@mui/x-data-grid';
-import { Box } from '@mui/material';
+import React from "react";
+import { getTrainingsThunk } from "../../../redux/actions/trainingsActions";
+import { connect } from "react-redux";
+import { DataGrid } from "@mui/x-data-grid";
+import { Box } from "@mui/material";
+import moment from "moment";
+import Schedule from "../../../components/trainings/trainingsSchedule";
 
 const columns = [
-  { field: 'id', headerName: 'ID', width: 90, editable: false, hide: true },
+  { field: "id", headerName: "ID", width: 90, editable: false, hide: true },
   {
-    field: 'seminar',
-    seminar: 'სემინარები',
+    field: "seminar",
+    seminar: "სემინარები",
     width: 250,
     editable: false,
   },
   {
-    field: 'test',
-    headerName: 'ტესტი',
+    field: "test",
+    headerName: "ტესტი",
     width: 250,
     editable: false,
   },
   {
-    field: 'date',
-    headerName: 'თარიღი',
-    type: 'date',
+    field: "date",
+    headerName: "თარიღი",
+    type: "date",
     width: 310,
     editable: false,
+    renderCell: (params) => moment(params.row.date).format("DD/MM/YYYY"),
   },
   {
-    field: 'registration',
-    headerName: 'რეგისტრაცია',
+    field: "schedule",
+    headerName: "განრიგი",
     width: 120,
-    type: 'boolean',
+    type: "actions",
+    editable: true,
+    renderCell: (params) => {
+      return <Schedule {...params.row} />;
+    },
+  },
+  {
+    field: "registration",
+    headerName: "რეგისტრაცია",
+    width: 120,
+    type: "boolean",
     editable: false,
+  },
+  {
+    field: "registered",
+    headerName: "დარეგისტრირებული",
+    width: 160,
+    type: "boolean",
+    editable: true,
   },
 ];
 
 function Trainings(props) {
-  const { getTrainingsThunk, setTrainingsAC, trainings } = props;
+  const { getTrainingsThunk, trainings } = props;
 
-  console.log(data);
   React.useEffect(() => {
-    setTrainingsAC(data);
-    // getTrainingsThunk();
+    getTrainingsThunk();
   }, []);
-  console.log(trainings);
-
   return (
     <Box>
       <DataGrid
@@ -70,9 +85,6 @@ const mapDispatchToProps = (dispatch) => {
   return {
     getTrainingsThunk() {
       dispatch(getTrainingsThunk());
-    },
-    setTrainingsAC(data) {
-      dispatch(setTrainingsAC(data));
     },
   };
 };

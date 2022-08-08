@@ -1,17 +1,20 @@
 [
   {
+    "id": 1,
     "training": "Yearly ECO Seminar",
     "startDate": "19.05.2020",
     "endDate": "19.05.2020",
     "place": "ოფისი"
   },
   {
+    "id": 2,
     "training": "AML Training",
     "startDate": "16.07.2020",
     "endDate": "16.07.2020",
     "place": "ოფისი"
   },
   {
+    "id": 3,
     "training": "Operational Risk and Information Security",
     "startDate": "28.07.2020",
     "endDate": "30.07.2020",

@@ -1,5 +1,4 @@
 import React from "react";
-import DataTable from "../../../components/otherTable";
 import { connect } from "react-redux";
 import { getPassedTrainingsThunk } from "../../../redux/actions/passedTrainingsActions";
 
@@ -8,11 +7,7 @@ function PassedTrainings(props) {
   React.useEffect(() => {
     getPassedTrainingsThunk();
   }, []);
-  return (
-    <div>
-      <DataTable />
-    </div>
-  );
+  return <div>testing</div>;
 }
 
 const mapStateToProps = (state) => {

@@ -7,7 +7,7 @@ import trainingsReducer from "../reducers/trainingsReducer";
 let reducers = combineReducers({
   trainings: trainingsReducer,
   testsResults: testsResultsReducer,
-  passedTrainings: passedTrainingsReducer
+  passedTrainings: passedTrainingsReducer,
 });
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
