@@ -1,4 +1,4 @@
-import { SET_PASSED_TRAININGS_FROM_API } from "../../constants";
+import { GET_PASSED_TRAININGS_FROM_API } from "../../constants";
 
 const initState = {
   passedTrainings: [],
@@ -6,7 +6,7 @@ const initState = {
 
 export default function passedTrainingsReducer(state = initState, action) {
   switch (action.type) {
-    case SET_PASSED_TRAININGS_FROM_API:
+    case GET_PASSED_TRAININGS_FROM_API:
       return {
         ...state,
         passedTrainings: action.passedTrainings,

@@ -1,4 +1,4 @@
-import { SET_TESTS_FROM_API } from "../../constants";
+import { GET_TESTS_FROM_API } from "../../constants";
 import { getTestResultsAPI } from "../../../API";
 
 export const getTestsThunk = () => {
@@ -10,6 +10,6 @@ export const getTestsThunk = () => {
 };
 
 const setTestResultsAC = (tests) => ({
-  type: SET_TESTS_FROM_API,
+  type: GET_TESTS_FROM_API,
   tests,
 });

@@ -1,4 +1,4 @@
-import { SET_TRAININGS_FROM_API } from '../../constants';
+import { GET_TRAININGS_FROM_API } from '../../constants';
 import { getTrainingsAPI } from '../../../API';
 
 export const getTrainingsThunk = () => {
@@ -10,6 +10,6 @@ export const getTrainingsThunk = () => {
 };
 
 export const setTrainingsAC = (trainings) => ({
-  type: SET_TRAININGS_FROM_API,
+  type: GET_TRAININGS_FROM_API,
   trainings,
 });

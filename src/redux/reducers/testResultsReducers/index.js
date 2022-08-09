@@ -1,4 +1,4 @@
-import { SET_TESTS_FROM_API } from "../../constants";
+import { GET_TESTS_FROM_API } from "../../constants";
 
 const initState = {
   tests: [],
@@ -6,7 +6,7 @@ const initState = {
 
 export default function testsResultsReducer(state = initState, action) {
   switch (action.type) {
-    case SET_TESTS_FROM_API:
+    case GET_TESTS_FROM_API:
       return {
         ...state,
         tests: action.tests,
