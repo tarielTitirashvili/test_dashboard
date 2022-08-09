@@ -13,7 +13,7 @@ import { NavLink } from "react-router-dom";
 import { CustomizedAccordionSummary } from "../../ui/navElem";
 
 export default function NavElements() {
-  const [expanded, setExpanded] = React.useState();
+  const [expanded, setExpanded] = React.useState("");
 
   const handleChange = (panel) => {
     setExpanded(panel);
@@ -38,7 +38,13 @@ export default function NavElements() {
                   aria-controls={`${route.path}`}
                   id="panel1d-header"
                 >
-                  <Typography>{route.title}</Typography>
+                  <Typography
+                    variant="h3"
+                    fontSize={'1rem'}
+                    sx={{ fontWeight: "normal" }}
+                  >
+                    {route.title}
+                  </Typography>
                 </CustomizedAccordionSummary>
                 <AccordionDetails>
                   {route.children.map((child) => {

@@ -65,7 +65,7 @@ export default function MainLayout() {
         </List>
         <Divider />
       </CustomizedDrawer>
-      <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
+      <Box id="content"  component="main" sx={{ flexGrow: 1, p: 3 }}>
         <CustomizedDrawerHeader />
         <Routes>
           {routes.map((route) => {

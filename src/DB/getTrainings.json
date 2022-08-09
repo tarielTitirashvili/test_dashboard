@@ -3,20 +3,20 @@
     "id": 0,
     "seminar": "Yearly ECO Seminar",
     "test": "EMS ყოველწლიური სემინარი",
-    "date": "Wed May 19 2021 00:00:00 GMT+0400 (Georgia Standard Time)",
+    "date": "2021-05-19T00:00:00",
     "registration": "true",
     "registered": "false",
     "schedule": [
       {
         "id": 1,
-        "date": "Wed May 19 2021 15:20:00 GMT+0400 (Georgia Standard Time)",
-        "place": "office",
+        "date": "2021-05-19T11:45:00",
+        "place": "ოფისი",
         "teacher": " ტარიელ თითირაშვილი"
       },
       {
         "id": 2,
-        "date": "Wed May 19 2021 17:00:00 GMT+0400 (Georgia Standard Time)",
-        "place": "office",
+        "date": "2021-05-19T17:00:00",
+        "place": "ოფისი",
         "teacher": "ტარიელ თითირაშვილი"
       }
     ]
@@ -25,14 +25,14 @@
     "id": 1,
     "seminar": "Yearly ECO Seminar",
     "test": "EMS ყოველწლიური სემინარი",
-    "date": "Wed May 20 2021 00:00:00 GMT+0400 (Georgia Standard Time)",
+    "date": "2020-05-20T17:00:00",
     "registration": "true",
     "registered": "false",
     "schedule": [
       {
         "id": 1,
-        "date": "Wed May 20 2021 11:45:00 GMT+0400 (Georgia Standard Time)",
-        "place": "office",
+        "date": "2021-05-20T11:45:00",
+        "place": "ოფისი",
         "teacher": " ტარიელ თითირაშვილი"
       }
     ]
@@ -41,7 +41,7 @@
     "id": 2,
     "seminar": "AML Training",
     "test": "ფულის გათეთრების აღკვეთა (AML)",
-    "date": "Thu Jul 16 2020 00:00:00 GMT+0400 (Georgia Standard Time)",
+    "date": "2020-06-16T00:00:00",
     "registration": "true",
     "registered": "false"
   },
@@ -49,7 +49,7 @@
     "id": 3,
     "seminar": "Yearly ECO Seminar",
     "test": "EMS ყოველწლიური სემინარი",
-    "date": "Thu Jul 21 2020 00:00:00 GMT+0400 (Georgia Standard Time)",
+    "date": "2020-06-21T00:00:00",
     "registration": "true",
     "registered": "false",
     "schedule": []
@@ -58,7 +58,7 @@
     "id": 4,
     "seminar": "Yearly ECO Seminar",
     "test": "EMS ყოველწლიური სემინარი",
-    "date": "Thu Jul 21 2020 00:00:00 GMT+0400 (Georgia Standard Time)",
+    "date": "2020-06-21T00:00:00",
     "registration": "true",
     "registered": "false",
     "schedule": []
@@ -67,7 +67,7 @@
     "id": 5,
     "seminar": "Operational Risk and Information Security",
     "test": "საოპერაციო რისკები და ინფორმაციის უსაფრთხოება",
-    "date": "Thu Jul 28 2020 00:00:00 GMT+0400 (Georgia Standard Time)",
+    "date": "2020-07-22T00:00:00",
     "registration": "true",
     "registered": "false",
     "schedule": []
@@ -76,7 +76,7 @@
     "id": 6,
     "seminar": "Operational Risk and Information Security",
     "test": "საოპერაციო რისკები და ინფორმაციის უსაფრთხოება",
-    "date": "Thu Jul 30 2020 00:00:00 GMT+0400 (Georgia Standard Time)",
+    "date": "2021-06-30T00:00:00",
     "registration": "true",
     "registered": "false",
     "schedule": []
@@ -85,7 +85,7 @@
     "id": 7,
     "seminar": "Operational Risk and Information Security",
     "test": "საოპერაციო რისკები და ინფორმაციის უსაფრთხოება",
-    "date": "Thu Jul 31 2020 00:00:00 GMT+0400 (Georgia Standard Time)",
+    "date": "2021-07-15T00:00:00",
     "registration": "true",
     "registered": "false",
     "schedule": []
@@ -94,7 +94,7 @@
     "id": 8,
     "seminar": "Operational Risk and Information Security",
     "test": "საოპერაციო რისკები და ინფორმაციის უსაფრთხოება",
-    "date": "Mon Aug 17 2020 00:00:00 GMT+0400 (Georgia Standard Time)",
+    "date": "2021-08-17T00:00:00",
     "registration": "true",
     "registered": "false",
     "schedule": []
@@ -103,7 +103,7 @@
     "id": 9,
     "seminar": "Operational Risk and Information Security",
     "test": "საოპერაციო რისკები და ინფორმაციის უსაფრთხოება",
-    "date": "Mon Aug 19 2020 00:00:00 GMT+0400 (Georgia Standard Time)",
+    "date": "2021-08-19T00:00:00",
     "registration": "true",
     "registered": "false",
     "schedule": []
@@ -112,7 +112,7 @@
     "id": 10,
     "seminar": "Operational Risk and Information Security",
     "test": "საოპერაციო რისკები და ინფორმაციის უსაფრთხოება",
-    "date": "Mon Aug 21 2020 00:00:00 GMT+0400 (Georgia Standard Time)",
+    "date": "2021-08-21T00:00:00",
     "registration": "true",
     "registered": "false",
     "schedule": []
@@ -121,7 +121,7 @@
     "id": 11,
     "seminar": "Operational Risk and Information Security",
     "test": "საოპერაციო რისკები და ინფორმაციის უსაფრთხოება",
-    "date": "Mon Aug 24 2020 00:00:00 GMT+0400 (Georgia Standard Time)",
+    "date": "2021-08-24T00:00:00",
     "registration": "true",
     "registered": "false",
     "schedule": []
@@ -130,7 +130,7 @@
     "id": 12,
     "seminar": "Operational Risk and Information Security",
     "test": "საოპერაციო რისკები და ინფორმაციის უსაფრთხოება",
-    "date": "Mon Aug 26 2020 00:00:00 GMT+0400 (Georgia Standard Time)",
+    "date": "2021-08-24T00:00:00",
     "registration": "true",
     "registered": "false",
     "schedule": []
@@ -139,7 +139,7 @@
     "id": 13,
     "seminar": "Operational Risk and Information Security",
     "test": "საოპერაციო რისკები და ინფორმაციის უსაფრთხოება",
-    "date": "Mon Aug 27 2020 00:00:00 GMT+0400 (Georgia Standard Time)",
+    "date": "2021-08-27T00:00:00",
     "registration": "true",
     "registered": "false",
     "schedule": []
@@ -148,7 +148,7 @@
     "id": 14,
     "seminar": "AML Training",
     "test": "ფულის გათეთრების აღკვეთა (AML)",
-    "date": "Mon Aug 12 2020 00:00:00 GMT+0400 (Georgia Standard Time)",
+    "date": "2021-08-12T00:00:00",
     "registration": "true",
     "registered": "false",
     "schedule": []
@@ -157,7 +157,7 @@
     "id": 15,
     "seminar": "Operational Risk and Information security",
     "test": "საოპერაციო რისკები და ინფორმაციის უსაფრთხოება",
-    "date": "Tue Oct 13 2020 00:00:00 GMT+0400 (Georgia Standard Time)",
+    "date": "2021-10-13T00:00:00",
     "registration": "true",
     "registered": "false",
     "schedule": []

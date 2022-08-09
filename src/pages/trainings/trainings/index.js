@@ -11,44 +11,48 @@ const columns = [
   {
     field: "seminar",
     seminar: "სემინარები",
-    width: 250,
+    minWidth: 250,
+    flex: 1,
     editable: false,
   },
   {
     field: "test",
     headerName: "ტესტი",
-    width: 250,
+    flex: 1,
+    minWidth: 320,
     editable: false,
   },
   {
     field: "date",
     headerName: "თარიღი",
     type: "date",
-    width: 310,
+    flex: 0.4,
+    minWidth: 100,
     editable: false,
     renderCell: (params) => moment(params.row.date).format("DD/MM/YYYY"),
   },
   {
     field: "schedule",
     headerName: "განრიგი",
-    width: 120,
+    flex: 0.4,
+    minWidth: 80,
     type: "actions",
-    editable: true,
-    renderCell: (params) => {
-      return <Schedule {...params.row} />;
-    },
+    editable: false,
+    renderCell: (params) => <Schedule {...params.row} />,
   },
   {
     field: "registration",
     headerName: "რეგისტრაცია",
-    width: 120,
+    flex: 0.4,
+    minWidth: 90,
     type: "boolean",
     editable: false,
   },
   {
     field: "registered",
     headerName: "დარეგისტრირებული",
-    width: 160,
+    flex: 0.4,
+    minWidth: 140,
     type: "boolean",
     editable: true,
   },
@@ -61,16 +65,18 @@ function Trainings(props) {
     getTrainingsThunk();
   }, []);
   return (
-    <Box>
-      <DataGrid
-        className="MuiDataGrid-virtualScrollerContent--overflowed"
-        rows={trainings}
-        columns={columns}
-        pageSize={15}
-        autoHeight
-        rowsPerPageOptions={[15]}
-        disableSelectionOnClick
-      />
+    <Box sx={{ display: "flex", justifyContent: "center" }}>
+      <Box maxWidth={"1600px"} width={"100%"}>
+        <DataGrid
+          className="MuiDataGrid-virtualScrollerContent--overflowed"
+          rows={trainings}
+          columns={columns}
+          pageSize={15}
+          autoHeight
+          rowsPerPageOptions={[15]}
+          disableSelectionOnClick
+        />
+      </Box>
     </Box>
   );
 }

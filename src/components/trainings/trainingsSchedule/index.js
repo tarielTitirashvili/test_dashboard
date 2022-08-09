@@ -38,6 +38,7 @@ const columns = [
     type: "date",
     width: 130,
     editable: false,
+    sortable: false,
     renderCell: (params) => moment(params.row.date).format("hh:mm"),
   },
   {
@@ -55,22 +56,21 @@ const columns = [
 ];
 
 export default function Schedule(props) {
-  const { schedule, seminar, test, date } = props;
-  console.log(props);
+  let { schedule, seminar, test, date } = props;
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
+  if (!schedule) schedule = [];
+
   return (
-    <div>
+    <>
       <IconButton onClick={handleOpen}>
         <InsertInvitationIcon color="primary" />
       </IconButton>
       <Modal
         open={open}
         onClose={handleClose}
-        aria-labelledby="modal-modal-title"
-        aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
           <Box sx={{ display: "flex", justifyContent: "space-between" }}>
@@ -86,7 +86,6 @@ export default function Schedule(props) {
             value={moment(date).format("DD/MM/YYYY")}
           />
           <DataGrid
-            className="MuiDataGrid-virtualScrollerContent--overflowed"
             rows={schedule}
             columns={columns}
             pageSize={15}
@@ -96,6 +95,6 @@ export default function Schedule(props) {
           />
         </Box>
       </Modal>
-    </div>
+    </>
   );
 }
