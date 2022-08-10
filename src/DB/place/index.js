@@ -1,4 +1,4 @@
-const places = [
+export const places = [
   {
     id: 0,
     value: "თბილისი",

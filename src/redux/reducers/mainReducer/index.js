@@ -1,6 +1,7 @@
 import {
   GET_PASSED_USER_INFO_FROM_API,
   SET_USER_BASIC_DETAILS,
+  SET_USER_Identity_DETAILS,
 } from "../../constants";
 
 const initState = {
@@ -64,6 +65,14 @@ export default function mainReducer(state = initState, action) {
         ...state,
         basic: {
           ...state.basic,
+          [`${action.name}`]: action.value,
+        },
+      };
+    case SET_USER_Identity_DETAILS:
+      return {
+        ...state,
+        identity: {
+          ...state.identity,
           [`${action.name}`]: action.value,
         },
       };

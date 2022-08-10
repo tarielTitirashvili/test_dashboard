@@ -1,4 +1,4 @@
-export const MaritalStatus = [
+export const maritalStatus = [
   {
     id: 0,
     value: "დაოჯახებული",

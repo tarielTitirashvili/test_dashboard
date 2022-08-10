@@ -2,72 +2,59 @@ import React from "react";
 import {
   getPassedPersonDataThunk,
   setUserBasicDetailAC,
+  setUserIdentityDetailAC,
 } from "../../redux/actions/mainActions";
 import { connect } from "react-redux";
 import { Grid } from "@mui/material";
-import Controls from "../../components/mainControls";
-import { countries } from "../../DB/country";
-import moment from "moment";
+import PersonMainInfo from "../../components/mainPageElements/personMainInfo";
+import IDInfo from "../../components/mainPageElements/IDinfo";
 
 function Main(props) {
-  const { getPassedPersonDataThunk, role, basic, identity } = props;
+  const {
+    setUserIdentityDetailAC,
+    setUserBasicDetailAC,
+    getPassedPersonDataThunk,
+    role,
+    basic,
+    identity,
+  } = props;
   React.useEffect(() => {
     getPassedPersonDataThunk();
   }, []);
   const onChange = (e) => {
     if (role === "ADMIN") {
-      const { name, value } = e.target;
-      props.setUserBasicDetailAC(value, name);
+      if (e.target) {
+        const { name, value } = e.target;
+        setUserBasicDetailAC(value, name);
+      } else {
+        const { name, value } = e;
+        setUserBasicDetailAC(value, name);
+      }
     } else {
       return;
     }
   };
-  const {
-    Citizenship,
-    OjCondition,
-    PersonalN,
-    Position,
-    branch,
-    corpMail,
-    dateOfBirth,
-    fullName,
-    homes,
-    insideN,
-    mobile,
-    personalMail,
-    placeOfBirth,
-    status,
-  } = basic;
-  const born = moment(dateOfBirth, "DD/MM/YYYY").format("YYYY-MM-DDThh:mm:ss");
+  const onChangeIdentity = (e) => {
+    if (role === "ADMIN") {
+      if (e.target) {
+        const { name, value } = e.target;
+        setUserIdentityDetailAC(value, name);
+      } else {
+        const { name, value } = e;
+        setUserIdentityDetailAC(value, name);
+      }
+    } else {
+      return;
+    }
+  };
+  console.log(identity);
   return (
-    <Grid container>
-      <Grid item xs={6}>
-        <Controls.Input
-          label="სრული სახელი"
-          name="fullName"
-          value={fullName}
-          onChange={onChange}
-        />
-        <Controls.Input
-          fullWidth
-          label="სტატუსი"
-          name="status"
-          value={status}
-          onChange={onChange}
-        />
-        <Controls.Select
-          label="მოქალაქეობა"
-          name="Citizenship"
-          value={Citizenship}
-          onChange={onChange}
-          options={countries}
-        />
-        <Controls.DatePicker
-          label="მოქალაქეობა"
-          name="dateOfBirth"
-          value={born}
-          onChange={onChange}
-        />
+    <Grid container justifyContent="center">
+      <Grid item xs={11}>
+        <PersonMainInfo basic={basic} onChange={onChange} />
+      </Grid>
+      <Grid item xs={11}>
+        <IDInfo onChange={onChangeIdentity} identity={identity} />
       </Grid>
     </Grid>
   );
@@ -87,6 +74,9 @@ const mapDispatchToProps = (dispatch) => {
     },
     setUserBasicDetailAC(value, name) {
       dispatch(setUserBasicDetailAC(value, name));
+    },
+    setUserIdentityDetailAC(value, name) {
+      dispatch(setUserIdentityDetailAC(value, name));
     },
   };
 };
