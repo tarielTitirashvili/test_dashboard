@@ -3,7 +3,9 @@ import IPC from "../pages/additional/IPC";
 import PCB from "../pages/additional/PCB";
 import Vocation from "../pages/additional/vocation";
 import Error404 from "../pages/Error404";
+import HRDocs from "../pages/HRDocs";
 import Main from "../pages/main";
+import MidtermEvaluation from "../pages/midtermEvaluation";
 import Requests from "../pages/requests";
 import PassedTrainings from "../pages/trainings/passedTrainings";
 import TestResults from "../pages/trainings/testResults";
@@ -75,12 +77,12 @@ export const routes = [
   {
     path: "/HRDocs",
     title: "HR დოკუმენტაცია",
-    component: <Requests />,
+    component: <HRDocs />,
   },
   {
     path: "/MidtermEvaluation",
     title: "შუალედური შეფასება",
-    component: <Requests />,
+    component: <MidtermEvaluation />,
   },
   {
     path: "/Error404",

@@ -1,4 +1,7 @@
-import { GET_PASSED_USER_INFO_FROM_API, SET_USER_BASIC_DETAILS } from "../../constants";
+import {
+  GET_PASSED_USER_INFO_FROM_API,
+  SET_USER_BASIC_DETAILS,
+} from "../../constants";
 
 const initState = {
   person: [],
@@ -27,7 +30,7 @@ const initState = {
   },
 };
 
-export default function personReducer(state = initState, action) {
+export default function mainReducer(state = initState, action) {
   switch (action.type) {
     case GET_PASSED_USER_INFO_FROM_API:
       return {
@@ -56,7 +59,7 @@ export default function personReducer(state = initState, action) {
           validFor: action.person.identity.validFor,
         },
       };
-      case SET_USER_BASIC_DETAILS:
+    case SET_USER_BASIC_DETAILS:
       return {
         ...state,
         basic: {

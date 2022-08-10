@@ -2,10 +2,12 @@ import React from "react";
 import {
   getPassedPersonDataThunk,
   setUserBasicDetailAC,
-} from "../../redux/actions/personActions";
+} from "../../redux/actions/mainActions";
 import { connect } from "react-redux";
-import { Grid, TextField } from "@mui/material";
-import { Box } from "@mui/system";
+import { Grid } from "@mui/material";
+import Controls from "../../components/mainControls";
+import { countries } from "../../DB/country";
+import moment from "moment";
 
 function Main(props) {
   const { getPassedPersonDataThunk, role, basic, identity } = props;
@@ -13,9 +15,12 @@ function Main(props) {
     getPassedPersonDataThunk();
   }, []);
   const onChange = (e) => {
-    const { name, value } = e.target;
-    console.log(value, name);
-    props.setUserBasicDetailAC(value, name);
+    if (role === "ADMIN") {
+      const { name, value } = e.target;
+      props.setUserBasicDetailAC(value, name);
+    } else {
+      return;
+    }
   };
   const {
     Citizenship,
@@ -33,28 +38,36 @@ function Main(props) {
     placeOfBirth,
     status,
   } = basic;
-  console.log(basic, role);
+  const born = moment(dateOfBirth, "DD/MM/YYYY").format("YYYY-MM-DDThh:mm:ss");
   return (
     <Grid container>
       <Grid item xs={6}>
-        <Box>
-          <TextField
-            variant="outlined"
-            label="სრული სახელი"
-            name="fullName"
-            value={fullName}
-            onChange={onChange}
-          />
-        </Box>
-        <Box mt={1}>
-          <TextField
-            variant="outlined"
-            label="სტატუსი"
-            name="status"
-            value={status}
-            onChange={onChange}
-          />
-        </Box>
+        <Controls.Input
+          label="სრული სახელი"
+          name="fullName"
+          value={fullName}
+          onChange={onChange}
+        />
+        <Controls.Input
+          fullWidth
+          label="სტატუსი"
+          name="status"
+          value={status}
+          onChange={onChange}
+        />
+        <Controls.Select
+          label="მოქალაქეობა"
+          name="Citizenship"
+          value={Citizenship}
+          onChange={onChange}
+          options={countries}
+        />
+        <Controls.DatePicker
+          label="მოქალაქეობა"
+          name="dateOfBirth"
+          value={born}
+          onChange={onChange}
+        />
       </Grid>
     </Grid>
   );
@@ -62,8 +75,8 @@ function Main(props) {
 const mapStateToProps = (state) => {
   return {
     role: state.auth.role,
-    basic: state.person.basic,
-    identity: state.person.identity,
+    basic: state.main.basic,
+    identity: state.main.identity,
   };
 };
 
