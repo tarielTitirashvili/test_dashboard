@@ -29,6 +29,34 @@ const initState = {
     releaseDater: "",
     validFor: "",
   },
+  actualAddress: {
+    address: "",
+    city: "",
+  },
+  LegalAddress: {
+    address: "",
+    city: "",
+  },
+  CORPORATE_PHONES: {
+    Firstname: "ტარიელ",
+    Lastname: "თითირაშვილი",
+    Relation: "თვითონ",
+    TaxCode: "1400",
+  },
+  companyNumber: {
+    changeDate: "",
+    limit: "",
+    number: "",
+    serviceGroup: "",
+    corporateNumberOfRelatives: [
+      {
+        fullName: "ტარიელ თითირაშვილი",
+        phoneNumber: "592091115",
+        serviceTeam: "მაგთი",
+        changeDate: "2022-07-28T00:00:00",
+      },
+    ],
+  },
 };
 
 export default function mainReducer(state = initState, action) {
@@ -58,6 +86,27 @@ export default function mainReducer(state = initState, action) {
           issuingAgency: action.person.identity.issuingAgency,
           releaseDater: action.person.identity.releaseDater,
           validFor: action.person.identity.validFor,
+        },
+        actualAddress: {
+          address: action.person.actualAddress.address,
+          city: action.person.actualAddress.city,
+        },
+        LegalAddress: {
+          address: action.person.LegalAddress.address,
+          city: action.person.LegalAddress.address,
+        },
+        CORPORATE_PHONES: {
+          firstName: action.person.CORPORATE_PHONES.Firstname,
+          lastName: action.person.CORPORATE_PHONES.Lastname,
+          Relation: action.person.CORPORATE_PHONES.Relation,
+          TaxCode: action.person.CORPORATE_PHONES.TaxCode,
+        },
+        companyNumber: {
+          changeDate: action.person.companyNumber.changeDate,
+          limit: action.person.companyNumber.limit,
+          number: action.person.companyNumber.number,
+          serviceGroup: action.person.companyNumber.serviceGroup,
+          corporateNumberOfRelatives: action.person.companyNumber.corporateNumberOfRelatives,
         },
       };
     case SET_USER_BASIC_DETAILS:

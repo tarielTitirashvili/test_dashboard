@@ -47,7 +47,7 @@ function Main(props) {
       return;
     }
   };
-  console.log(identity);
+  console.log(props);
   return (
     <Grid container justifyContent="center">
       <Grid item xs={11}>
@@ -64,6 +64,10 @@ const mapStateToProps = (state) => {
     role: state.auth.role,
     basic: state.main.basic,
     identity: state.main.identity,
+    actualAddress: state.main.actualAddress,
+    LegalAddress: state.main.LegalAddress,
+    corporatePhones: state.main.CORPORATE_PHONES,
+    companyNumber: state.main.companyNumber,
   };
 };
 

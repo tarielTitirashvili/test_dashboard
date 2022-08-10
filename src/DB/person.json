@@ -1,0 +1,30 @@
+{
+  "actualAddress": {
+    "city": "გორი",
+    "address": "თამარ მეფის V 20ბ ბინა 19"
+  },
+  "Legal address": {
+    "city": "ცხინვალი",
+    "address": "კოცოევის ქ. N 4,"
+  },
+  "companyNumber": {
+    "number": "",
+    "serviceGroup": "",
+    "limit": "",
+    "changeDate": "",
+    "CorporateNumberOfRelatives": [
+      {
+        "fullName": "ტარიელ თითირაშვილი",
+        "phoneNumber": "592091115",
+        "serviceTeam": "მაგთი",
+        "changeDate": "2022-07-28T00:00:00"
+      }
+    ]
+  },
+  "CORPORATE_PHONES": {
+    "Firstname": "ტარიელ",
+    "Lastname": "თითირაშვილი",
+    "Relation": "თვითონ",
+    "TaxCode": "1400"
+  }
+}
