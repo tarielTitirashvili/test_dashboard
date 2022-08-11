@@ -1,6 +1,7 @@
 import {
   GET_PASSED_USER_INFO_FROM_API,
   SET_USER_DATA_DETAILS,
+  SET_USER_DATA_TO_INITIAL_DATA,
 } from "../../constants";
 import { getPersonDataAPI } from "../../../API";
 
@@ -15,6 +16,9 @@ export const getPassedPersonDataThunk = () => {
 const setPassedPersonDataAC = (person) => ({
   type: GET_PASSED_USER_INFO_FROM_API,
   person,
+});
+export const setPersonDataToInitialAC = () => ({
+  type: SET_USER_DATA_TO_INITIAL_DATA,
 });
 
 export const setUserDataDetailAC = (value, name, objName) => ({

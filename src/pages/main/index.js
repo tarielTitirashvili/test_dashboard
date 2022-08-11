@@ -2,6 +2,7 @@ import React from "react";
 import {
   getPassedPersonDataThunk,
   setUserDataDetailAC,
+  setPersonDataToInitialAC,
 } from "../../redux/actions/mainActions";
 import { connect } from "react-redux";
 import { Grid } from "@mui/material";
@@ -22,9 +23,13 @@ function Main(props) {
     legalAddress,
     corporatePhones,
     companyNumber,
+    setPersonDataToInitialAC,
   } = props;
   React.useEffect(() => {
     getPassedPersonDataThunk();
+    return () => {
+      setPersonDataToInitialAC();
+    };
   }, []);
 
   const onChange = (e, objName) => {
@@ -101,6 +106,9 @@ const mapDispatchToProps = (dispatch) => {
     },
     setUserDataDetailAC(value, name, objName) {
       dispatch(setUserDataDetailAC(value, name, objName));
+    },
+    setPersonDataToInitialAC() {
+      dispatch(setPersonDataToInitialAC());
     },
   };
 };

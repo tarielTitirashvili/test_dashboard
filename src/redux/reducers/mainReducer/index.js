@@ -1,6 +1,7 @@
 import {
   GET_PASSED_USER_INFO_FROM_API,
   SET_USER_DATA_DETAILS,
+  SET_USER_DATA_TO_INITIAL_DATA,
 } from "../../constants";
 
 const initState = {
@@ -101,6 +102,10 @@ export default function mainReducer(state = initState, action) {
           [`${action.name}`]: action.value,
         },
       };
+      case SET_USER_DATA_TO_INITIAL_DATA:
+        return {
+          ...initState
+        };
     default:
       return state;
   }
