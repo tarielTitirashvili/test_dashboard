@@ -1,7 +1,6 @@
 import {
   GET_PASSED_USER_INFO_FROM_API,
-  SET_USER_BASIC_DETAILS,
-  SET_USER_Identity_DETAILS,
+  SET_USER_DATA_DETAILS,
 } from "../../constants";
 import { getPersonDataAPI } from "../../../API";
 
@@ -18,14 +17,9 @@ const setPassedPersonDataAC = (person) => ({
   person,
 });
 
-export const setUserBasicDetailAC = (value, name) => ({
-  type: SET_USER_BASIC_DETAILS,
+export const setUserDataDetailAC = (value, name, objName) => ({
+  type: SET_USER_DATA_DETAILS,
   value,
   name,
-});
-
-export const setUserIdentityDetailAC = (value, name) => ({
-  type: SET_USER_Identity_DETAILS,
-  value,
-  name,
+  objName,
 });

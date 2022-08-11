@@ -6,6 +6,7 @@ import moment from "moment";
 
 export default function IDInfo(props) {
   const { onChange, identity } = props;
+  const localOnchange = (e) => onChange(e, "identity");
   const { documentN, documentType, issuingAgency, releaseDater, validFor } =
     identity;
   const releaseDate = moment(releaseDater, "DD/MM/YYYY").format(
@@ -24,7 +25,7 @@ export default function IDInfo(props) {
           label="საბუთის ტიპი"
           name="documentType"
           value={documentType}
-          onChange={onChange}
+          onChange={localOnchange}
           options={docType}
         />
       </Box>
@@ -33,7 +34,7 @@ export default function IDInfo(props) {
           label="საბუთის #"
           name="documentN"
           value={documentN}
-          onChange={onChange}
+          onChange={localOnchange}
         />
       </Box>
       <Box display={"flex"} justifyContent={"space-between"} p={1}>
@@ -42,7 +43,7 @@ export default function IDInfo(props) {
           label="გამცემი ორგანო"
           name="issuingAgency"
           value={issuingAgency}
-          onChange={onChange}
+          onChange={localOnchange}
         />
       </Box>
       <Box display={"flex"} justifyContent={"space-between"} p={1}>
@@ -51,7 +52,7 @@ export default function IDInfo(props) {
           label="გაცემის თარიღი"
           name="releaseDater"
           value={releaseDate}
-          onChange={onChange}
+          onChange={localOnchange}
         />
       </Box>
       <Box display={"flex"} justifyContent={"space-between"} p={1}>
@@ -60,7 +61,7 @@ export default function IDInfo(props) {
           label="ძალაშია"
           name="validFor"
           value={validUntil}
-          onChange={onChange}
+          onChange={localOnchange}
         />
       </Box>
     </Card>

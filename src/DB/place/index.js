@@ -39,4 +39,8 @@ export const places = [
     id: 9,
     value: "ზუგდიდი",
   },
+  {
+    id: 9,
+    value: "ცხინვალი",
+  },
 ];

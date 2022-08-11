@@ -1,7 +1,6 @@
 import {
   GET_PASSED_USER_INFO_FROM_API,
-  SET_USER_BASIC_DETAILS,
-  SET_USER_Identity_DETAILS,
+  SET_USER_DATA_DETAILS,
 } from "../../constants";
 
 const initState = {
@@ -33,15 +32,15 @@ const initState = {
     address: "",
     city: "",
   },
-  LegalAddress: {
+  legalAddress: {
     address: "",
     city: "",
   },
   CORPORATE_PHONES: {
-    Firstname: "ტარიელ",
-    Lastname: "თითირაშვილი",
-    Relation: "თვითონ",
-    TaxCode: "1400",
+    Firstname: "",
+    Lastname: "",
+    Relation: "",
+    TaxCode: "",
   },
   companyNumber: {
     changeDate: "",
@@ -91,9 +90,9 @@ export default function mainReducer(state = initState, action) {
           address: action.person.actualAddress.address,
           city: action.person.actualAddress.city,
         },
-        LegalAddress: {
+        legalAddress: {
           address: action.person.LegalAddress.address,
-          city: action.person.LegalAddress.address,
+          city: action.person.LegalAddress.city,
         },
         CORPORATE_PHONES: {
           firstName: action.person.CORPORATE_PHONES.Firstname,
@@ -106,22 +105,15 @@ export default function mainReducer(state = initState, action) {
           limit: action.person.companyNumber.limit,
           number: action.person.companyNumber.number,
           serviceGroup: action.person.companyNumber.serviceGroup,
-          corporateNumberOfRelatives: action.person.companyNumber.corporateNumberOfRelatives,
+          corporateNumberOfRelatives:
+            action.person.companyNumber.corporateNumberOfRelatives,
         },
       };
-    case SET_USER_BASIC_DETAILS:
+    case SET_USER_DATA_DETAILS:
       return {
         ...state,
-        basic: {
-          ...state.basic,
-          [`${action.name}`]: action.value,
-        },
-      };
-    case SET_USER_Identity_DETAILS:
-      return {
-        ...state,
-        identity: {
-          ...state.identity,
+        [`${action.objName}`]: {
+          ...state[`${action.objName}`],
           [`${action.name}`]: action.value,
         },
       };

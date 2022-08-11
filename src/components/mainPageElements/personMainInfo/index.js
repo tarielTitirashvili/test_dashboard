@@ -9,6 +9,7 @@ import { maritalStatus } from "../../../DB/maritalStatus";
 
 export default function PersonMainInfo(props) {
   const { basic, onChange } = props;
+  const localOnchange = (e) => onChange(e, "basic");
   const {
     Citizenship,
     OjCondition,
@@ -35,13 +36,13 @@ export default function PersonMainInfo(props) {
           label="სრული სახელი"
           name="fullName"
           value={fullName}
-          onChange={onChange}
+          onChange={localOnchange}
         />
         <Controls.Input
           label="სტატუსი"
           name="status"
           value={status}
-          onChange={onChange}
+          onChange={localOnchange}
         />
       </Box>
       <Box display={"flex"} justifyContent={"space-between"} p={1}>
@@ -50,7 +51,7 @@ export default function PersonMainInfo(props) {
           label="ფილიალი"
           name="branch"
           value={branch}
-          onChange={onChange}
+          onChange={localOnchange}
         />
       </Box>
       <Box display={"flex"} justifyContent={"space-between"} p={1}>
@@ -59,7 +60,7 @@ export default function PersonMainInfo(props) {
           label="თანამდებობა"
           name="Position"
           value={Position}
-          onChange={onChange}
+          onChange={localOnchange}
         />
       </Box>
       <Box display={"flex"} justifyContent={"space-between"} p={1}>
@@ -67,13 +68,13 @@ export default function PersonMainInfo(props) {
           label="დაბადების თარიღი"
           name="dateOfBirth"
           value={born}
-          onChange={onChange}
+          onChange={localOnchange}
         />
         <Controls.Input
           label="სახლის"
           name="homes"
           value={homes}
-          onChange={onChange}
+          onChange={localOnchange}
         />
       </Box>
       <Box display={"flex"} justifyContent={"space-between"} p={1}>
@@ -81,14 +82,14 @@ export default function PersonMainInfo(props) {
           label="დაბადების ადგილი"
           name="placeOfBirth"
           value={placeOfBirth}
-          onChange={onChange}
+          onChange={localOnchange}
           options={places}
         />
         <Controls.Input
           label="მობილური"
           name="mobile"
           value={mobile}
-          onChange={onChange}
+          onChange={localOnchange}
         />
       </Box>
       <Box display={"flex"} justifyContent={"space-between"} p={1}>
@@ -96,14 +97,14 @@ export default function PersonMainInfo(props) {
           label="მოქალაქეობა"
           name="Citizenship"
           value={Citizenship}
-          onChange={onChange}
+          onChange={localOnchange}
           options={countries}
         />
         <Controls.Input
           label="შიდა #"
           name="insideN"
           value={insideN}
-          onChange={onChange}
+          onChange={localOnchange}
         />
       </Box>
       <Box display={"flex"} justifyContent={"space-between"} p={1}>
@@ -111,14 +112,14 @@ export default function PersonMainInfo(props) {
           label="ოჯ. მდგომარეობა"
           name="OjCondition"
           value={OjCondition}
-          onChange={onChange}
+          onChange={localOnchange}
           options={maritalStatus}
         />
         <Controls.Input
           label="შიდა #"
           name="insideN"
           value={insideN}
-          onChange={onChange}
+          onChange={localOnchange}
         />
       </Box>
       <Box display={"flex"} justifyContent={"space-between"} p={1}>
@@ -126,13 +127,13 @@ export default function PersonMainInfo(props) {
           label="პირადი #"
           name="PersonalN"
           value={PersonalN}
-          onChange={onChange}
+          onChange={localOnchange}
         />
         <Controls.Input
           label="პირადი ელ. ფოსტა"
           name="corpMail"
           value={corpMail}
-          onChange={onChange}
+          onChange={localOnchange}
         />
       </Box>
     </Card>
