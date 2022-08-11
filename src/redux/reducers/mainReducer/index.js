@@ -36,25 +36,13 @@ const initState = {
     address: "",
     city: "",
   },
-  CORPORATE_PHONES: {
-    Firstname: "",
-    Lastname: "",
-    Relation: "",
-    TaxCode: "",
-  },
+  corporatePhones: [],
   companyNumber: {
     changeDate: "",
     limit: "",
     number: "",
     serviceGroup: "",
-    corporateNumberOfRelatives: [
-      {
-        fullName: "ტარიელ თითირაშვილი",
-        phoneNumber: "592091115",
-        serviceTeam: "მაგთი",
-        changeDate: "2022-07-28T00:00:00",
-      },
-    ],
+    corporateNumberOfRelatives: [],
   },
 };
 
@@ -94,19 +82,15 @@ export default function mainReducer(state = initState, action) {
           address: action.person.LegalAddress.address,
           city: action.person.LegalAddress.city,
         },
-        CORPORATE_PHONES: {
-          firstName: action.person.CORPORATE_PHONES.Firstname,
-          lastName: action.person.CORPORATE_PHONES.Lastname,
-          Relation: action.person.CORPORATE_PHONES.Relation,
-          TaxCode: action.person.CORPORATE_PHONES.TaxCode,
-        },
+        corporatePhones: [...action.person.CORPORATE_PHONES],
         companyNumber: {
           changeDate: action.person.companyNumber.changeDate,
           limit: action.person.companyNumber.limit,
           number: action.person.companyNumber.number,
           serviceGroup: action.person.companyNumber.serviceGroup,
-          corporateNumberOfRelatives:
-            action.person.companyNumber.corporateNumberOfRelatives,
+          corporateNumberOfRelatives: [
+            ...action.person.companyNumber.corporateNumberOfRelatives,
+          ],
         },
       };
     case SET_USER_DATA_DETAILS:

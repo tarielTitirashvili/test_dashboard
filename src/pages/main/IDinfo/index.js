@@ -1,7 +1,7 @@
 import { Box, Card, Typography } from "@mui/material";
 import React from "react";
 import { docType } from "../../../DB/docType";
-import Controls from "../../mainControls";
+import Controls from "../../../components/mainControls";
 import moment from "moment";
 
 export default function IDInfo(props) {

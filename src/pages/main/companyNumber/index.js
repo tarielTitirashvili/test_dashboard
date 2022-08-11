@@ -1,16 +1,24 @@
 import { Box, Card, Typography } from "@mui/material";
 import React from "react";
-import Controls from "../../mainControls";
+import Controls from "../../../components/mainControls";
+import CorporateNumberOfRelatives from "./corporateNumberOfRelatives";
 
 export default function CompanyNumber(props) {
   const { title, smallTitle, companyNumber, onChange } = props;
-  const { changeDate, limit, number, serviceGroup } = companyNumber;
-  const localOnchange = (e) =>{
-    return onChange(e, "companyNumber")
-  }
+  const {
+    changeDate,
+    limit,
+    number,
+    serviceGroup,
+    corporateNumberOfRelatives,
+  } = companyNumber;
+
+  const localOnchange = (e) => {
+    return onChange(e, "companyNumber");
+  };
   return (
-    <Card variant="outlined">
-      <Typography m={2} fontSize={"1rem"} fontWeight={"bold"} variant="h3">
+    <Card sx={{padding:2}} variant="outlined">
+      <Typography m={1} fontSize={"1rem"} fontWeight={"bold"} variant="h3">
         {title}
       </Typography>
       <Box pl={4}>
@@ -50,6 +58,7 @@ export default function CompanyNumber(props) {
             onChange={localOnchange}
           />
         </Box>
+        <CorporateNumberOfRelatives relativesData = {corporateNumberOfRelatives} />
       </Box>
     </Card>
   );

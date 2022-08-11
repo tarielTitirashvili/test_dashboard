@@ -1,7 +1,7 @@
 import { Card, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import React from "react";
-import Controls from "../../mainControls";
+import Controls from "../../../components/mainControls";
 import moment from "moment";
 import { countries } from "../../../DB/country";
 import { places } from "../../../DB/place";

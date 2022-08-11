@@ -13,7 +13,7 @@ const style = {
   top: "50%",
   left: "50%",
   transform: "translate(-50%, -50%)",
-  width: 700,
+  width: 800,
   bgcolor: "background.paper",
   border: "2px solid #000",
   boxShadow: 24,
@@ -27,8 +27,9 @@ const columns = [
   {
     field: "date",
     headerName: "თარიღი",
+    flex: 0.3,
     type: "date",
-    width: 130,
+    maxWidth: 150,
     editable: false,
     renderCell: (params) => moment(params.row.date).format("DD/MM/YYYY"),
   },
@@ -36,6 +37,7 @@ const columns = [
     field: "time",
     headerName: "საათი",
     type: "date",
+    flex: 0.3,
     width: 130,
     editable: false,
     sortable: false,
@@ -44,12 +46,14 @@ const columns = [
   {
     field: "place",
     headerName: "ჩატარების ადგილი",
-    width: 130,
+    flex: 1,
+    width: 180,
     editable: false,
   },
   {
     field: "teacher",
     headerName: "მასწავლებელი",
+    flex: 1,
     width: 250,
     editable: false,
   },
@@ -68,10 +72,7 @@ export default function Schedule(props) {
       <IconButton onClick={handleOpen}>
         <InsertInvitationIcon color="primary" />
       </IconButton>
-      <Modal
-        open={open}
-        onClose={handleClose}
-      >
+      <Modal open={open} onClose={handleClose}>
         <Box sx={style}>
           <Box sx={{ display: "flex", justifyContent: "space-between" }}>
             <Typography variant="p">განრიგი</Typography>

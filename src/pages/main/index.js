@@ -5,10 +5,11 @@ import {
 } from "../../redux/actions/mainActions";
 import { connect } from "react-redux";
 import { Grid } from "@mui/material";
-import PersonMainInfo from "../../components/mainPageElements/personMainInfo";
-import IDInfo from "../../components/mainPageElements/IDinfo";
-import Addressees from "../../components/mainPageElements/addressees";
-import CompanyNumber from "../../components/mainPageElements/companyNumber";
+import PersonMainInfo from "./personMainInfo";
+import IDInfo from "./IDinfo";
+import Addressees from "./addressees";
+import CompanyNumber from "./companyNumber";
+import CorporatePhones from "./corporatePhones";
 
 function Main(props) {
   const {
@@ -39,6 +40,7 @@ function Main(props) {
       return;
     }
   };
+
   return (
     <Grid container justifyContent="center">
       <Grid item xs={11}>
@@ -71,6 +73,12 @@ function Main(props) {
           onChange={onChange}
         />
       </Grid>
+      <Grid mt={3} item xs={11}>
+        <CorporatePhones
+          corporatePhonesData={corporatePhones}
+          onChange={onChange}
+        />
+      </Grid>
     </Grid>
   );
 }
@@ -81,7 +89,7 @@ const mapStateToProps = (state) => {
     identity: state.main.identity,
     actualAddress: state.main.actualAddress,
     legalAddress: state.main.legalAddress,
-    corporatePhones: state.main.CORPORATE_PHONES,
+    corporatePhones: state.main.corporatePhones,
     companyNumber: state.main.companyNumber,
   };
 };
