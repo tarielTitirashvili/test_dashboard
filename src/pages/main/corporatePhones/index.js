@@ -1,6 +1,7 @@
 import React from "react";
 import { DataGrid } from "@mui/x-data-grid";
 import { Card, Typography } from "@mui/material";
+import { useTranslation } from "react-i18next";
 
 const columns = [
   { field: "id", headerName: "ID", width: 90, editable: false, hide: true },
@@ -39,9 +40,10 @@ const columns = [
 
 export default function CorporatePhones(props) {
   const { corporatePhonesData } = props;
+  const { t } = useTranslation();
   return (
     <Card sx={{ padding: 2 }}>
-      <Typography mb={2}>CORPORATE_PHONES</Typography>
+      <Typography mb={2}>{t("CORPORATE_PHONES")}</Typography>
       <DataGrid
         rows={corporatePhonesData}
         columns={columns}

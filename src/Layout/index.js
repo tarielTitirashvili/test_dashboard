@@ -14,6 +14,7 @@ import LanguageIcon from "@mui/icons-material/Language";
 import { Navigate, Route, Routes } from "react-router-dom";
 import MenuIcon from "@mui/icons-material/Menu";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
+import Cookies from "js-cookie";
 import i18n from "i18next";
 import { initReactI18next, useTranslation } from "react-i18next";
 import LanguageDetector from "i18next-browser-languagedetector";
@@ -28,20 +29,9 @@ import {
 } from "../ui/appBar";
 import NavElements from "./navElem";
 import Loading from "../components/loading";
-import Cookies from "js-cookie";
-
-const languages = [
-  {
-    code: "ge",
-    name: "ქართული",
-    countryCode: "ge",
-  },
-  {
-    code: "en",
-    name: "English",
-    countryCode: "gb",
-  },
-];
+import ENGLISH_TEXTS_FOR_APP from "../languages/en";
+import GEORGIAN_TEXTS_FOR_APP from "../languages/ge";
+import ALL_LANGUAGES from "../languages";
 
 i18n
   .use(initReactI18next)
@@ -49,12 +39,13 @@ i18n
   .use(HttpApi)
   .init({
     fallbackLng: "en",
+    resources: {
+      en: { translation: ENGLISH_TEXTS_FOR_APP },
+      ge: { translation: GEORGIAN_TEXTS_FOR_APP },
+    },
     detection: {
       order: ["cookie", "htmlTag", "localStorage", "subdomain"],
       caches: ["cookie"],
-    },
-    backend: {
-      loadPath: "assets/locales/{{lng}}/translation.json",
     },
   });
 
@@ -63,7 +54,6 @@ export default function MainLayout() {
   const [open, setOpen] = React.useState(false);
   const [langOpen, setLangOpen] = React.useState(false);
   const { t } = useTranslation();
-
   const handleDrawerOpen = () => {
     setOpen(true);
   };
@@ -109,7 +99,7 @@ export default function MainLayout() {
                     <Typography variant="h6" color={"WindowText"}>
                       {t("language")}
                     </Typography>
-                    {languages.map(({ code, name, countryCode }) => {
+                    {ALL_LANGUAGES.map(({ code, name, countryCode }) => {
                       return (
                         <MenuItem
                           selected={code === currentLanguageCode}

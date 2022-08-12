@@ -11,6 +11,7 @@ import IDInfo from "./IDinfo";
 import Addressees from "./addressees";
 import CompanyNumber from "./companyNumber";
 import CorporatePhones from "./corporatePhones";
+import { useTranslation } from "react-i18next";
 
 function Main(props) {
   const {
@@ -25,6 +26,7 @@ function Main(props) {
     companyNumber,
     setPersonDataToInitialAC,
   } = props;
+  const { t } = useTranslation();
   React.useEffect(() => {
     getPassedPersonDataThunk();
     return () => {
@@ -56,7 +58,7 @@ function Main(props) {
       </Grid>
       <Grid mt={3} item xs={11}>
         <Addressees
-          title={"აქტუალური მისამართი"}
+          title={t("activeAddress")}
           onChange={onChange}
           fullAddress={actualAddress}
           objName={"actualAddress"}
@@ -64,7 +66,7 @@ function Main(props) {
       </Grid>
       <Grid mt={3} item xs={11}>
         <Addressees
-          title={"იურიდიული მისამართი"}
+          title={t("legalAddress")}
           onChange={onChange}
           fullAddress={legalAddress}
           objName={"legalAddress"}
@@ -72,8 +74,8 @@ function Main(props) {
       </Grid>
       <Grid mt={3} item xs={11}>
         <CompanyNumber
-          title={"კორპორატიული #"}
-          smallTitle={"თანამშრომლის კორპორატიული ნომერი"}
+          title={t("corpNumber")}
+          smallTitle={t("employeeCorpNumber")}
           companyNumber={companyNumber}
           onChange={onChange}
         />

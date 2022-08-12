@@ -10,8 +10,6 @@ import { maritalStatus } from "../../../DB/maritalStatus";
 
 export default function PersonMainInfo(props) {
   const { basic, onChange } = props;
-  const { t } = useTranslation();
-  const localOnchange = (e) => onChange(e, "basic");
   const {
     Citizenship,
     OjCondition,
@@ -26,7 +24,11 @@ export default function PersonMainInfo(props) {
     mobile,
     placeOfBirth,
     status,
+    personalMail,
   } = basic;
+  const { t } = useTranslation();
+  const localOnchange = (e) => onChange(e, "basic");
+
   const born = moment(dateOfBirth, "DD/MM/YYYY").format("YYYY-MM-DDThh:mm:ss");
   return (
     <Card variant="outlined">
@@ -35,13 +37,13 @@ export default function PersonMainInfo(props) {
       </Typography>
       <Box display={"flex"} justifyContent={"space-between"} p={1}>
         <Controls.Input
-          label="სრული სახელი"
+          label={t("fullName")}
           name="fullName"
           value={fullName}
           onChange={localOnchange}
         />
         <Controls.Input
-          label="სტატუსი"
+          label={t("status")}
           name="status"
           value={status}
           onChange={localOnchange}
@@ -50,7 +52,7 @@ export default function PersonMainInfo(props) {
       <Box display={"flex"} justifyContent={"space-between"} p={1}>
         <Controls.Input
           fullWidth
-          label="ფილიალი"
+          label={t("office")}
           name="branch"
           value={branch}
           onChange={localOnchange}
@@ -59,7 +61,7 @@ export default function PersonMainInfo(props) {
       <Box display={"flex"} justifyContent={"space-between"} p={1}>
         <Controls.Input
           fullWidth
-          label="თანამდებობა"
+          label={t("position")}
           name="Position"
           value={Position}
           onChange={localOnchange}
@@ -67,13 +69,13 @@ export default function PersonMainInfo(props) {
       </Box>
       <Box display={"flex"} justifyContent={"space-between"} p={1}>
         <Controls.DatePicker
-          label="დაბადების თარიღი"
+          label={t("dateOfBirth")}
           name="dateOfBirth"
           value={born}
           onChange={localOnchange}
         />
         <Controls.Input
-          label="სახლის"
+          label={t("homePhone")}
           name="homes"
           value={homes}
           onChange={localOnchange}
@@ -81,14 +83,14 @@ export default function PersonMainInfo(props) {
       </Box>
       <Box display={"flex"} justifyContent={"space-between"} p={1}>
         <Controls.Select
-          label="დაბადების ადგილი"
+          label={t("birthPlace")}
           name="placeOfBirth"
           value={placeOfBirth}
           onChange={localOnchange}
           options={places}
         />
         <Controls.Input
-          label="მობილური"
+          label={t("mobilePhone")}
           name="mobile"
           value={mobile}
           onChange={localOnchange}
@@ -96,14 +98,14 @@ export default function PersonMainInfo(props) {
       </Box>
       <Box display={"flex"} justifyContent={"space-between"} p={1}>
         <Controls.Select
-          label="მოქალაქეობა"
+          label={t("citizenship")}
           name="Citizenship"
           value={Citizenship}
           onChange={localOnchange}
           options={countries}
         />
         <Controls.Input
-          label="შიდა #"
+          label={t("insideN")}
           name="insideN"
           value={insideN}
           onChange={localOnchange}
@@ -111,30 +113,30 @@ export default function PersonMainInfo(props) {
       </Box>
       <Box display={"flex"} justifyContent={"space-between"} p={1}>
         <Controls.Select
-          label="ოჯ. მდგომარეობა"
+          label={t("maritalStatus")}
           name="OjCondition"
           value={OjCondition}
           onChange={localOnchange}
           options={maritalStatus}
         />
         <Controls.Input
-          label="შიდა #"
-          name="insideN"
-          value={insideN}
+          label={t("companyMail")}
+          name="corpMail"
+          value={corpMail}
           onChange={localOnchange}
         />
       </Box>
       <Box display={"flex"} justifyContent={"space-between"} p={1}>
         <Controls.Input
-          label="პირადი #"
+          label={t("personalN")}
           name="PersonalN"
           value={PersonalN}
           onChange={localOnchange}
         />
         <Controls.Input
-          label="პირადი ელ. ფოსტა"
-          name="corpMail"
-          value={corpMail}
+          label={t("personalMail")}
+          name="personalMail"
+          value={personalMail}
           onChange={localOnchange}
         />
       </Box>
