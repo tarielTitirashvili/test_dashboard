@@ -128,7 +128,6 @@ export default function MainLayout() {
                   </CustomizedMenuList>
                 )}
               </IconButton>
-
               <Button variant="outlined" color="error">
                 გასვლა
               </Button>

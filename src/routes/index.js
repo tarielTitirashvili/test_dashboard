@@ -14,74 +14,74 @@ import Trainings from "../pages/trainings/trainings";
 export const routes = [
   {
     path: "/",
-    title: "ძირითადი",
+    title: "main",
     component: <Main />,
   },
   {
     path: "/additional",
-    title: "დამატებითი",
+    title: "additional",
     children: [
       {
         path: "/insurance",
-        title: "დაზღვევა",
+        title: "insurance",
         component: <Insurance />,
       },
       {
         path: "/vocation",
-        title: "დასვენება",
+        title: "vocation",
         component: <Vocation />,
       },
       {
         path: "/IPC",
-        title: "IPC აქციები",
+        title: "IPC",
         component: <IPC />,
       },
       {
         path: "/survey",
-        title: "გამოკითხვა",
+        title: "survey",
         component: <Vocation />,
       },
       {
         path: "/PCB",
-        title: "PCB კლუბები",
+        title: "PCB",
         component: <PCB />,
       },
     ],
   },
   {
     path: "/trainings",
-    title: "ტრენინგები",
+    title: "trainings",
     children: [
       {
         path: "/trainings",
-        title: "მიმდინარე სემინარები",
+        title: "currentTrainings",
         component: <Trainings />,
       },
       {
         path: "/passedTrainings",
-        title: "გავლილი სემინარები",
+        title: "passedTrainings",
         component: <PassedTrainings />,
       },
       {
         path: "/testResults",
-        title: "ტესტირების შედეგები",
+        title: "testResults",
         component: <TestResults />,
       },
     ],
   },
   {
     path: "/request",
-    title: "მოთხოვნები",
+    title: "request",
     component: <Requests />,
   },
   {
     path: "/HRDocs",
-    title: "HR დოკუმენტაცია",
+    title: "HRDocs",
     component: <HRDocs />,
   },
   {
     path: "/MidtermEvaluation",
-    title: "შუალედური შეფასება",
+    title: "MidtermEvaluation",
     component: <MidtermEvaluation />,
   },
   {

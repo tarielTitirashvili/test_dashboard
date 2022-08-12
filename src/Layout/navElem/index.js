@@ -11,9 +11,11 @@ import Box from "@mui/material/Box";
 import { routes } from "../../routes";
 import { NavLink } from "react-router-dom";
 import { CustomizedAccordionSummary } from "../../ui/navElem";
+import { useTranslation } from "react-i18next";
 
 export default function NavElements() {
   const [expanded, setExpanded] = React.useState("");
+  const { t } = useTranslation();
 
   const handleChange = (panel) => {
     setExpanded(panel);
@@ -40,10 +42,10 @@ export default function NavElements() {
                 >
                   <Typography
                     variant="h3"
-                    fontSize={'1rem'}
+                    fontSize={"1rem"}
                     sx={{ fontWeight: "normal" }}
                   >
-                    {route.title}
+                    {t(`${route.title}`)}
                   </Typography>
                 </CustomizedAccordionSummary>
                 <AccordionDetails>
@@ -55,7 +57,7 @@ export default function NavElements() {
                       >
                         <ListItem component="div" disablePadding>
                           <ListItemButton>
-                            <ListItemText primary={`${child.title}`} />
+                            <ListItemText primary={t(`${child.title}`)} />
                           </ListItemButton>
                         </ListItem>
                       </NavLink>
@@ -75,7 +77,7 @@ export default function NavElements() {
                     px: 2.5,
                   }}
                 >
-                  {route.title}
+                  {t(`${route.title}`)}
                   <ListItemText />
                 </ListItemButton>
               </ListItem>
