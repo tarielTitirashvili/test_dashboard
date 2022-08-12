@@ -9,6 +9,7 @@ import {
   IconButton,
   MenuItem,
   Typography,
+  MenuList,
 } from "@mui/material";
 import LanguageIcon from "@mui/icons-material/Language";
 import { Navigate, Route, Routes } from "react-router-dom";
@@ -54,10 +55,27 @@ export default function MainLayout() {
   const [open, setOpen] = React.useState(false);
   const [langOpen, setLangOpen] = React.useState(false);
   const { t } = useTranslation();
+
+  const sortRef = React.useRef(null);
+  const clickOutside = (e) => {
+    console.log(langOpen);
+    if (sortRef.current !== null) {
+      console.log(e.composedPath().includes(sortRef.current));
+      console.log(sortRef.current);
+      if (!e.composedPath().includes(sortRef.current)) {
+        setLangOpen(false);
+      }
+    }
+  };
+  React.useEffect(() => {
+    document.addEventListener("click", clickOutside);
+    return () => {
+      document.removeEventListener("click", clickOutside);
+    };
+  }, []);
   const handleDrawerOpen = () => {
     setOpen(true);
   };
-
   const handleDrawerClose = () => {
     setOpen(false);
   };
@@ -90,6 +108,7 @@ export default function MainLayout() {
             </Box>
             <Box>
               <IconButton
+                ref={sortRef}
                 onClick={() => setLangOpen((prev) => !prev)}
                 sx={{ mr: 2, position: "relative" }}
               >
@@ -118,6 +137,7 @@ export default function MainLayout() {
                   </CustomizedMenuList>
                 )}
               </IconButton>
+
               <Button variant="outlined" color="error">
                 გასვლა
               </Button>

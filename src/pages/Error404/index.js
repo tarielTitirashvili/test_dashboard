@@ -1,8 +1,7 @@
-import { styled } from "@mui/material/styles";
-import { IconButton, Typography } from "@mui/material";
 import React from "react";
+import { IconButton, Typography, Box } from "@mui/material";
+import { styled } from "@mui/material/styles";
 import KeyboardBackspaceIcon from "@mui/icons-material/KeyboardBackspace";
-import { Box } from "@mui/system";
 import { NavLink } from "react-router-dom";
 
 const Error404Container = styled("div")({
@@ -25,7 +24,7 @@ export default function Error404() {
         <NavLink to="/">
           <IconButton>
             <KeyboardBackspaceIcon />
-            ძირითადი 
+            ძირითადი
           </IconButton>
         </NavLink>
       </Box>

@@ -1,17 +1,17 @@
 import React from "react";
+import { connect } from "react-redux";
+import { Grid } from "@mui/material";
+import { useTranslation } from "react-i18next";
 import {
   getPassedPersonDataThunk,
   setUserDataDetailAC,
   setPersonDataToInitialAC,
 } from "../../redux/actions/mainActions";
-import { connect } from "react-redux";
-import { Grid } from "@mui/material";
 import PersonMainInfo from "./personMainInfo";
 import IDInfo from "./IDinfo";
 import Addressees from "./addressees";
 import CompanyNumber from "./companyNumber";
 import CorporatePhones from "./corporatePhones";
-import { useTranslation } from "react-i18next";
 
 function Main(props) {
   const {

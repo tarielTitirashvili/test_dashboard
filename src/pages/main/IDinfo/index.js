@@ -1,9 +1,9 @@
-import { Box, Card, Typography } from "@mui/material";
 import React from "react";
-import { docType } from "../../../DB/docType";
-import Controls from "../../../components/mainControls";
+import { Box, Card, Typography } from "@mui/material";
 import moment from "moment";
 import { useTranslation } from "react-i18next";
+import Controls from "../../../components/mainControls";
+import { docType } from "../../../DB/docType";
 
 export default function IDInfo(props) {
   const { onChange, identity } = props;

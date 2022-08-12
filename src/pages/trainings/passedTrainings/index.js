@@ -1,9 +1,9 @@
-import { Box } from "@mui/system";
 import React from "react";
 import { connect } from "react-redux";
-import { getPassedTrainingsThunk } from "../../../redux/actions/passedTrainingsActions";
 import { DataGrid } from "@mui/x-data-grid";
 import moment from "moment";
+import { Box } from "@mui/material";
+import { getPassedTrainingsThunk } from "../../../redux/actions/passedTrainingsActions";
 
 const columns = [
   { field: "id", headerName: "ID", width: 90, editable: false, hide: true },

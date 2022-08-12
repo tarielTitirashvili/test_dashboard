@@ -1,11 +1,10 @@
-import { Card, Typography } from "@mui/material";
-import { Box } from "@mui/system";
-import { useTranslation } from "react-i18next";
 import React from "react";
-import Controls from "../../../components/mainControls";
+import { Card, Typography, Box } from "@mui/material";
+import { useTranslation } from "react-i18next";
 import moment from "moment";
 import { countries } from "../../../DB/country";
 import { places } from "../../../DB/place";
+import Controls from "../../../components/mainControls";
 import { maritalStatus } from "../../../DB/maritalStatus";
 
 export default function PersonMainInfo(props) {

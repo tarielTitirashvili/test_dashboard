@@ -1,12 +1,10 @@
 import React from "react";
 import InsertInvitationIcon from "@mui/icons-material/InsertInvitation";
-import { IconButton, Typography } from "@mui/material";
+import { IconButton, Typography, Box, Modal } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
-import Box from "@mui/material/Box";
-import Modal from "@mui/material/Modal";
 import moment from "moment";
-import ScheduleText from "../scheduleText";
 import { DataGrid } from "@mui/x-data-grid";
+import ScheduleText from "../scheduleText";
 
 const style = {
   position: "absolute",

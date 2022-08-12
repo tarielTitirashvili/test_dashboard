@@ -7,7 +7,7 @@ const flexBoxStyle = {
 };
 
 export default function ScheduleText(props) {
-    const {title, value} = props
+  const { title, value } = props;
 
   return (
     <Box sx={flexBoxStyle}>

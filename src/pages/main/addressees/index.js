@@ -1,9 +1,8 @@
-import { Box } from "@mui/system";
 import React from "react";
+import { Card, Typography, Box } from "@mui/material";
+import { useTranslation } from "react-i18next";
 import Controls from "../../../components/mainControls";
 import { places } from "../../../DB/place";
-import { Card, Typography } from "@mui/material";
-import { useTranslation } from "react-i18next";
 
 export default function Addressees(props) {
   const { title, fullAddress, onChange, objName } = props;

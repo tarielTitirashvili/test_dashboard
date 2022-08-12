@@ -1,17 +1,17 @@
 import * as React from "react";
-import Typography from "@mui/material/Typography";
 import {
+  Typography,
   Accordion,
   AccordionDetails,
   ListItem,
   ListItemButton,
   ListItemText,
+  Box,
 } from "@mui/material";
-import Box from "@mui/material/Box";
-import { routes } from "../../routes";
-import { NavLink } from "react-router-dom";
-import { CustomizedAccordionSummary } from "../../ui/navElem";
 import { useTranslation } from "react-i18next";
+import { NavLink } from "react-router-dom";
+import { routes } from "../../routes";
+import { CustomizedAccordionSummary } from "../../ui/navElem";
 
 export default function NavElements() {
   const [expanded, setExpanded] = React.useState("");

@@ -1,10 +1,10 @@
 import React from "react";
-import { getTrainingsThunk } from "../../../redux/actions/trainingsActions";
 import { connect } from "react-redux";
 import { DataGrid } from "@mui/x-data-grid";
 import { Box } from "@mui/material";
 import moment from "moment";
 import Schedule from "../../../components/trainings/trainingsSchedule";
+import { getTrainingsThunk } from "../../../redux/actions/trainingsActions";
 
 const columns = [
   { field: "id", headerName: "ID", width: 90, editable: false, hide: true },

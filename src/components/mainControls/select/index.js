@@ -1,12 +1,12 @@
-import { Box, MenuItem, TextField, Typography } from "@mui/material";
 import React from "react";
+import { MenuItem, TextField } from "@mui/material";
 
 export default function Select(props) {
   const { name, label, value, onChange, options } = props;
   return (
     <TextField
       sx={{ width: "230px" }}
-      size='small'
+      size="small"
       select
       name={name}
       label={label}
