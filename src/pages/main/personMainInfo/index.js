@@ -1,5 +1,6 @@
 import { Card, Typography } from "@mui/material";
 import { Box } from "@mui/system";
+import { useTranslation } from "react-i18next";
 import React from "react";
 import Controls from "../../../components/mainControls";
 import moment from "moment";
@@ -9,6 +10,7 @@ import { maritalStatus } from "../../../DB/maritalStatus";
 
 export default function PersonMainInfo(props) {
   const { basic, onChange } = props;
+  const { t } = useTranslation();
   const localOnchange = (e) => onChange(e, "basic");
   const {
     Citizenship,
@@ -29,7 +31,7 @@ export default function PersonMainInfo(props) {
   return (
     <Card variant="outlined">
       <Typography m={1} fontSize={"1rem"} fontWeight={"bold"} variant="h3">
-        ძირითადი
+        {t("main")}
       </Typography>
       <Box display={"flex"} justifyContent={"space-between"} p={1}>
         <Controls.Input

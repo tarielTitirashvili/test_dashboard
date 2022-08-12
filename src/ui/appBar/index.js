@@ -4,6 +4,17 @@ import MuiAppBar from "@mui/material/AppBar";
 
 const drawerWidth = 240;
 
+export const CustomizedMenuList = styled("ul")(({ theme }) => ({
+  background:
+    theme.palette.mode === "dark" ? "rgba(255, 255, 255, .05)" : "#FFFFFF",
+  border: `1px solid ${theme.palette.secondary.main}`,
+  borderRadius: '8px',
+  position: "absolute",
+  top: 16,
+  left: -40,
+  padding: 0,
+}));
+
 const openedMixin = (theme) => ({
   width: drawerWidth,
   transition: theme.transitions.create("width", {

@@ -1,25 +1,47 @@
 import * as React from "react";
-import Box from "@mui/material/Box";
-import Toolbar from "@mui/material/Toolbar";
-import List from "@mui/material/List";
-import CssBaseline from "@mui/material/CssBaseline";
-import Divider from "@mui/material/Divider";
-import { Button, IconButton } from "@mui/material";
-import Logo from "../utils/images/Logo.png";
+import {
+  Divider,
+  CssBaseline,
+  List,
+  Toolbar,
+  Box,
+  Button,
+  IconButton,
+  MenuItem,
+  Typography,
+} from "@mui/material";
+import LanguageIcon from "@mui/icons-material/Language";
 import { Navigate, Route, Routes } from "react-router-dom";
-import { routes } from "../routes";
 import MenuIcon from "@mui/icons-material/Menu";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
-import NavElements from "../components/navElem";
+import i18n from "i18next";
+import { initReactI18next, useTranslation } from "react-i18next";
+import LanguageDetector from "i18next-browser-languagedetector";
+import HttpApi from "i18next-http-backend";
+import { routes } from "../routes";
+import Logo from "../utils/images/Logo.png";
 import {
   CustomizedAppBar,
+  CustomizedMenuList,
   CustomizedDrawer,
   CustomizedDrawerHeader,
 } from "../ui/appBar";
-import i18n from "i18next";
-import { useTranslation, initReactI18next } from "react-i18next";
-import LanguageDetector from "i18next-browser-languagedetector";
-import HttpApi from "i18next-http-backend";
+import NavElements from "./navElem";
+import Loading from "../components/loading";
+import Cookies from "js-cookie";
+
+const languages = [
+  {
+    code: "ge",
+    name: "ქართული",
+    countryCode: "ge",
+  },
+  {
+    code: "en",
+    name: "English",
+    countryCode: "gb",
+  },
+];
 
 i18n
   .use(initReactI18next)
@@ -28,17 +50,18 @@ i18n
   .init({
     fallbackLng: "en",
     detection: {
-      order: ["cookie", "htmlTag", "localStorage", "path", "subdomain"],
+      order: ["cookie", "htmlTag", "localStorage", "subdomain"],
       caches: ["cookie"],
     },
     backend: {
       loadPath: "assets/locales/{{lng}}/translation.json",
     },
-    react: { useSuspense: false },
   });
 
 export default function MainLayout() {
+  const currentLanguageCode = Cookies.get("i18next") || "ge";
   const [open, setOpen] = React.useState(false);
+  const [langOpen, setLangOpen] = React.useState(false);
   const { t } = useTranslation();
 
   const handleDrawerOpen = () => {
@@ -48,73 +71,111 @@ export default function MainLayout() {
   const handleDrawerClose = () => {
     setOpen(false);
   };
+  const onLanClick = (e, lan) => {
+    e.stopPropagation();
+    setLangOpen(false);
+    i18n.changeLanguage(lan);
+  };
 
   return (
-    <Box sx={{ display: "flex" }}>
-      <CssBaseline />
-      <CustomizedAppBar color="secondary" position="fixed" open={open}>
-        {t('welcome')}
-        <Toolbar>
-          <IconButton
-            color="inherit"
-            aria-label="open drawer"
-            onClick={handleDrawerOpen}
-            edge="start"
-            sx={{
-              marginRight: 2,
-              ...(open && { display: "none" }),
-            }}
-          >
-            <MenuIcon />
-          </IconButton>
-          <Box sx={{ flexGrow: 1, marginRight: "30px" }}>
-            <img style={{ height: "50px" }} src={Logo} alt="logo" />
-          </Box>
-          <Button variant="outlined" color="error">
-            გასვლა
-          </Button>
-        </Toolbar>
-      </CustomizedAppBar>
-      <CustomizedDrawer variant="permanent" open={open}>
-        <CustomizedDrawerHeader>
-          <IconButton onClick={handleDrawerClose}>
-            <ChevronLeftIcon />
-          </IconButton>
-        </CustomizedDrawerHeader>
-        <Divider />
-        <List>
-          <NavElements routes={routes} />
-        </List>
-        <Divider />
-      </CustomizedDrawer>
-      <Box id="content" component="main" sx={{ flexGrow: 1, p: 3 }}>
-        <CustomizedDrawerHeader />
-        <Routes>
-          {routes.map((route) => {
-            const result = [];
-            if (route.children) {
+    <React.Suspense fallback={<Loading />}>
+      <Box sx={{ display: "flex" }}>
+        <CssBaseline />
+        <CustomizedAppBar color="secondary" position="fixed" open={open}>
+          <Toolbar>
+            <IconButton
+              color="inherit"
+              aria-label="open drawer"
+              onClick={handleDrawerOpen}
+              edge="start"
+              sx={{
+                marginRight: 2,
+                ...(open && { display: "none" }),
+              }}
+            >
+              <MenuIcon />
+            </IconButton>
+            <Box sx={{ flexGrow: 1, marginRight: "30px" }}>
+              <img style={{ height: "50px" }} src={Logo} alt="logo" />
+            </Box>
+            <Box>
+              <IconButton
+                onClick={() => setLangOpen((prev) => !prev)}
+                sx={{ mr: 2, position: "relative" }}
+              >
+                <LanguageIcon color="action" />
+                {langOpen && (
+                  <CustomizedMenuList variant="selectedMenu">
+                    <Typography variant="h6" color={"WindowText"}>
+                      {t("language")}
+                    </Typography>
+                    {languages.map(({ code, name, countryCode }) => {
+                      return (
+                        <MenuItem
+                          selected={code === currentLanguageCode}
+                          key={countryCode}
+                          onClick={(e) => onLanClick(e, code)}
+                        >
+                          <span
+                            className={`flag-icon flag-icon-${countryCode}`}
+                          ></span>
+                          <Typography sx={{ ml: 1 }} variant="p">
+                            {name}
+                          </Typography>
+                        </MenuItem>
+                      );
+                    })}
+                  </CustomizedMenuList>
+                )}
+              </IconButton>
+
+              <Button variant="outlined" color="error">
+                გასვლა
+              </Button>
+            </Box>
+          </Toolbar>
+        </CustomizedAppBar>
+        <CustomizedDrawer variant="permanent" open={open}>
+          <CustomizedDrawerHeader>
+            <IconButton onClick={handleDrawerClose}>
+              <ChevronLeftIcon />
+            </IconButton>
+          </CustomizedDrawerHeader>
+          <Divider />
+          <List>
+            <NavElements routes={routes} />
+          </List>
+          <Divider />
+        </CustomizedDrawer>
+        <Box id="content" component="main" sx={{ flexGrow: 1, p: 3 }}>
+          <CustomizedDrawerHeader />
+          <Routes>
+            {routes.map((route) => {
+              const result = [];
+              if (route.children) {
+                result.push(
+                  ...route.children.map((child) => (
+                    <Route
+                      key={child.path}
+                      path={`${route.path}${child.path}`}
+                      element={child.component}
+                    />
+                  ))
+                );
+              }
               result.push(
-                ...route.children.map((child) => (
-                  <Route
-                    key={child.path}
-                    path={`${route.path}${child.path}`}
-                    element={child.component}
-                  />
-                ))
+                <Route
+                  key={route.path}
+                  path={route.path}
+                  element={route.component}
+                />
               );
-            }
-            result.push(
-              <Route
-                key={route.path}
-                path={route.path}
-                element={route.component}
-              />
-            );
-            return result;
-          })}
-          <Route path="*" element={<Navigate replace to="/error404" />} />
-        </Routes>
+              return result;
+            })}
+            <Route path="*" element={<Navigate replace to="/error404" />} />
+          </Routes>
+        </Box>
       </Box>
-    </Box>
+    </React.Suspense>
   );
 }
