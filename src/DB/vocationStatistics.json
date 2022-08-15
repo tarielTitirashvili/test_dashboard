@@ -1,0 +1,82 @@
+[
+  {
+    "id": 0,
+    "year": 2016,
+    "all": 24,
+    "used": 16,
+    "remaining": 8,
+    "AdditionalHoursBilled": "00:00",
+    "AdditionalHoursUsed": "00:00",
+    "AdditionalHoursRemaining": "00:00"
+  },
+  {
+    "id": 1,
+    "year": 2017,
+    "all": 24,
+    "used": 10,
+    "remaining": 14,
+    "AdditionalHoursBilled": "00:00",
+    "AdditionalHoursUsed": "00:00",
+    "AdditionalHoursRemaining": "00:00"
+  },
+  {
+    "id": 2,
+    "year": 2018,
+    "all": 24,
+    "used": 14,
+    "remaining": 10,
+    "AdditionalHoursBilled": "00:00",
+    "AdditionalHoursUsed": "00:00",
+    "AdditionalHoursRemaining": "00:00"
+  },
+  {
+    "id": 3,
+    "year": 2019,
+    "all": 24,
+    "used": 20,
+    "remaining": 4,
+    "AdditionalHoursBilled": "00:00",
+    "AdditionalHoursUsed": "00:00",
+    "AdditionalHoursRemaining": "00:00"
+  },
+  {
+    "id": 4,
+    "year": 2020,
+    "all": 24,
+    "used": 24,
+    "remaining": 0,
+    "AdditionalHoursBilled": "00:00",
+    "AdditionalHoursUsed": "00:00",
+    "AdditionalHoursRemaining": "00:00"
+  },
+  {
+    "id": 5,
+    "year": 2021,
+    "all": 24,
+    "used": 21,
+    "remaining": 3,
+    "AdditionalHoursBilled": "12:07",
+    "AdditionalHoursUsed": "00:00",
+    "AdditionalHoursRemaining": "00:00"
+  },
+  {
+    "id": 6,
+    "year": 2022,
+    "all": 24,
+    "used": 15,
+    "remaining": 9,
+    "AdditionalHoursBilled": "00:00",
+    "AdditionalHoursUsed": "00:00",
+    "AdditionalHoursRemaining": "00:00"
+  },
+  {
+    "id": 7,
+    "year": 2023,
+    "all": 24,
+    "used": 22,
+    "remaining": 2,
+    "AdditionalHoursBilled": "00:00",
+    "AdditionalHoursUsed": "00:00",
+    "AdditionalHoursRemaining": "00:00"
+  }
+]

@@ -2,6 +2,8 @@ import React from "react";
 import { DataGrid } from "@mui/x-data-grid";
 import { Card, Typography } from "@mui/material";
 import { useTranslation } from "react-i18next";
+import moment from "moment";
+import AddTableRow from "../../../components/addTableRow";
 
 const columns = [
   { field: "id", headerName: "ID", width: 90, editable: false, hide: true },
@@ -39,11 +41,35 @@ const columns = [
 ];
 
 export default function CorporatePhones(props) {
-  const { corporatePhonesData } = props;
+  const { corporatePhonesData, role } = props;
   const { t } = useTranslation();
+  const [row, setRow] = React.useState({
+    Firstname: "",
+    Lastname: "",
+    Relation: "",
+    TaxCode: "",
+  });
+  const onRowChange = (e) => {
+    if (e.target) {
+      const { name, value } = e.target;
+      setRow({ ...row, [`${name}`]: value });
+    } else {
+      const { name, value } = e;
+      setRow({
+        ...row,
+        [`${name}`]: value,
+      });
+    }
+  };
   return (
     <Card sx={{ padding: 2 }}>
       <Typography mb={2}>{t("CORPORATE_PHONES")}</Typography>
+      <AddTableRow
+        row={row}
+        columns={columns}
+        role={role}
+        setRow={onRowChange}
+      />
       <DataGrid
         rows={corporatePhonesData}
         columns={columns}

@@ -168,6 +168,17 @@ export default function MainLayout() {
                   ))
                 );
               }
+              if (route.secretChildren) {
+                result.push(
+                  ...route.secretChildren.map((child) => (
+                    <Route
+                      key={child.path}
+                      path={`${route.path}${child.path}`}
+                      element={child.component}
+                    />
+                  ))
+                );
+              }
               result.push(
                 <Route
                   key={route.path}

@@ -1,18 +1,27 @@
-import { TextField } from "@mui/material";
+import { TextField, Typography } from "@mui/material";
+import { Box } from "@mui/system";
 import React from "react";
 
 export default function Input(props) {
-  const { label, name, value, onChange, fullWidth } = props;
+  const { label, name, value, onChange, fullWidth, margin } = props;
   return (
+    <Box>
+    <Typography>
+      {label}
+    </Typography>
     <TextField
-      sx={{ width: fullWidth ? "100%" : "230px" }}
+      sx={{
+        width: fullWidth ? "100%" : "230px",
+        margin: margin ? margin : "0",
+      }}
       autoComplete="off"
       size="small"
       variant="outlined"
-      label={label}
+      placeholder={label}
       name={name}
       value={value}
       onChange={onChange}
     />
+    </Box>
   );
 }

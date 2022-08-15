@@ -30,11 +30,15 @@ export default function PersonMainInfo(props) {
 
   const born = moment(dateOfBirth, "DD/MM/YYYY").format("YYYY-MM-DDThh:mm:ss");
   return (
-    <Card variant="outlined">
+    <Card sx={{ padding: 2 }} variant="outlined">
       <Typography m={1} fontSize={"1rem"} fontWeight={"bold"} variant="h3">
         {t("main")}
       </Typography>
-      <Box display={"flex"} justifyContent={"space-between"} p={1}>
+      <Box
+        display={"flex"}
+        justifyContent={"space-between"}
+        p={1}
+      >
         <Controls.Input
           label={t("fullName")}
           name="fullName"

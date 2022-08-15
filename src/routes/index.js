@@ -10,6 +10,8 @@ import Requests from "../pages/requests";
 import PassedTrainings from "../pages/trainings/passedTrainings";
 import TestResults from "../pages/trainings/testResults";
 import Trainings from "../pages/trainings/trainings";
+import SecretVocation from "../pages/requests/secretVocation";
+import SecretVocationStatistics from "../pages/requests/secretVocationStatistics";
 
 export const routes = [
   {
@@ -73,6 +75,18 @@ export const routes = [
     path: "/request",
     title: "request",
     component: <Requests />,
+    secretChildren:[
+      {
+        path: "/vocation",
+        title: "vocation",
+        component: <SecretVocation />,
+      },
+      {
+        path: "/vocationStatistics",
+        title: "vocationStatistics",
+        component: <SecretVocationStatistics />,
+      },
+    ]
   },
   {
     path: "/HRDocs",

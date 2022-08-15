@@ -44,8 +44,22 @@ const GEORGIAN_TEXTS_FOR_APP = {
   serviceGroup: "მომსახურე ჯგუფი",
   limit: "ლიმიტი",
   date: "თარიღი",
+  add: "დამატება",
+  requestAdd: "მოთხოვნა - დამატება",
+  requestType: "მოთხოვნის ტიპი",
+  vocation: "შვებულება",
+  businessTrip: "მივლინება",
   CORPORATE_PHONES: "კორპორატიული ნომრები",
-  add: "დამატება"
+  visitCard: "სავიზიტო ბარათი",
+  intermediateEvaluation: "შუალედური შეფასება",
+  drivingLicense: "მართვის მოწმობა",
+  belongingLeave: "კუთვნილი შვებულება",
+  maternityLeave: "დეკრეტული შვებულება",
+  bulletin: "ბიულეტინი",
+  unpaidLeave: "აუნაზღაურებელი შვებულება",
+  otherLeave: "სხვა შვებულება",
+  additionalBillableHours: "დამატებითი დრიცხული საათები",
+  vocationType: 'შვებულების ტიპი'
 };
 
 export default GEORGIAN_TEXTS_FOR_APP;

@@ -44,8 +44,23 @@ const ENGLISH_TEXTS_FOR_APP = {
   serviceGroup: "serviceGroup",
   limit: "limit",
   date: "date",
+  add: "Add",
+  requestAdd: "Request - Add",
+  requestType: "request type",
+  vocation: "vocation",
+  businessTrip: "business trip",
   CORPORATE_PHONES: "CORPORATE_PHONES",
-  add: "Add"
+  visitCard: "visit card",
+  intermediateEvaluation: "intermediate evaluation",
+  drivingLicense: "driving license",
+  belongingLeave: "Belonging Leave",
+  maternityLeave: "Maternity Leave",
+  bulletin: "bulletin",
+  unpaidLeave: "Unpaid Leave",
+  otherLeave: "Other Leave",
+  additionalBillableHours: "Additional Billable Hours",
+  vocationType: 'Vocation Type'
+
 };
 
 export default ENGLISH_TEXTS_FOR_APP;

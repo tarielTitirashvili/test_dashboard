@@ -36,13 +36,8 @@ function Main(props) {
 
   const onChange = (e, objName) => {
     if (role === "ADMIN") {
-      if (e.target) {
-        const { name, value } = e.target;
-        setUserDataDetailAC(value, name, objName);
-      } else {
-        const { name, value } = e;
-        setUserDataDetailAC(value, name, objName);
-      }
+      const { name, value } = e.target;
+      setUserDataDetailAC(value, name, objName);
     } else {
       return;
     }
@@ -74,6 +69,7 @@ function Main(props) {
       </Grid>
       <Grid mt={3} item xs={11}>
         <CompanyNumber
+          role={role}
           title={t("corpNumber")}
           smallTitle={t("employeeCorpNumber")}
           companyNumber={companyNumber}
@@ -82,6 +78,7 @@ function Main(props) {
       </Grid>
       <Grid mt={3} item xs={11}>
         <CorporatePhones
+          role={role}
           corporatePhonesData={corporatePhones}
           onChange={onChange}
         />

@@ -10,7 +10,7 @@ export default function Addressees(props) {
   const { address, city } = fullAddress;
   const { t } = useTranslation();
   return (
-    <Card variant="outlined">
+    <Card sx={{padding: 2}} variant="outlined">
       <Typography m={1} fontSize={"1rem"} fontWeight={"bold"} variant="h3">
         {title}
       </Typography>

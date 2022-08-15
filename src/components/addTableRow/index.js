@@ -23,33 +23,41 @@ export default function AddTableRow(props) {
       <Modal open={open} onClose={handleClose}>
         <Box sx={modalStyle}>
           <Box sx={{ display: "flex", justifyContent: "space-between" }}>
-            <Typography variant="p">დამატება</Typography>
+            <Typography variant="h6">დამატება</Typography>
             <IconButton onClick={handleClose}>
               <CloseIcon />
             </IconButton>
           </Box>
-          <Box display={'block'}>
+          <Box>
             {columns.map((column) => {
               const { field, type, headerName } = column;
-              if (field === "id") return;
-              if (type === "date")
+              if (field === "id") {
+                return;
+              } else if (type === "date") {
                 return (
                   <Controls.DatePicker
+                    margin={2}
                     key={`${field}${headerName}`}
+                    label={headerName}
                     value={row[field]}
                     name={field}
                     onChange={setRow}
                   />
                 );
-              if (!type)
+              } else if (!type || type === "number" || type === "string") {
                 return (
                   <Controls.Input
+                    margin={2}
                     key={`${field}${headerName}`}
+                    label={headerName}
                     value={row[field]}
                     name={field}
                     onChange={setRow}
                   />
                 );
+              } else {
+                return;
+              }
             })}
           </Box>
           <Box m={2}>

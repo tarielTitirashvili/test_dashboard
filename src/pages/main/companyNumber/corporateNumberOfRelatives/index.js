@@ -1,6 +1,7 @@
 import React from "react";
 import moment from "moment";
 import { DataGrid } from "@mui/x-data-grid";
+import AddTableRow from "../../../../components/addTableRow";
 
 const columns = [
   { field: "id", headerName: "ID", width: 90, editable: false, hide: true },
@@ -31,6 +32,7 @@ const columns = [
   {
     field: "changeDate",
     headerName: "ცვლილების თარიღი",
+    type: 'date',
     flex: 1,
     minWidth: 150,
     editable: false,
@@ -39,15 +41,42 @@ const columns = [
 ];
 
 export default function CorporateNumberOfRelatives(props) {
-  const { relativesData } = props;
+  const { relativesData, role } = props;
+  const [row, setRow] = React.useState({
+    fullName: "",
+    phoneNumber: "",
+    serviceTeam: "",
+    changeDate: `${moment(Date.now()).format("YYYY-MM-DDThh:mm:ss")}`,
+  });
+  const onRowChange = (e) => {
+    if (e.target) {
+      const { name, value } = e.target;
+      setRow({ ...row, [`${name}`]: value });
+    } else {
+      const { name, value } = e;
+      setRow({
+        ...row,
+        [`${name}`]: moment(value, "DD/MM/YYYY").format("YYYY-MM-DDThh:mm:ss"),
+      });
+    }
+  };
+
   return (
-    <DataGrid
-      rows={relativesData}
-      columns={columns}
-      pageSize={15}
-      autoHeight
-      rowsPerPageOptions={[15]}
-      disableSelectionOnClick
-    />
+    <>
+      <AddTableRow
+        row={row}
+        columns={columns}
+        role={role}
+        setRow={onRowChange}
+      />
+      <DataGrid
+        rows={relativesData}
+        columns={columns}
+        pageSize={15}
+        autoHeight
+        rowsPerPageOptions={[15]}
+        disableSelectionOnClick
+      />
+    </>
   );
 }

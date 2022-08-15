@@ -5,7 +5,7 @@ import Controls from "../../../components/mainControls";
 import CorporateNumberOfRelatives from "./corporateNumberOfRelatives";
 
 export default function CompanyNumber(props) {
-  const { title, smallTitle, companyNumber, onChange } = props;
+  const { title, smallTitle, companyNumber, onChange, role } = props;
   const {
     changeDate,
     limit,
@@ -61,6 +61,7 @@ export default function CompanyNumber(props) {
           />
         </Box>
         <CorporateNumberOfRelatives
+          role={role}
           relativesData={corporateNumberOfRelatives}
         />
       </Box>

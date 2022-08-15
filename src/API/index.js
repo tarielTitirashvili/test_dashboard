@@ -11,10 +11,16 @@ export const getTrainingsAPI = async () => {
   return await instance.get("/gettraining");
 };
 
-export const getPassedTrainingsAPI = async (id) => {
+export const getPassedTrainingsAPI = async () => {
   return await instance.get("/getPassedTrainings");
 };
 
-export const getTestResultsAPI = async (id, page) => {
+export const getTestResultsAPI = async () => {
   return await instance.get("getTestResults");
+};
+export const getVocationAPI = async () => {
+  return await instance.get("getVocation");
+};
+export const getVocationStatisticsAPI = async () => {
+  return await instance.get("getVocationStatistics");
 };
