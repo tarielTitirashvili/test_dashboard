@@ -9,7 +9,6 @@ import {
   IconButton,
   MenuItem,
   Typography,
-  MenuList,
 } from "@mui/material";
 import LanguageIcon from "@mui/icons-material/Language";
 import { Navigate, Route, Routes } from "react-router-dom";
@@ -27,7 +26,7 @@ import {
   CustomizedMenuList,
   CustomizedDrawer,
   CustomizedDrawerHeader,
-} from "../ui/appBar";
+} from "./appBarUi";
 import NavElements from "./navElem";
 import Loading from "../components/loading";
 import ENGLISH_TEXTS_FOR_APP from "../languages/en";
@@ -58,10 +57,7 @@ export default function MainLayout() {
 
   const sortRef = React.useRef(null);
   const clickOutside = (e) => {
-    console.log(langOpen);
     if (sortRef.current !== null) {
-      console.log(e.composedPath().includes(sortRef.current));
-      console.log(sortRef.current);
       if (!e.composedPath().includes(sortRef.current)) {
         setLangOpen(false);
       }

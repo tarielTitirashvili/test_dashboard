@@ -11,7 +11,7 @@ import {
 import { useTranslation } from "react-i18next";
 import { NavLink } from "react-router-dom";
 import { routes } from "../../routes";
-import { CustomizedAccordionSummary } from "../../ui/navElem";
+import { CustomizedAccordionSummary } from "./navElemUi";
 
 export default function NavElements() {
   const [expanded, setExpanded] = React.useState("");

@@ -4,6 +4,7 @@ import { DataGrid } from "@mui/x-data-grid";
 import moment from "moment";
 import { Box } from "@mui/material";
 import { getPassedTrainingsThunk } from "../../../redux/actions/passedTrainingsActions";
+import AddTableRow from "../../../components/addTableRow";
 
 const columns = [
   { field: "id", headerName: "ID", width: 90, editable: false, hide: true },
@@ -42,13 +43,37 @@ const columns = [
 ];
 
 function PassedTrainings(props) {
-  const { getPassedTrainingsThunk, passedTrainings } = props;
+  const { getPassedTrainingsThunk, passedTrainings, role } = props;
   React.useEffect(() => {
     getPassedTrainingsThunk();
   }, []);
+  const [row, setRow] = React.useState({
+    training: "",
+    startDate: `${moment(Date.now()).format("YYYY-MM-DDThh:mm:ss")}`,
+    endDate: `${moment(Date.now()).format("YYYY-MM-DDThh:mm:ss")}`,
+    place: "",
+  });
+  const onRowChange = (e) => {
+    if (e.target) {
+      const { name, value } = e.target;
+      setRow({ ...row, [`${name}`]: value });
+    } else {
+      const { name, value } = e;
+      setRow({
+        ...row,
+        [`${name}`]: moment(value, "DD/MM/YYYY").format("YYYY-MM-DDThh:mm:ss"),
+      });
+    }
+  };
   return (
     <Box sx={{ display: "flex", justifyContent: "center" }}>
       <Box width={"100%"} maxWidth={"1080px"}>
+        <AddTableRow
+          row={row}
+          columns={columns}
+          role={role}
+          setRow={onRowChange}
+        />
         <DataGrid
           className="MuiDataGrid-virtualScrollerContent--overflowed"
           rows={passedTrainings}
@@ -66,6 +91,7 @@ function PassedTrainings(props) {
 const mapStateToProps = (state) => {
   return {
     passedTrainings: state.passedTrainings.passedTrainings,
+    role: state.auth.role,
   };
 };
 

@@ -45,6 +45,7 @@ const ENGLISH_TEXTS_FOR_APP = {
   limit: "limit",
   date: "date",
   CORPORATE_PHONES: "CORPORATE_PHONES",
+  add: "Add"
 };
 
 export default ENGLISH_TEXTS_FOR_APP;

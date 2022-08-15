@@ -5,20 +5,7 @@ import CloseIcon from "@mui/icons-material/Close";
 import moment from "moment";
 import { DataGrid } from "@mui/x-data-grid";
 import ScheduleText from "../scheduleText";
-
-const style = {
-  position: "absolute",
-  top: "50%",
-  left: "50%",
-  transform: "translate(-50%, -50%)",
-  width: 800,
-  bgcolor: "background.paper",
-  border: "2px solid #000",
-  boxShadow: 24,
-  p: 2,
-  paddingTop: 0,
-  fontSize: "0.75rem",
-};
+import modalStyle from "../../../../assets/modalStyle";
 
 const columns = [
   { field: "id", headerName: "ID", width: 90, editable: false, hide: true },
@@ -71,7 +58,7 @@ export default function Schedule(props) {
         <InsertInvitationIcon color="primary" />
       </IconButton>
       <Modal open={open} onClose={handleClose}>
-        <Box sx={style}>
+        <Box sx={modalStyle}>
           <Box sx={{ display: "flex", justifyContent: "space-between" }}>
             <Typography variant="p">განრიგი</Typography>
             <IconButton onClick={handleClose}>

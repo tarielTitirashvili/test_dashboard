@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { DataGrid } from "@mui/x-data-grid";
 import { Box } from "@mui/material";
 import moment from "moment";
-import Schedule from "../../../components/trainings/trainingsSchedule";
+import Schedule from "./trainingsSchedule";
 import { getTrainingsThunk } from "../../../redux/actions/trainingsActions";
 
 const columns = [

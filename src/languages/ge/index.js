@@ -45,6 +45,7 @@ const GEORGIAN_TEXTS_FOR_APP = {
   limit: "ლიმიტი",
   date: "თარიღი",
   CORPORATE_PHONES: "კორპორატიული ნომრები",
+  add: "დამატება"
 };
 
 export default GEORGIAN_TEXTS_FOR_APP;
