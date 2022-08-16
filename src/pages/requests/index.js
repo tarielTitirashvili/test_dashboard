@@ -8,13 +8,13 @@ import {
 } from "@mui/material";
 import React from "react";
 import { useTranslation } from "react-i18next";
-import { Outlet, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export default function Requests() {
   let navigate = useNavigate();
   const { t } = useTranslation();
   const onclick = (path) => {
-    navigate(path,);
+    navigate(path);
   };
 
   return (

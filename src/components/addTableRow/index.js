@@ -7,13 +7,18 @@ import modalStyle from "../../assets/modalStyle";
 import Controls from "../controls";
 
 export default function AddTableRow(props) {
-  const { role, columns, setRow, row } = props;
+  const { role, columns, setRow, row, onSave } = props;
   const { t } = useTranslation();
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
   if (role !== ADMIN) return;
+
+  const onSaveClicked=()=>{
+    onSave()
+    setOpen(false)
+  }
 
   return (
     <Box m={2}>
@@ -61,7 +66,9 @@ export default function AddTableRow(props) {
             })}
           </Box>
           <Box m={2}>
-            <Button variant="contained">save</Button>
+            <Button onClick={onSaveClicked} variant="contained">
+              save
+            </Button>
           </Box>
         </Box>
       </Modal>

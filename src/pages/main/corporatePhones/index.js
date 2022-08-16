@@ -40,7 +40,7 @@ const columns = [
 ];
 
 export default function CorporatePhones(props) {
-  const { corporatePhonesData, role } = props;
+  const { corporatePhonesData, role, setCorporatePhonesAC } = props;
   const { t } = useTranslation();
   const [row, setRow] = React.useState({
     Firstname: "",
@@ -60,6 +60,10 @@ export default function CorporatePhones(props) {
       });
     }
   };
+  const onSave=()=>{
+    console.log({...row, id: corporatePhonesData[corporatePhonesData.length-1].id+1})
+    setCorporatePhonesAC({...row, id: corporatePhonesData[corporatePhonesData.length-1].id+1})
+  }
   return (
     <Card sx={{ padding: 2 }}>
       <Typography mb={2}>{t("CORPORATE_PHONES")}</Typography>
@@ -68,6 +72,7 @@ export default function CorporatePhones(props) {
         columns={columns}
         role={role}
         setRow={onRowChange}
+        onSave = {onSave}
       />
       <DataGrid
         rows={corporatePhonesData}

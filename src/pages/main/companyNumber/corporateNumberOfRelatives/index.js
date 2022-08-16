@@ -32,7 +32,7 @@ const columns = [
   {
     field: "changeDate",
     headerName: "ცვლილების თარიღი",
-    type: 'date',
+    type: "date",
     flex: 1,
     minWidth: 150,
     editable: false,
@@ -41,7 +41,7 @@ const columns = [
 ];
 
 export default function CorporateNumberOfRelatives(props) {
-  const { relativesData, role } = props;
+  const { relativesData, role, setCorporateNumberOfRelativesAC } = props;
   const [row, setRow] = React.useState({
     fullName: "",
     phoneNumber: "",
@@ -61,6 +61,13 @@ export default function CorporateNumberOfRelatives(props) {
     }
   };
 
+  const onSave = () => {
+    setCorporateNumberOfRelativesAC({
+      ...row,
+      id: relativesData[relativesData.length - 1].id + 1,
+    });
+  };
+
   return (
     <>
       <AddTableRow
@@ -68,6 +75,7 @@ export default function CorporateNumberOfRelatives(props) {
         columns={columns}
         role={role}
         setRow={onRowChange}
+        onSave={onSave}
       />
       <DataGrid
         rows={relativesData}

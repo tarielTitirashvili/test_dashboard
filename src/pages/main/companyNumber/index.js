@@ -5,7 +5,14 @@ import Controls from "../../../components/controls";
 import CorporateNumberOfRelatives from "./corporateNumberOfRelatives";
 
 export default function CompanyNumber(props) {
-  const { title, smallTitle, companyNumber, onChange, role } = props;
+  const {
+    title,
+    smallTitle,
+    companyNumber,
+    onChange,
+    role,
+    setCorporateNumberOfRelativesAC,
+  } = props;
   const {
     changeDate,
     limit,
@@ -63,6 +70,7 @@ export default function CompanyNumber(props) {
         <CorporateNumberOfRelatives
           role={role}
           relativesData={corporateNumberOfRelatives}
+          setCorporateNumberOfRelativesAC={setCorporateNumberOfRelativesAC}
         />
       </Box>
     </Card>

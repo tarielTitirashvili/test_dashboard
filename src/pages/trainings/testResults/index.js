@@ -3,7 +3,10 @@ import { connect } from "react-redux";
 import { Box } from "@mui/material";
 import { DataGrid } from "@mui/x-data-grid";
 import moment from "moment";
-import { getTestsThunk } from "../../../redux/actions/testResultsActions";
+import {
+  getTestsThunk,
+  setNewTestOnSaveAC,
+} from "../../../redux/actions/testResultsActions";
 import AddTableRow from "../../../components/addTableRow";
 
 const columns = [
@@ -34,7 +37,7 @@ const columns = [
 ];
 
 function TestResults(props) {
-  const { getTestsThunk, tests, role } = props;
+  const { setNewTestOnSaveAC, getTestsThunk, tests, role } = props;
   React.useEffect(() => {
     getTestsThunk();
   }, []);
@@ -56,6 +59,9 @@ function TestResults(props) {
     }
   };
 
+  const onSave = () => {
+    setNewTestOnSaveAC({ ...row, id: tests[tests.length - 1].id+1 });
+  };
   return (
     <Box sx={{ display: "flex", justifyContent: "center" }}>
       <Box maxWidth={"1600px"} width={"100%"}>
@@ -64,6 +70,7 @@ function TestResults(props) {
           columns={columns}
           role={role}
           setRow={onRowChange}
+          onSave={onSave}
         />
         <DataGrid
           className="MuiDataGrid-virtualScrollerContent--overflowed"
@@ -90,6 +97,9 @@ const mapDispatchToProps = (dispatch) => {
   return {
     getTestsThunk() {
       dispatch(getTestsThunk());
+    },
+    setNewTestOnSaveAC(newTest) {
+      dispatch(setNewTestOnSaveAC(newTest));
     },
   };
 };

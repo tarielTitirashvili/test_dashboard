@@ -6,6 +6,8 @@ import {
   getPassedPersonDataThunk,
   setUserDataDetailAC,
   setPersonDataToInitialAC,
+  setCorporateNumberOfRelativesAC,
+  setCorporatePhonesAC,
 } from "../../redux/actions/mainActions";
 import PersonMainInfo from "./personMainInfo";
 import IDInfo from "./IDinfo";
@@ -25,6 +27,8 @@ function Main(props) {
     corporatePhones,
     companyNumber,
     setPersonDataToInitialAC,
+    setCorporatePhonesAC,
+    setCorporateNumberOfRelativesAC,
   } = props;
   const { t } = useTranslation();
   React.useEffect(() => {
@@ -74,6 +78,7 @@ function Main(props) {
           smallTitle={t("employeeCorpNumber")}
           companyNumber={companyNumber}
           onChange={onChange}
+          setCorporateNumberOfRelativesAC={setCorporateNumberOfRelativesAC}
         />
       </Grid>
       <Grid mt={3} item xs={11}>
@@ -81,6 +86,7 @@ function Main(props) {
           role={role}
           corporatePhonesData={corporatePhones}
           onChange={onChange}
+          setCorporatePhonesAC={setCorporatePhonesAC}
         />
       </Grid>
     </Grid>
@@ -109,6 +115,12 @@ const mapDispatchToProps = (dispatch) => {
     setPersonDataToInitialAC() {
       dispatch(setPersonDataToInitialAC());
     },
+    setCorporatePhonesAC(newValue) {
+      dispatch(setCorporatePhonesAC(newValue));
+    },
+    setCorporateNumberOfRelativesAC(data){
+      dispatch(setCorporateNumberOfRelativesAC(data))
+    }
   };
 };
 

@@ -192,9 +192,6 @@ export default function MainLayout() {
                   element={route.component}
                 />
               );
-              if(route.path==="/request" || route.path==="/trainings"){
-                console.log(result)
-              }
               return result;
             })}
             <Route path="*" element={<Navigate replace to="/error404" />} />
