@@ -75,9 +75,9 @@ function VocationCurrentRequirements(props) {
   const { t } = useTranslation();
 
   const onClick = (path) => {
-    navigate(path, { replace: true });
+    navigate(path);
   };
-  console.log(data)
+  console.log(data);
   React.useEffect(() => {
     getData();
   }, []);

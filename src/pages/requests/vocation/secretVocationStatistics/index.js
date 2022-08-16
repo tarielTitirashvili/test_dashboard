@@ -42,7 +42,7 @@ export default function SecretVocationStatistics() {
         <Button
           sx={{ m: 2 }}
           variant="contained"
-          onClick={() => navigate("/request/vocation", { replace: true })}
+          onClick={() => navigate("/request/vocation")}
         >
           {t("request")}
         </Button>

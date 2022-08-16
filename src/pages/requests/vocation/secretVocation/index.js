@@ -1,6 +1,7 @@
-import { Box, Paper } from "@mui/material";
+import { Box, Button, Paper } from "@mui/material";
 import moment from "moment";
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import Controls from "../../../../components/controls";
 import PEOPLE_FOR_OPTIONS from "../../../../DB/people";
 import { useTranslation } from "react-i18next";
@@ -27,6 +28,7 @@ export default function Vocation() {
       });
     }
   };
+  const navigate = useNavigate();
   const { t } = useTranslation();
   return (
     <Box display={"flex"} justifyContent={"center"}>
@@ -71,6 +73,24 @@ export default function Vocation() {
           onChange={onRowChange}
           options={PEOPLE_FOR_OPTIONS}
         />
+        <Box display={"flex"} justifyContent={"space-between"} width={"40%"}>
+          <Button
+            onClick={() => {
+              navigate("/request");
+            }}
+            variant="contained"
+          >
+            {t("save")}
+          </Button>
+          <Button
+            onClick={() => {
+              navigate(-1);
+            }}
+            variant="contained"
+          >
+            {t("back")}
+          </Button>
+        </Box>
       </Paper>
     </Box>
   );

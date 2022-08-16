@@ -68,6 +68,8 @@ const ENGLISH_TEXTS_FOR_APP = {
   replacementPerson: "Replacement Person",
   leader: "leader",
   comment: "comment",
+  save: "save",
+  back: "back"
 };
 
 export default ENGLISH_TEXTS_FOR_APP;

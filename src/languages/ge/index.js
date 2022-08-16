@@ -68,6 +68,8 @@ const GEORGIAN_TEXTS_FOR_APP = {
   replacementPerson: "შემცვლელი პირი",
   leader: "ხელმძღვანელი",
   comment: "კომენტარი",
+  save: "შენახვა",
+  back: "უკან"
 };
 
 export default GEORGIAN_TEXTS_FOR_APP;

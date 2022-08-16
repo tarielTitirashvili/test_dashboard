@@ -80,7 +80,6 @@ export default function MainLayout() {
     setLangOpen(false);
     i18n.changeLanguage(lan);
   };
-
   return (
     <React.Suspense fallback={<Loading />}>
       <Box sx={{ display: "flex" }}>
@@ -161,7 +160,7 @@ export default function MainLayout() {
                 result.push(
                   ...route.children.map((child) => (
                     <Route
-                      key={child.path}
+                      key={`${route.path}${child.path}`}
                       path={`${route.path}${child.path}`}
                       element={child.component}
                     />
@@ -170,9 +169,16 @@ export default function MainLayout() {
               }
               if (route.secretChildren) {
                 result.push(
+                  <Route
+                    key={route.path}
+                    path={route.path}
+                    element={route.component}
+                  />
+                );
+                result.push(
                   ...route.secretChildren.map((child) => (
                     <Route
-                      key={child.path}
+                      key={`${route.path}${child.path}`}
                       path={`${route.path}${child.path}`}
                       element={child.component}
                     />
@@ -186,6 +192,9 @@ export default function MainLayout() {
                   element={route.component}
                 />
               );
+              if(route.path==="/request" || route.path==="/trainings"){
+                console.log(result)
+              }
               return result;
             })}
             <Route path="*" element={<Navigate replace to="/error404" />} />
