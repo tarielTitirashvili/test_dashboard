@@ -10,11 +10,11 @@ export default function Addressees(props) {
   const { address, city } = fullAddress;
   const { t } = useTranslation();
   return (
-    <Card sx={{padding: 2}} variant="outlined">
+    <Card sx={{ padding: 2 }} variant="outlined">
       <Typography m={1} fontSize={"1rem"} fontWeight={"bold"} variant="h3">
         {title}
       </Typography>
-      <Box display={"flex"} justifyContent={"space-between"} p={1}>
+      <Box p={1}>
         <Controls.Select
           label={t("city")}
           name="city"
@@ -23,7 +23,7 @@ export default function Addressees(props) {
           options={places}
         />
       </Box>
-      <Box display={"flex"} justifyContent={"space-between"} p={1}>
+      <Box p={1}>
         <Controls.Input
           fullWidth
           label={t("address")}

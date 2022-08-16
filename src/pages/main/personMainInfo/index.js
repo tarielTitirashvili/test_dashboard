@@ -52,7 +52,7 @@ export default function PersonMainInfo(props) {
           onChange={localOnchange}
         />
       </Box>
-      <Box display={"flex"} justifyContent={"space-between"} p={1}>
+      <Box p={1}>
         <Controls.Input
           fullWidth
           label={t("office")}
@@ -61,7 +61,7 @@ export default function PersonMainInfo(props) {
           onChange={localOnchange}
         />
       </Box>
-      <Box display={"flex"} justifyContent={"space-between"} p={1}>
+      <Box p={1}>
         <Controls.Input
           fullWidth
           label={t("position")}

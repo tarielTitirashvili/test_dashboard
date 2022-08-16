@@ -35,7 +35,7 @@ export default function CompanyNumber(props) {
             onChange={localOnchange}
           />
         </Box>
-        <Box display={"flex"} justifyContent={"space-between"} p={1}>
+        <Box p={1}>
           <Controls.Input
             fullWidth
             label={t("serviceGroup")}
@@ -44,7 +44,7 @@ export default function CompanyNumber(props) {
             onChange={localOnchange}
           />
         </Box>
-        <Box display={"flex"} justifyContent={"space-between"} p={1}>
+        <Box p={1}>
           <Controls.Input
             label={t("limit")}
             name="limit"
@@ -52,7 +52,7 @@ export default function CompanyNumber(props) {
             onChange={localOnchange}
           />
         </Box>
-        <Box display={"flex"} justifyContent={"space-between"} p={1}>
+        <Box p={1}>
           <Controls.Input
             label={t("date")}
             name="changeDate"

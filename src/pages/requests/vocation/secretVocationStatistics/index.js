@@ -1,11 +1,11 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
-import { getVocationAPI, getVocationStatisticsAPI } from "../../../API";
+import { getVocationAPI, getVocationStatisticsAPI } from "../../../../API";
 import { DataGrid } from "@mui/x-data-grid";
 import { columnsStatistics, columnsVocations } from "./columns";
 import { useNavigate } from "react-router-dom";
 import { Box, Button, Typography } from "@mui/material";
-import Loading from "../../../components/loading";
+import Loading from "../../../../components/loading";
 
 export default function SecretVocationStatistics() {
   const [loading, setLoading] = React.useState(true);
@@ -17,16 +17,17 @@ export default function SecretVocationStatistics() {
     return new Promise((resolve) => {
       setTimeout(async () => {
         const data = await getVocationAPI();
-        resolve({ data });
-      }, 3000);
+        resolve(data);
+      }, 100);
     });
   };
 
   React.useEffect(() => {
     Promise.all([lazyPromise(), getVocationStatisticsAPI()]).then((values) => {
-      setVocation(values[0].data.data);
+      setVocation(values[0].data);
       setVocationStatistics(values[1].data);
       setLoading(false);
+      console.log(values)
     });
   }, []);
   let navigate = useNavigate();
@@ -58,6 +59,11 @@ export default function SecretVocationStatistics() {
             disableSelectionOnClick
           />
         </Box>
+      </Box>
+      <Box ml={17}>
+        <Typography m={2} variant="h6">
+          {t("vocation")}
+        </Typography>
       </Box>
       <Box sx={{ display: "flex", justifyContent: "center" }}>
         <Box maxWidth={"1600px"} width={"100%"}>

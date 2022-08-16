@@ -10,9 +10,9 @@ import Requests from "../pages/requests";
 import PassedTrainings from "../pages/trainings/passedTrainings";
 import TestResults from "../pages/trainings/testResults";
 import Trainings from "../pages/trainings/trainings";
-import SecretVocation from "../pages/requests/secretVocation";
-import SecretVocationStatistics from "../pages/requests/secretVocationStatistics";
-import VocationCurrentRequirements from "../pages/requests/vocationCurrentRequirements";
+import SecretVocation from "../pages/requests/vocation/secretVocation";
+import SecretVocationStatistics from "../pages/requests/vocation/secretVocationStatistics";
+import VocationCurrentRequirements from "../pages/requests/vocation/vocationCurrentRequirements";
 
 export const routes = [
   {

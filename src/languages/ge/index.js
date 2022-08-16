@@ -59,9 +59,15 @@ const GEORGIAN_TEXTS_FOR_APP = {
   unpaidLeave: "აუნაზღაურებელი შვებულება",
   otherLeave: "სხვა შვებულება",
   additionalBillableHours: "დამატებითი დრიცხული საათები",
-  vocationType: 'შვებულების ტიპი',
+  vocationType: "შვებულების ტიპი",
   AddRequest: "მოთხოვნის დამატება",
-  vocationStatistics: 'შვებულების სტატისტიკა',
+  vocationStatistics: "შვებულების სტატისტიკა",
+  reqType: "მოთხოვნის ტიპი",
+  startDate: "დაწყების (დან)",
+  endDate: "დამთავრება (მდე)",
+  replacementPerson: "შემცვლელი პირი",
+  leader: "ხელმძღვანელი",
+  comment: "კომენტარი",
 };
 
 export default GEORGIAN_TEXTS_FOR_APP;

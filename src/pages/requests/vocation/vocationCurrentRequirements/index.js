@@ -4,7 +4,7 @@ import { DataGrid } from "@mui/x-data-grid";
 import moment from "moment";
 import { useNavigate } from "react-router-dom";
 import { connect } from "react-redux";
-import { getVocationCurrentRequirementsAPI } from "../../../API";
+import { getVocationCurrentRequirementsAPI } from "../../../../API";
 import { useTranslation } from "react-i18next";
 
 const columns = [
@@ -77,7 +77,7 @@ function VocationCurrentRequirements(props) {
   const onClick = (path) => {
     navigate(path, { replace: true });
   };
-
+  console.log(data)
   React.useEffect(() => {
     getData();
   }, []);

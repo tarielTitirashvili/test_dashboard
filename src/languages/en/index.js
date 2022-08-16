@@ -61,7 +61,13 @@ const ENGLISH_TEXTS_FOR_APP = {
   additionalBillableHours: "Additional Billable Hours",
   vocationType: "Vocation Type",
   AddRequest: "Add Request",
-  vocationStatistics: 'Vocation Statistics'
+  vocationStatistics: "Vocation Statistics",
+  reqType: "Request Type",
+  startDate: "start Date",
+  endDate: "End DAte",
+  replacementPerson: "Replacement Person",
+  leader: "leader",
+  comment: "comment",
 };
 
 export default ENGLISH_TEXTS_FOR_APP;

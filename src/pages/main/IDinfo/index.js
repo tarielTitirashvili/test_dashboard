@@ -22,7 +22,7 @@ export default function IDInfo(props) {
       <Typography m={1} fontSize={"1rem"} fontWeight={"bold"} variant="h3">
         {t("IDCard")}
       </Typography>
-      <Box display={"flex"} justifyContent={"space-between"} p={1}>
+      <Box p={1}>
         <Controls.Select
           label={t("docType")}
           name="documentType"
@@ -31,7 +31,7 @@ export default function IDInfo(props) {
           options={docType}
         />
       </Box>
-      <Box display={"flex"} justifyContent={"space-between"} p={1}>
+      <Box p={1}>
         <Controls.Input
           label={t("documentNumber")}
           name="documentN"
@@ -39,7 +39,7 @@ export default function IDInfo(props) {
           onChange={localOnchange}
         />
       </Box>
-      <Box display={"flex"} justifyContent={"space-between"} p={1}>
+      <Box p={1}>
         <Controls.Input
           fullWidth
           label={t("issuingAgency")}
@@ -48,7 +48,7 @@ export default function IDInfo(props) {
           onChange={localOnchange}
         />
       </Box>
-      <Box display={"flex"} justifyContent={"space-between"} p={1}>
+      <Box p={1}>
         <Controls.DatePicker
           fullWidth
           label={t("releaseDate")}
@@ -57,7 +57,7 @@ export default function IDInfo(props) {
           onChange={localOnchange}
         />
       </Box>
-      <Box display={"flex"} justifyContent={"space-between"} p={1}>
+      <Box p={1}>
         <Controls.DatePicker
           fullWidth
           label={t("validTo")}
