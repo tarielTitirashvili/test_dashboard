@@ -35,11 +35,9 @@ export default function Vocation() {
 
   const getVocationStatistics = async () => {
     const data = await getVocationStatisticsAPI();
-    console.log(data);
   };
   const getVocations = async () => {
     const data = await getVocationAPI();
-    console.log(data);
   };
 
   React.useEffect(() => {

@@ -1,7 +1,7 @@
 import { Box, Card, Typography } from "@mui/material";
 import React from "react";
 import { useTranslation } from "react-i18next";
-import Controls from "../../../components/mainControls";
+import Controls from "../../../components/controls";
 import CorporateNumberOfRelatives from "./corporateNumberOfRelatives";
 
 export default function CompanyNumber(props) {

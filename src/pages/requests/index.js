@@ -8,14 +8,14 @@ import {
 } from "@mui/material";
 import React from "react";
 import { useTranslation } from "react-i18next";
-import {useNavigate} from 'react-router-dom'
+import { useNavigate } from "react-router-dom";
 
 export default function Requests() {
-  let navigate =useNavigate()
+  let navigate = useNavigate();
   const { t } = useTranslation();
-  const onclick=()=>{
-    navigate()
-  }
+  const onclick = (path) => {
+    navigate(path, { replace: true });
+  };
 
   return (
     <Card>
@@ -26,8 +26,13 @@ export default function Requests() {
           <ListItemText primary={t("IPC")} />
         </ListItem>
         <Divider />
-        <ListItem button >
-          <ListItemText primary={t("vocation")} />
+        <ListItem button>
+          <ListItemText
+            primary={t("vocation")}
+            onClick={() => {
+              onclick("/request/vocationCurrentRequirements");
+            }}
+          />
         </ListItem>
         <Divider />
         <ListItem button>

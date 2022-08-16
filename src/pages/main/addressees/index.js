@@ -1,7 +1,7 @@
 import React from "react";
 import { Card, Typography, Box } from "@mui/material";
 import { useTranslation } from "react-i18next";
-import Controls from "../../../components/mainControls";
+import Controls from "../../../components/controls";
 import { places } from "../../../DB/place";
 
 export default function Addressees(props) {

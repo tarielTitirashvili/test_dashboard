@@ -4,7 +4,7 @@ import { useTranslation } from "react-i18next";
 import { ADMIN } from "../../redux/constants";
 import CloseIcon from "@mui/icons-material/Close";
 import modalStyle from "../../assets/modalStyle";
-import Controls from "../mainControls";
+import Controls from "../controls";
 
 export default function AddTableRow(props) {
   const { role, columns, setRow, row } = props;

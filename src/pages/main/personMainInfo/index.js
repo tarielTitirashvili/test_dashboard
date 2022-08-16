@@ -4,7 +4,7 @@ import { useTranslation } from "react-i18next";
 import moment from "moment";
 import { countries } from "../../../DB/country";
 import { places } from "../../../DB/place";
-import Controls from "../../../components/mainControls";
+import Controls from "../../../components/controls";
 import { maritalStatus } from "../../../DB/maritalStatus";
 
 export default function PersonMainInfo(props) {

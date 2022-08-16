@@ -2,7 +2,6 @@ import React from "react";
 import { DataGrid } from "@mui/x-data-grid";
 import { Card, Typography } from "@mui/material";
 import { useTranslation } from "react-i18next";
-import moment from "moment";
 import AddTableRow from "../../../components/addTableRow";
 
 const columns = [

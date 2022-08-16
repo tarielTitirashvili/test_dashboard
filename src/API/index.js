@@ -24,3 +24,6 @@ export const getVocationAPI = async () => {
 export const getVocationStatisticsAPI = async () => {
   return await instance.get("getVocationStatistics");
 };
+export const getVocationCurrentRequirementsAPI = async () => {
+  return await instance.get("getLeaveCurrentRequirements");
+};
