@@ -19,20 +19,24 @@ export default function Requests() {
 
   return (
     <Card>
-      <Typography variant="h5">{t("requestAdd")}</Typography>
-      <Typography variant="h6">{t("requestType")}</Typography>
+      <Typography m={2} variant="h5">
+        {t("requestAdd")}
+      </Typography>
+      <Typography m={2} variant="h6">
+        {t("requestType")}
+      </Typography>
       <List component="nav" aria-label="mailbox folders">
         <ListItem button>
           <ListItemText primary={t("IPC")} />
         </ListItem>
         <Divider />
-        <ListItem button>
-          <ListItemText
-            primary={t("vocation")}
-            onClick={() => {
-              onclick("/request/vocationCurrentRequirements");
-            }}
-          />
+        <ListItem
+          onClick={() => {
+            onclick("/request/vocationCurrentRequirements");
+          }}
+          button
+        >
+          <ListItemText primary={t("vocation")} />
         </ListItem>
         <Divider />
         <ListItem button>

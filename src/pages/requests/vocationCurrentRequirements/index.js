@@ -1,11 +1,11 @@
+import React from "react";
 import { Box, Button } from "@mui/material";
 import { DataGrid } from "@mui/x-data-grid";
-import React from "react";
 import moment from "moment";
 import { useNavigate } from "react-router-dom";
 import { connect } from "react-redux";
 import { getVocationCurrentRequirementsAPI } from "../../../API";
-import AddTableRow from "../../../components/addTableRow";
+import { useTranslation } from "react-i18next";
 
 const columns = [
   { field: "id", headerName: "ID", width: 90, editable: false, hide: true },
@@ -72,6 +72,7 @@ function VocationCurrentRequirements(props) {
     setData(serverDate.data);
   };
   let navigate = useNavigate();
+  const { t } = useTranslation();
 
   const onClick = (path) => {
     navigate(path, { replace: true });
@@ -89,7 +90,7 @@ function VocationCurrentRequirements(props) {
           }}
           variant="contained"
         >
-          მოთხოვნის დამატება
+          {t("AddRequest")}
         </Button>
         <Button
           onClick={() => {
@@ -97,7 +98,7 @@ function VocationCurrentRequirements(props) {
           }}
           variant="contained"
         >
-          შვებულების სტატისტიკა
+          {t("vocationStatistics")}
         </Button>
       </Box>
       <Box sx={{ display: "flex", justifyContent: "center" }}>

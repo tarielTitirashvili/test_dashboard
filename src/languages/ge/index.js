@@ -11,7 +11,7 @@ const GEORGIAN_TEXTS_FOR_APP = {
   currentTrainings: "მიმდინარე სემინარები",
   passedTrainings: "გავლილი სემინარები",
   testResults: "ტესტის შედეგები",
-  request: "მოთხოვნები",
+  request: "მოთხოვნა",
   HRDocs: "HR დოკუმენტაცია",
   MidtermEvaluation: "შუალედური შეფასება",
   fullName: "სრული სახელი",
@@ -59,7 +59,9 @@ const GEORGIAN_TEXTS_FOR_APP = {
   unpaidLeave: "აუნაზღაურებელი შვებულება",
   otherLeave: "სხვა შვებულება",
   additionalBillableHours: "დამატებითი დრიცხული საათები",
-  vocationType: 'შვებულების ტიპი'
+  vocationType: 'შვებულების ტიპი',
+  AddRequest: "მოთხოვნის დამატება",
+  vocationStatistics: 'შვებულების სტატისტიკა',
 };
 
 export default GEORGIAN_TEXTS_FOR_APP;

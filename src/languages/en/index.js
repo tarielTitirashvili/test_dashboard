@@ -59,8 +59,9 @@ const ENGLISH_TEXTS_FOR_APP = {
   unpaidLeave: "Unpaid Leave",
   otherLeave: "Other Leave",
   additionalBillableHours: "Additional Billable Hours",
-  vocationType: 'Vocation Type'
-
+  vocationType: "Vocation Type",
+  AddRequest: "Add Request",
+  vocationStatistics: 'Vocation Statistics'
 };
 
 export default ENGLISH_TEXTS_FOR_APP;
