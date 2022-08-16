@@ -8,27 +8,26 @@ import { Box, Button, Typography } from "@mui/material";
 import Loading from "../../../components/loading";
 
 export default function SecretVocationStatistics() {
-  const [loading, setLoading] = React.useState(false);
+  const [loading, setLoading] = React.useState(true);
   const [vocation, setVocation] = React.useState([]);
   const [vocationStatistics, setVocationStatistics] = React.useState([]);
   const { t } = useTranslation();
 
-  const getVocationStatistics = async () => {
-    const data = await getVocationStatisticsAPI();
-    console.log("statistics", data.data);
-    setVocationStatistics(data.data);
-  };
-  const getVocations = async () => {
-    const data = await getVocationAPI();
-    setVocation(data.data)
-    console.log(data.data);
+  const lazyPromise = () => {
+    return new Promise((resolve) => {
+      setTimeout(async () => {
+        const data = await getVocationAPI();
+        resolve({ data });
+      }, 3000);
+    });
   };
 
   React.useEffect(() => {
-    getVocationStatistics();
-    setTimeout(() => {
-      getVocations();
-    }, 3000);
+    Promise.all([lazyPromise(), getVocationStatisticsAPI()]).then((values) => {
+      setVocation(values[0].data.data);
+      setVocationStatistics(values[1].data);
+      setLoading(false);
+    });
   }, []);
   let navigate = useNavigate();
 
