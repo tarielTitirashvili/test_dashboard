@@ -3,7 +3,10 @@ import { connect } from "react-redux";
 import { DataGrid } from "@mui/x-data-grid";
 import moment from "moment";
 import { Box } from "@mui/material";
-import { getPassedTrainingsThunk } from "../../../redux/actions/passedTrainingsActions";
+import {
+  getPassedTrainingsThunk,
+  setPassedTrainingsOnSaveAC,
+} from "../../../redux/actions/passedTrainingsActions";
 import AddTableRow from "../../../components/addTableRow";
 
 const columns = [
@@ -43,7 +46,7 @@ const columns = [
 ];
 
 function PassedTrainings(props) {
-  const { getPassedTrainingsThunk, passedTrainings, role } = props;
+  const { getPassedTrainingsThunk, passedTrainings, role, setPassedTrainingsOnSaveAC } = props;
   React.useEffect(() => {
     getPassedTrainingsThunk();
   }, []);
@@ -65,6 +68,9 @@ function PassedTrainings(props) {
       });
     }
   };
+  const onSave=()=>{
+    setPassedTrainingsOnSaveAC({...row, id: passedTrainings[passedTrainings.length-1].id+1})
+  }
   return (
     <Box sx={{ display: "flex", justifyContent: "center" }}>
       <Box width={"100%"} maxWidth={"1080px"}>
@@ -73,6 +79,7 @@ function PassedTrainings(props) {
           columns={columns}
           role={role}
           setRow={onRowChange}
+          onSave={onSave}
         />
         <DataGrid
           className="MuiDataGrid-virtualScrollerContent--overflowed"
@@ -99,6 +106,9 @@ const mapDispatchToProps = (dispatch) => {
   return {
     getPassedTrainingsThunk() {
       dispatch(getPassedTrainingsThunk());
+    },
+    setPassedTrainingsOnSaveAC(training) {
+      dispatch(setPassedTrainingsOnSaveAC(training));
     },
   };
 };
