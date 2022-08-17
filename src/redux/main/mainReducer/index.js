@@ -1,5 +1,5 @@
 import {
-  GET_PASSED_USER_INFO_FROM_API,
+  SET_PASSED_USER_INFO_FROM_API,
   SET_USER_DATA_DETAILS,
   SET_USER_DATA_TO_INITIAL_DATA,
   SET_CORPORATE_PHONES_DATA,
@@ -7,7 +7,6 @@ import {
 } from "../../constants";
 
 const initState = {
-  person: [],
   basic: {
     Citizenship: "",
     OjCondition: "",
@@ -47,11 +46,12 @@ const initState = {
     serviceGroup: "",
     corporateNumberOfRelatives: [],
   },
+  test: "",
 };
 
 export default function mainReducer(state = initState, action) {
   switch (action.type) {
-    case GET_PASSED_USER_INFO_FROM_API:
+    case SET_PASSED_USER_INFO_FROM_API:
       return {
         ...state,
         basic: {

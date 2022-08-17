@@ -1,27 +1,24 @@
 import {
-  GET_PASSED_USER_INFO_FROM_API,
   SET_USER_DATA_DETAILS,
   SET_USER_DATA_TO_INITIAL_DATA,
   SET_CORPORATE_PHONES_DATA,
   SET_CORPORATE_NUMBER_OF_RELATIVES,
+  SET_PASSED_USER_INFO_FROM_API,
+  GET_DATA_FROM_API,
 } from "../../constants";
-import { getPersonDataAPI } from "../../../API";
 
-export const getPassedPersonDataThunk = () => {
-  return (dispatch) => {
-    getPersonDataAPI().then((data) => {
-      dispatch(setPassedPersonDataAC(data.data[0]));
-    });
-  };
-};
+export const setPersonInfoAC =(person)=>({
+  type:SET_PASSED_USER_INFO_FROM_API,
+  person
+})
 
-const setPassedPersonDataAC = (person) => ({
-  type: GET_PASSED_USER_INFO_FROM_API,
-  person,
-});
 export const setPersonDataToInitialAC = () => ({
   type: SET_USER_DATA_TO_INITIAL_DATA,
 });
+
+export const getDataFromAPIAC=()=>({
+  type:GET_DATA_FROM_API,
+})
 
 export const setCorporatePhonesAC = (newValue) => ({
   type: SET_CORPORATE_PHONES_DATA,

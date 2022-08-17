@@ -1,4 +1,4 @@
-import { GET_TESTS_FROM_API, SET_NEW_TEST_ON_SAVE } from "../../constants";
+import { SET_NEW_TEST_ON_SAVE, SET_TESTS_FROM_API_TO_STATE } from "../../constants";
 
 const initState = {
   tests: [],
@@ -6,7 +6,7 @@ const initState = {
 
 export default function testsResultsReducer(state = initState, action) {
   switch (action.type) {
-    case GET_TESTS_FROM_API:
+    case SET_TESTS_FROM_API_TO_STATE:
       return {
         ...state,
         tests: action.tests,

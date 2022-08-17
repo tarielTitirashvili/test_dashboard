@@ -3,12 +3,12 @@ import { connect } from "react-redux";
 import { Grid } from "@mui/material";
 import { useTranslation } from "react-i18next";
 import {
-  getPassedPersonDataThunk,
   setUserDataDetailAC,
   setPersonDataToInitialAC,
   setCorporateNumberOfRelativesAC,
   setCorporatePhonesAC,
-} from "../../redux/actions/mainActions";
+  getDataFromAPIAC,
+} from "../../redux/main/mainActions";
 import PersonMainInfo from "./personMainInfo";
 import IDInfo from "./IDinfo";
 import Addressees from "./addressees";
@@ -18,7 +18,7 @@ import CorporatePhones from "./corporatePhones";
 function Main(props) {
   const {
     setUserDataDetailAC,
-    getPassedPersonDataThunk,
+    getDataFromAPIAC,
     role,
     basic,
     identity,
@@ -32,7 +32,7 @@ function Main(props) {
   } = props;
   const { t } = useTranslation();
   React.useEffect(() => {
-    getPassedPersonDataThunk();
+    getDataFromAPIAC();
     return () => {
       setPersonDataToInitialAC();
     };
@@ -106,9 +106,6 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    getPassedPersonDataThunk() {
-      dispatch(getPassedPersonDataThunk());
-    },
     setUserDataDetailAC(value, name, objName) {
       dispatch(setUserDataDetailAC(value, name, objName));
     },
@@ -118,9 +115,12 @@ const mapDispatchToProps = (dispatch) => {
     setCorporatePhonesAC(newValue) {
       dispatch(setCorporatePhonesAC(newValue));
     },
-    setCorporateNumberOfRelativesAC(data){
-      dispatch(setCorporateNumberOfRelativesAC(data))
-    }
+    setCorporateNumberOfRelativesAC(data) {
+      dispatch(setCorporateNumberOfRelativesAC(data));
+    },
+    getDataFromAPIAC() {
+      dispatch(getDataFromAPIAC());
+    },
   };
 };
 

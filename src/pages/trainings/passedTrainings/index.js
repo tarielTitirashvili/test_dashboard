@@ -4,9 +4,9 @@ import { DataGrid } from "@mui/x-data-grid";
 import moment from "moment";
 import { Box } from "@mui/material";
 import {
-  getPassedTrainingsThunk,
+  getPassedTrainingsAC,
   setPassedTrainingsOnSaveAC,
-} from "../../../redux/actions/passedTrainingsActions";
+} from "../../../redux/passedTrainings/passedTrainingsActions";
 import AddTableRow from "../../../components/addTableRow";
 
 const columns = [
@@ -46,9 +46,14 @@ const columns = [
 ];
 
 function PassedTrainings(props) {
-  const { getPassedTrainingsThunk, passedTrainings, role, setPassedTrainingsOnSaveAC } = props;
+  const {
+    getPassedTrainingsAC,
+    passedTrainings,
+    role,
+    setPassedTrainingsOnSaveAC,
+  } = props;
   React.useEffect(() => {
-    getPassedTrainingsThunk();
+    getPassedTrainingsAC();
   }, []);
   const [row, setRow] = React.useState({
     training: "",
@@ -68,9 +73,12 @@ function PassedTrainings(props) {
       });
     }
   };
-  const onSave=()=>{
-    setPassedTrainingsOnSaveAC({...row, id: passedTrainings[passedTrainings.length-1].id+1})
-  }
+  const onSave = () => {
+    setPassedTrainingsOnSaveAC({
+      ...row,
+      id: passedTrainings[passedTrainings.length - 1].id + 1,
+    });
+  };
   return (
     <Box sx={{ display: "flex", justifyContent: "center" }}>
       <Box width={"100%"} maxWidth={"1080px"}>
@@ -104,11 +112,11 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    getPassedTrainingsThunk() {
-      dispatch(getPassedTrainingsThunk());
-    },
     setPassedTrainingsOnSaveAC(training) {
       dispatch(setPassedTrainingsOnSaveAC(training));
+    },
+    getPassedTrainingsAC() {
+      dispatch(getPassedTrainingsAC());
     },
   };
 };

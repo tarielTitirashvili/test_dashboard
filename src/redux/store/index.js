@@ -1,10 +1,11 @@
 import { createStore, combineReducers, applyMiddleware, compose } from "redux";
-import thunk from "redux-thunk";
-import passedTrainingsReducer from "../reducers/passedTrainingsReducers";
-import mainReducer from "../reducers/mainReducer";
-import testsResultsReducer from "../reducers/testResultsReducers";
-import trainingsReducer from "../reducers/trainingsReducer";
-import authReducer from "../reducers/authReducer";
+import passedTrainingsReducer from "../passedTrainings/passedTrainingsReducers";
+import mainReducer from "../main/mainReducer";
+import testsResultsReducer from "../testResults/testResultsReducers";
+import trainingsReducer from "../trainings/trainingsReducer";
+import authReducer from "../auth/authReducer";
+import createSagaMiddleware from "redux-saga";
+import rootSaga from '../rootSaga/rootSaga'
 
 let reducers = combineReducers({
   trainings: trainingsReducer,
@@ -14,6 +15,14 @@ let reducers = combineReducers({
   auth: authReducer,
 });
 
+const sagaMiddleWare = createSagaMiddleware();
+
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-const store = createStore(reducers, composeEnhancers(applyMiddleware(thunk)));
+const store = createStore(
+  reducers,
+  composeEnhancers(applyMiddleware(sagaMiddleWare))
+);
+
+sagaMiddleWare.run(rootSaga)
 export default store;
+

@@ -4,9 +4,9 @@ import { Box } from "@mui/material";
 import { DataGrid } from "@mui/x-data-grid";
 import moment from "moment";
 import {
-  getTestsThunk,
+  getTestResultsAC,
   setNewTestOnSaveAC,
-} from "../../../redux/actions/testResultsActions";
+} from "../../../redux/testResults/testResultsActions";
 import AddTableRow from "../../../components/addTableRow";
 
 const columns = [
@@ -37,9 +37,9 @@ const columns = [
 ];
 
 function TestResults(props) {
-  const { setNewTestOnSaveAC, getTestsThunk, tests, role } = props;
+  const { setNewTestOnSaveAC, getTestResultsAC, tests, role } = props;
   React.useEffect(() => {
-    getTestsThunk();
+    getTestResultsAC()
   }, []);
   const [row, setRow] = React.useState({
     test: "",
@@ -95,12 +95,12 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    getTestsThunk() {
-      dispatch(getTestsThunk());
-    },
     setNewTestOnSaveAC(newTest) {
       dispatch(setNewTestOnSaveAC(newTest));
     },
+    getTestResultsAC(){
+      dispatch(getTestResultsAC())
+    }
   };
 };
 

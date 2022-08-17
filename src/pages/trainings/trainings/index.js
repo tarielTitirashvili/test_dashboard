@@ -4,7 +4,7 @@ import { DataGrid } from "@mui/x-data-grid";
 import { Box } from "@mui/material";
 import moment from "moment";
 import Schedule from "./trainingsSchedule";
-import { getTrainingsThunk } from "../../../redux/actions/trainingsActions";
+import { getTrainingsAC } from "../../../redux/trainings/trainingsActions";
 
 const columns = [
   { field: "id", headerName: "ID", width: 90, editable: false, hide: true },
@@ -59,10 +59,10 @@ const columns = [
 ];
 
 function Trainings(props) {
-  const { getTrainingsThunk, trainings } = props;
+  const { trainings, getTrainingsAC } = props;
 
   React.useEffect(() => {
-    getTrainingsThunk();
+    getTrainingsAC();
   }, []);
   return (
     <Box sx={{ display: "flex", justifyContent: "center" }}>
@@ -89,8 +89,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    getTrainingsThunk() {
-      dispatch(getTrainingsThunk());
+    getTrainingsAC() {
+      dispatch(getTrainingsAC());
     },
   };
 };
