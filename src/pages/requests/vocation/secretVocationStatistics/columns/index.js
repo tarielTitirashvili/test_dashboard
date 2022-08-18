@@ -49,7 +49,8 @@ export const columnsStatistics = [
     minWidth: 160,
     type: "string",
     editable: true,
-  },  {
+  },
+  {
     field: "AdditionalHoursRemaining",
     headerName: "დარჩენილი დამატებითი საათები",
     flex: 0.8,
@@ -77,8 +78,7 @@ export const columnsVocations = [
     minWidth: 150,
     flex: 0.5,
     editable: false,
-    renderCell: (params) =>
-    moment(params.row.start, "DD/MM/YYYY").format("DD/MM/YYYY"),
+    renderCell: (params) =>moment(params.row.start).format("DD/MM/YYYY"),
   },
   {
     field: "end",
@@ -87,8 +87,7 @@ export const columnsVocations = [
     flex: 0.4,
     minWidth: 120,
     editable: false,
-    renderCell: (params) =>
-      moment(params.row.end, "DD/MM/YYYY").format("DD/MM/YYYY"),
+    renderCell: (params) =>moment(params.row.end).format("DD/MM/YYYY"),
   },
   {
     field: "usedDays",

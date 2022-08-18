@@ -22,7 +22,7 @@ const columns = [
     type: "date",
     editable: false,
     renderCell: (params) =>
-      moment(params.row.date, "YYYY-MM-DDThh:mm:ss").format("DD/MM/YYYY"),
+      moment(params.row.date).format("DD/MM/YYYY"),
   },
   {
     field: "reqType",
@@ -41,7 +41,7 @@ const columns = [
     minWidth: 120,
     editable: false,
     renderCell: (params) =>
-      moment(params.row.date, "YYYY-MM-DDThh:mm:ss").format("DD/MM/YYYY"),
+      moment(params.row.date).format("DD/MM/YYYY"),
   },
   {
     field: "endDate",
@@ -51,7 +51,7 @@ const columns = [
     type: "date",
     editable: false,
     renderCell: (params) =>
-      moment(params.row.date, "YYYY-MM-DDThh:mm:ss").format("DD/MM/YYYY"),
+      moment(params.row.date).format("DD/MM/YYYY"),
   },
   {
     field: "status",
@@ -88,7 +88,6 @@ function VocationCurrentRequirements(props) {
     status: "",
     details: "",
   });
-
   const onRowChange = (e) => {
     if (e.target) {
       const { name, value } = e.target;
@@ -101,10 +100,11 @@ function VocationCurrentRequirements(props) {
       });
     }
   };
-  console.log(vocationCurrentRequests)
   const onSave = () => {
-    console.log(vocationCurrentRequests[vocationCurrentRequests.length-1].id+1)
-    setNewRequestOnSaveAC({...row, id: vocationCurrentRequests[vocationCurrentRequests.length-1].id+1});
+    setNewRequestOnSaveAC({
+      ...row,
+      id: vocationCurrentRequests[vocationCurrentRequests.length - 1].id + 1,
+    });
   };
 
   const onClick = (path) => {

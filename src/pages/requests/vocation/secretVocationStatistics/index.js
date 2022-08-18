@@ -1,33 +1,20 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
-import { getVocationAPI, getVocationStatisticsAPI } from "../../../../API";
 import { DataGrid } from "@mui/x-data-grid";
 import { columnsStatistics, columnsVocations } from "./columns";
 import { useNavigate } from "react-router-dom";
 import { Box, Button, Typography } from "@mui/material";
 import Loading from "../../../../components/loading";
+import { connect } from "react-redux";
+import { getVocationStatisticsAC } from "../../../../redux/requests/vocation/vocationStatistics/vocationStatisticsActions";
 
-export default function SecretVocationStatistics() {
-  const [loading, setLoading] = React.useState(true);
-  const [vocation, setVocation] = React.useState([]);
-  const [vocationStatistics, setVocationStatistics] = React.useState([]);
+function SecretVocationStatistics(props) {
+  const { vocations, vocationStatistics, getVocationStatisticsAC } = props;
+  const [loading, setLoading] = React.useState(false);
   const { t } = useTranslation();
 
-  const lazyPromise = () => {
-    return new Promise((resolve) => {
-      setTimeout(async () => {
-        const data = await getVocationAPI();
-        resolve(data);
-      }, 100);
-    });
-  };
-
   React.useEffect(() => {
-    Promise.all([lazyPromise(), getVocationStatisticsAPI()]).then((values) => {
-      setVocation(values[0].data);
-      setVocationStatistics(values[1].data);
-      setLoading(false);
-    });
+    getVocationStatisticsAC();
   }, []);
   let navigate = useNavigate();
 
@@ -68,7 +55,7 @@ export default function SecretVocationStatistics() {
         <Box maxWidth={"1600px"} width={"100%"}>
           <DataGrid
             className="MuiDataGrid-virtualScrollerContent--overflowed"
-            rows={vocation}
+            rows={vocations}
             columns={columnsVocations}
             pageSize={15}
             autoHeight
@@ -80,3 +67,23 @@ export default function SecretVocationStatistics() {
     </Box>
   );
 }
+
+const mapStateToProps = (state) => {
+  return {
+    vocations: state.requests.vocationStatistics.vocations,
+    vocationStatistics: state.requests.vocationStatistics.vocationStatistics,
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    getVocationStatisticsAC() {
+      dispatch(getVocationStatisticsAC());
+    },
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(SecretVocationStatistics);

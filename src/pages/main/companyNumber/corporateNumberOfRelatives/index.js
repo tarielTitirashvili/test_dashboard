@@ -10,7 +10,7 @@ const columns = [
     headerName: "სახელი, გვარი",
     type: "string",
     flex: 1,
-    minWidth: 250,
+    minWidth: 200,
     editable: true,
   },
   {
@@ -18,7 +18,7 @@ const columns = [
     headerName: "ტელეფონი",
     type: "number",
     flex: 1,
-    minWidth: 150,
+    minWidth: 120,
     editable: false,
   },
   {

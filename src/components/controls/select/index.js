@@ -12,7 +12,6 @@ const MenuProps = {
 };
 
 export default function Select(props) {
-  console.log(props);
   const { name, label, value, onChange, options, margin } = props;
   return (
     <Box>

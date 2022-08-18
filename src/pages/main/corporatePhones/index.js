@@ -11,7 +11,7 @@ const columns = [
     headerName: "Firstname",
     type: "string",
     flex: 1,
-    minWidth: 250,
+    minWidth: 100,
     editable: true,
   },
   {
@@ -27,7 +27,7 @@ const columns = [
     headerName: "Relation",
     type: "string",
     flex: 1,
-    minWidth: 500,
+    minWidth: 450,
     editable: false,
   },
   {
