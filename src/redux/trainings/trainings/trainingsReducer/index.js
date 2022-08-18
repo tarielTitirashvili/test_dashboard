@@ -1,4 +1,4 @@
-import {  SET_TRAININGS_FROM_API_TO_STATE } from "../../constants";
+import { SET_TRAININGS_FROM_API_TO_STATE } from "../../../constants";
 
 const initState = {
   trainings: [],

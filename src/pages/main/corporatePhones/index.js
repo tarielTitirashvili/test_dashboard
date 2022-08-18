@@ -61,7 +61,6 @@ export default function CorporatePhones(props) {
     }
   };
   const onSave=()=>{
-    console.log({...row, id: corporatePhonesData[corporatePhonesData.length-1].id+1})
     setCorporatePhonesAC({...row, id: corporatePhonesData[corporatePhonesData.length-1].id+1})
   }
   return (

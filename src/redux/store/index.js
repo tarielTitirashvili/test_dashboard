@@ -1,11 +1,12 @@
 import { createStore, combineReducers, applyMiddleware, compose } from "redux";
-import passedTrainingsReducer from "../passedTrainings/passedTrainingsReducers";
+import passedTrainingsReducer from "../trainings/passedTrainings/passedTrainingsReducers";
 import mainReducer from "../main/mainReducer";
-import testsResultsReducer from "../testResults/testResultsReducers";
-import trainingsReducer from "../trainings/trainingsReducer";
+import testsResultsReducer from "../trainings/testResults/testResultsReducers";
+import trainingsReducer from "../trainings/trainings/trainingsReducer";
 import authReducer from "../auth/authReducer";
 import createSagaMiddleware from "redux-saga";
-import rootSaga from '../rootSaga/rootSaga'
+import rootSaga from "../rootSaga/rootSaga";
+import requestsReducers from "../requests";
 
 let reducers = combineReducers({
   trainings: trainingsReducer,
@@ -13,6 +14,7 @@ let reducers = combineReducers({
   passedTrainings: passedTrainingsReducer,
   main: mainReducer,
   auth: authReducer,
+  requests: requestsReducers,
 });
 
 const sagaMiddleWare = createSagaMiddleware();
@@ -23,6 +25,5 @@ const store = createStore(
   composeEnhancers(applyMiddleware(sagaMiddleWare))
 );
 
-sagaMiddleWare.run(rootSaga)
+sagaMiddleWare.run(rootSaga);
 export default store;
-

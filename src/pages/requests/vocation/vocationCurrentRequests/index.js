@@ -4,8 +4,13 @@ import { DataGrid } from "@mui/x-data-grid";
 import moment from "moment";
 import { useNavigate } from "react-router-dom";
 import { connect } from "react-redux";
-import { getVocationCurrentRequirementsAPI } from "../../../../API";
 import { useTranslation } from "react-i18next";
+import {
+  getCurrentRequestsAC,
+  setNewRequestOnSaveAC,
+} from "../../../../redux/requests/vocation/vocationCurrentRequests/vocationCurrentRequestsActions";
+import AddTableRow from "../../../../components/addTableRow";
+import VOCATION_TYPES from "../../../../DB/vocationTypes";
 
 const columns = [
   { field: "id", headerName: "ID", width: 90, editable: false, hide: true },
@@ -17,12 +22,14 @@ const columns = [
     type: "date",
     editable: false,
     renderCell: (params) =>
-      moment(params.row.date, "DD/MM/YYYY").format("DD/MM/YYYY"),
+      moment(params.row.date, "YYYY-MM-DDThh:mm:ss").format("DD/MM/YYYY"),
   },
   {
     field: "reqType",
     headerName: "მოთხოვნის ტიპი",
     minWidth: 150,
+    name: "options",
+    options: VOCATION_TYPES,
     flex: 1,
     editable: false,
   },
@@ -34,7 +41,7 @@ const columns = [
     minWidth: 120,
     editable: false,
     renderCell: (params) =>
-      moment(params.row.date, "DD/MM/YYYY").format("DD/MM/YYYY"),
+      moment(params.row.date, "YYYY-MM-DDThh:mm:ss").format("DD/MM/YYYY"),
   },
   {
     field: "endDate",
@@ -44,7 +51,7 @@ const columns = [
     type: "date",
     editable: false,
     renderCell: (params) =>
-      moment(params.row.date, "DD/MM/YYYY").format("DD/MM/YYYY"),
+      moment(params.row.date, "YYYY-MM-DDThh:mm:ss").format("DD/MM/YYYY"),
   },
   {
     field: "status",
@@ -65,21 +72,46 @@ const columns = [
 ];
 
 function VocationCurrentRequirements(props) {
-  const { role } = props;
-  const [data, setData] = React.useState([]);
-  const getData = async () => {
-    const serverDate = await getVocationCurrentRequirementsAPI();
-    setData(serverDate.data);
-  };
+  const {
+    role,
+    getCurrentRequestsAC,
+    vocationCurrentRequests,
+    setNewRequestOnSaveAC,
+  } = props;
   let navigate = useNavigate();
   const { t } = useTranslation();
+  const [row, setRow] = React.useState({
+    date: `${moment(Date.now()).format("YYYY-MM-DDThh:mm:ss")}`,
+    reqType: VOCATION_TYPES[0].value,
+    startDate: `${moment(Date.now()).format("YYYY-MM-DDThh:mm:ss")}`,
+    endDate: `${moment(Date.now()).format("YYYY-MM-DDThh:mm:ss")}`,
+    status: "",
+    details: "",
+  });
+
+  const onRowChange = (e) => {
+    if (e.target) {
+      const { name, value } = e.target;
+      setRow({ ...row, [`${name}`]: value });
+    } else {
+      const { name, value } = e;
+      setRow({
+        ...row,
+        [`${name}`]: moment(value, "DD/MM/YYYY").format("YYYY-MM-DDThh:mm:ss"),
+      });
+    }
+  };
+  console.log(vocationCurrentRequests)
+  const onSave = () => {
+    console.log(vocationCurrentRequests[vocationCurrentRequests.length-1].id+1)
+    setNewRequestOnSaveAC({...row, id: vocationCurrentRequests[vocationCurrentRequests.length-1].id+1});
+  };
 
   const onClick = (path) => {
     navigate(path);
   };
-  console.log(data);
   React.useEffect(() => {
-    getData();
+    getCurrentRequestsAC();
   }, []);
   return (
     <>
@@ -101,11 +133,18 @@ function VocationCurrentRequirements(props) {
           {t("vocationStatistics")}
         </Button>
       </Box>
+      <AddTableRow
+        role={role}
+        columns={columns}
+        row={row}
+        setRow={onRowChange}
+        onSave={onSave}
+      />
       <Box sx={{ display: "flex", justifyContent: "center" }}>
         <Box maxWidth={"1600px"} width={"100%"}>
           <DataGrid
             className="MuiDataGrid-virtualScrollerContent--overflowed"
-            rows={data}
+            rows={vocationCurrentRequests}
             columns={columns}
             pageSize={15}
             autoHeight
@@ -121,7 +160,20 @@ function VocationCurrentRequirements(props) {
 const mapStateToProps = (state) => {
   return {
     role: state.auth.role,
+    vocationCurrentRequests: state.requests.vocation.vocationCurrentRequests,
   };
 };
-
-export default connect(mapStateToProps)(VocationCurrentRequirements);
+const mapDispatchToProps = (dispatch) => {
+  return {
+    getCurrentRequestsAC() {
+      dispatch(getCurrentRequestsAC());
+    },
+    setNewRequestOnSaveAC(newRequest) {
+      dispatch(setNewRequestOnSaveAC(newRequest));
+    },
+  };
+};
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(VocationCurrentRequirements);

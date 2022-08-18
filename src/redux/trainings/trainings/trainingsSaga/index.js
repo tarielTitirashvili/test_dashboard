@@ -1,8 +1,6 @@
 import { call, put, takeLeading } from "redux-saga/effects";
-import { getTrainingsAPI } from "../../../API";
-import {
-  GET_TRAININGS_FROM_API,
-} from "../../constants";
+import { getTrainingsAPI } from "../../../../API";
+import { GET_TRAININGS_FROM_API } from "../../../constants";
 import { setTrainingsAC } from "../trainingsActions";
 
 export function* getTrainingsFromAPIWorker() {

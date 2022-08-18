@@ -12,14 +12,15 @@ const MenuProps = {
 };
 
 export default function Select(props) {
-  const { name, label, value, onChange, options } = props;
+  console.log(props);
+  const { name, label, value, onChange, options, margin } = props;
   return (
     <Box>
       <Typography>{label}</Typography>
       <MuiSelect
+        sx={{ margin: margin ? margin : "0", width: "230px" }}
         input={
           <OutlinedInput
-            sx={{ width: "230px" }}
             size="small"
             name={name}
             placeholder={label}

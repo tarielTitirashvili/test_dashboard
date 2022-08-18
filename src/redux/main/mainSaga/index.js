@@ -21,7 +21,6 @@ export function* setPersonDataToInitialWorker() {
 }
 
 export function* setCorporatePhoneWorker(newNumber) {
-  console.log(newNumber);
   yield put(setCorporatePhonesAC());
 }
 

@@ -1,7 +1,7 @@
 import {
   SET_PASSED_TRAININGS_FROM_API_TO_STATE,
   SET_PASSED_TRAININGS_ON_SAVE,
-} from "../../constants";
+} from "../../../constants";
 
 const initState = {
   passedTrainings: [],

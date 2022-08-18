@@ -27,7 +27,6 @@ export default function SecretVocationStatistics() {
       setVocation(values[0].data);
       setVocationStatistics(values[1].data);
       setLoading(false);
-      console.log(values)
     });
   }, []);
   let navigate = useNavigate();

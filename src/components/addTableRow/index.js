@@ -15,10 +15,10 @@ export default function AddTableRow(props) {
 
   if (role !== ADMIN) return;
 
-  const onSaveClicked=()=>{
-    onSave()
-    setOpen(false)
-  }
+  const onSaveClicked = () => {
+    onSave();
+    setOpen(false);
+  };
 
   return (
     <Box m={2}>
@@ -28,14 +28,14 @@ export default function AddTableRow(props) {
       <Modal open={open} onClose={handleClose}>
         <Box sx={modalStyle}>
           <Box sx={{ display: "flex", justifyContent: "space-between" }}>
-            <Typography variant="h6">დამატება</Typography>
+            <Typography variant="h6">{t("add")}</Typography>
             <IconButton onClick={handleClose}>
               <CloseIcon />
             </IconButton>
           </Box>
           <Box>
             {columns.map((column) => {
-              const { field, type, headerName } = column;
+              const { field, type, headerName, name, options } = column;
               if (field === "id") {
                 return;
               } else if (type === "date") {
@@ -47,6 +47,18 @@ export default function AddTableRow(props) {
                     value={row[field]}
                     name={field}
                     onChange={setRow}
+                  />
+                );
+              } else if (name === "options") {
+                return (
+                  <Controls.Select
+                    margin={2}
+                    key={`${field}${headerName}`}
+                    label={headerName}
+                    value={row[field]}
+                    name={field}
+                    onChange={setRow}
+                    options={options}
                   />
                 );
               } else if (!type || type === "number" || type === "string") {

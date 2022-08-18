@@ -6,7 +6,7 @@ import moment from "moment";
 import {
   getTestResultsAC,
   setNewTestOnSaveAC,
-} from "../../../redux/testResults/testResultsActions";
+} from "../../../redux/trainings/testResults/testResultsActions";
 import AddTableRow from "../../../components/addTableRow";
 
 const columns = [

@@ -32,7 +32,7 @@ export default function Requests() {
         <Divider />
         <ListItem
           onClick={() => {
-            onclick("/request/vocationCurrentRequirements");
+            onclick("/request/vocationCurrentRequests");
           }}
           button
         >

@@ -2,7 +2,7 @@ import {
   GET_PASSED_TRAININGS_FROM_API,
   SET_PASSED_TRAININGS_FROM_API_TO_STATE,
   SET_PASSED_TRAININGS_ON_SAVE,
-} from "../../constants";
+} from "../../../constants";
 
 export const setPassedTrainingsAC = (passedTrainings) => ({
   type: SET_PASSED_TRAININGS_FROM_API_TO_STATE,

@@ -12,7 +12,7 @@ import TestResults from "../pages/trainings/testResults";
 import Trainings from "../pages/trainings/trainings";
 import SecretVocation from "../pages/requests/vocation/secretVocation";
 import SecretVocationStatistics from "../pages/requests/vocation/secretVocationStatistics";
-import VocationCurrentRequirements from "../pages/requests/vocation/vocationCurrentRequirements";
+import VocationCurrentRequests from "../pages/requests/vocation/vocationCurrentRequests";
 
 export const routes = [
   {
@@ -76,7 +76,7 @@ export const routes = [
     path: "/request",
     title: "request",
     component: <Requests />,
-    secretChildren:[
+    secretChildren: [
       {
         path: "/vocation",
         title: "vocation",
@@ -88,11 +88,11 @@ export const routes = [
         component: <SecretVocationStatistics />,
       },
       {
-        path: "/vocationCurrentRequirements",
-        title: "vocationCurrentRequirements",
-        component: <VocationCurrentRequirements />,
+        path: "/vocationCurrentRequests",
+        title: "vocationCurrentRequests",
+        component: <VocationCurrentRequests />,
       },
-    ]
+    ],
   },
   {
     path: "/HRDocs",

@@ -6,7 +6,7 @@ import { Box } from "@mui/material";
 import {
   getPassedTrainingsAC,
   setPassedTrainingsOnSaveAC,
-} from "../../../redux/passedTrainings/passedTrainingsActions";
+} from "../../../redux/trainings/passedTrainings/passedTrainingsActions";
 import AddTableRow from "../../../components/addTableRow";
 
 const columns = [

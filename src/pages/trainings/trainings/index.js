@@ -4,7 +4,7 @@ import { DataGrid } from "@mui/x-data-grid";
 import { Box } from "@mui/material";
 import moment from "moment";
 import Schedule from "./trainingsSchedule";
-import { getTrainingsAC } from "../../../redux/trainings/trainingsActions";
+import { getTrainingsAC } from "../../../redux/trainings/trainings/trainingsActions";
 
 const columns = [
   { field: "id", headerName: "ID", width: 90, editable: false, hide: true },
@@ -60,7 +60,6 @@ const columns = [
 
 function Trainings(props) {
   const { trainings, getTrainingsAC } = props;
-
   React.useEffect(() => {
     getTrainingsAC();
   }, []);
