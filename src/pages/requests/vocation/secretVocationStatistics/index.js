@@ -9,8 +9,7 @@ import { connect } from "react-redux";
 import { getVocationStatisticsAC } from "../../../../redux/requests/vocation/vocationStatistics/vocationStatisticsActions";
 
 function SecretVocationStatistics(props) {
-  const { vocations, vocationStatistics, getVocationStatisticsAC } = props;
-  const [loading, setLoading] = React.useState(false);
+  const { vocations, vocationStatistics, getVocationStatisticsAC, loading } = props;
   const { t } = useTranslation();
 
   React.useEffect(() => {
@@ -72,6 +71,7 @@ const mapStateToProps = (state) => {
   return {
     vocations: state.requests.vocationStatistics.vocations,
     vocationStatistics: state.requests.vocationStatistics.vocationStatistics,
+    loading: state.requests.vocationStatistics.loading
   };
 };
 

@@ -1,8 +1,9 @@
-import { call, put, takeLeading, spawn } from "redux-saga/effects";
+import { all, call, put, takeLeading } from "redux-saga/effects";
 import { getVocationAPI, getVocationStatisticsAPI } from "../../../../../API";
 import changeTimeFormat from "../../../../../assets/changeTimeFormat";
 import { GET_VOCATION_STATISTICS_FROM_API } from "../../../../constants";
 import {
+  setLoadingStatus,
   setVocationsForVocationStatisticsPageAC,
   setVocationStatisticsAC,
 } from "../vocationStatisticsActions";
@@ -12,7 +13,7 @@ const lazyPromise = () => {
     setTimeout(async () => {
       const data = await getVocationAPI();
       resolve(data);
-    }, 2000);
+    }, 4000);
   });
 };
 
@@ -21,13 +22,12 @@ const lazyGetVocationStatisticsAPI = () => {
     setTimeout(async () => {
       const data = await getVocationStatisticsAPI();
       resolve(data);
-    }, 3000);
+    }, 5000);
   });
 };
 
 function* vocations() {
   const vocations = yield call(lazyPromise);
-  console.log(vocations);
   const formateValidations = vocations.data.map((vocation) => {
     return {
       ...vocation,
@@ -40,14 +40,13 @@ function* vocations() {
 
 function* vocationStatistics() {
   const vocationStatistics = yield call(lazyGetVocationStatisticsAPI);
-  console.log(vocationStatistics);
-
   yield put(setVocationStatisticsAC(vocationStatistics.data));
 }
 
 export function* getVocationStatisticsFromAPIWorker() {
-  yield spawn(vocations);
-  yield spawn(vocationStatistics);
+  yield put(setLoadingStatus(true));
+  yield all([call(vocations), call(vocationStatistics)]);
+  yield put(setLoadingStatus(false));
 }
 
 export default function* vocationStatisticsWatcher() {

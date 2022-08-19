@@ -1,5 +1,6 @@
 import {
   GET_VOCATION_STATISTICS_FROM_API,
+  SET_LOADING_STATUS_FOR_VOCATION_STATISTICS,
   SET_VOCATIONS_FROM_API_TO_STATE_VOCATION_STATISTICS_PAGE,
   SET_VOCATION_STATISTICS_DATE_ON_SAVE,
   SET_VOCATION_STATISTICS_FROM_API_TO_STATE,
@@ -22,4 +23,9 @@ export const setNewVocationStatisticsOnSaveAC = (newVocation) => ({
 
 export const getVocationStatisticsAC = () => ({
   type: GET_VOCATION_STATISTICS_FROM_API,
+});
+
+export const setLoadingStatus = (status) => ({
+  type: SET_LOADING_STATUS_FOR_VOCATION_STATISTICS,
+  status
 });

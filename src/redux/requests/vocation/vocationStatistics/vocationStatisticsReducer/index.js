@@ -1,4 +1,5 @@
 import {
+  SET_LOADING_STATUS_FOR_VOCATION_STATISTICS,
   SET_NEW_VOCATION_REQUEST_ON_SAVE,
   SET_VOCATIONS_FROM_API_TO_STATE_VOCATION_STATISTICS_PAGE,
   SET_VOCATION_STATISTICS_FROM_API_TO_STATE,
@@ -6,7 +7,8 @@ import {
 
 const initState = {
   vocationStatistics: [],
-  vocations: []
+  vocations: [],
+  loading: false,
 };
 
 export default function vocationStatisticsReducer(state = initState, action) {
@@ -25,6 +27,11 @@ export default function vocationStatisticsReducer(state = initState, action) {
       return {
         ...state,
         vocationStatistics: [...state.vocationStatistics, action.newVocation],
+      };
+    case SET_LOADING_STATUS_FOR_VOCATION_STATISTICS:
+      return {
+        ...state,
+        loading: action.status,
       };
     default:
       return state;
