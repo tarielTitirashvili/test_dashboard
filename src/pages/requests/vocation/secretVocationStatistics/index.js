@@ -71,7 +71,6 @@ const mapStateToProps = (state) => {
   return {
     vocations: state.requests.vocationStatistics.vocations,
     vocationStatistics: state.requests.vocationStatistics.vocationStatistics,
-    // loading: state.requests.vocationStatistics.loading,
     loading: state.loading.loading
   };
 };

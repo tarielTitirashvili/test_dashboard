@@ -30,7 +30,7 @@ function Main(props) {
     setPersonDataToInitialAC,
     setCorporatePhonesAC,
     setCorporateNumberOfRelativesAC,
-    loading
+    loading,
   } = props;
   const { t } = useTranslation();
   React.useEffect(() => {
@@ -48,9 +48,8 @@ function Main(props) {
       return;
     }
   };
-  console.log(loading)
 
-  if(loading)return <Loading width={"100%"} height={"calc(100vh - 112px)"}/>
+  if (loading) return <Loading width={"100%"} height={"calc(100vh - 112px)"} />;
 
   return (
     <Grid container justifyContent="center">
@@ -106,7 +105,7 @@ const mapStateToProps = (state) => {
     legalAddress: state.main.legalAddress,
     corporatePhones: state.main.corporatePhones,
     companyNumber: state.main.companyNumber,
-    loading: state.loading.loading
+    loading: state.loading.loading,
   };
 };
 

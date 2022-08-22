@@ -69,7 +69,14 @@ const ENGLISH_TEXTS_FOR_APP = {
   leader: "leader",
   comment: "comment",
   save: "save",
-  back: "back"
+  back: "back",
+  addRequestForBankCar: "add request for bank car",
+  bankCarDrivingLicense:"Driving license for bank Car",
+  contractWarning:"By checking the box, you agree to the risks set forth in this Agreement",
+  readAgreement: "Agreement",
+  drivingLicenseId: "driving License Id",
+  IssuanceDateOfDriversLicense: 'Date of issuance of driver\'s license',
+  numberOfCard: "number of card"
 };
 
 export default ENGLISH_TEXTS_FOR_APP;

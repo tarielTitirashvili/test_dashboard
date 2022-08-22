@@ -69,7 +69,14 @@ const GEORGIAN_TEXTS_FOR_APP = {
   leader: "ხელმძღვანელი",
   comment: "კომენტარი",
   save: "შენახვა",
-  back: "უკან"
+  back: "უკან",
+  addRequestForBankCar: "ბანკის მანქანის მართვის მოთხოვნის დამატება",
+  bankCarDrivingLicense:"ბანკის ავტომობილის მართვის უფლება",
+  contractWarning:"გრაფის მონიშვნით თქვენ ეთანხმებით წინამდებარე ხელშეკრულებაში მითითებულ პირობებს",
+  readAgreement: "წაიკითხეთ შეთანხმება",
+  drivingLicenseId:"მართვის მოწმობის ნომერი",
+  IssuanceDateOfDriversLicense:'მართვის მოწმობის გაცემის თარიღი',
+  numberOfCard: "ბარათის ნომერი",
 };
 
 export default GEORGIAN_TEXTS_FOR_APP;

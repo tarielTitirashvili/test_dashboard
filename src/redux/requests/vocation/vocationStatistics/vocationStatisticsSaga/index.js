@@ -3,7 +3,6 @@ import { getVocationAPI, getVocationStatisticsAPI } from "../../../../../API";
 import changeTimeFormat from "../../../../../assets/changeTimeFormat";
 import { GET_VOCATION_STATISTICS_FROM_API } from "../../../../constants";
 import {
-  setLoadingStatusAC,
   setVocationsForVocationStatisticsPageAC,
   setVocationStatisticsAC,
 } from "../vocationStatisticsActions";
@@ -44,9 +43,7 @@ function* vocationStatistics() {
 }
 
 export function* getVocationStatisticsFromAPIWorker() {
-  yield put(setLoadingStatusAC(true));
   yield all([call(vocations), call(vocationStatistics)]);
-  yield put(setLoadingStatusAC(false));
 }
 
 export default function* vocationStatisticsWatcher() {
