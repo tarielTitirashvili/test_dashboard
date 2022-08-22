@@ -15,9 +15,9 @@ let instance = axios.create({
   baseURL: "http://192.168.73.213:3000/",
 })
  
-console.log(axios.Axios.prototype)
+// console.log(axios.Axios.prototype)
 const as = axios.Axios
-console.log(as)
+// console.log(as)
 
 
 export const getPersonDataAPI = async () => {

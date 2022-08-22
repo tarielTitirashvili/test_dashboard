@@ -10,24 +10,6 @@ import requestsReducers from "../requests";
 import loadingStatus from "../loading/loadingReducer";
 import { setGlobalLoadingStatusAC } from "../loading/loadingActions";
 
-const effectMiddleware = (next) => (effect) => {
-  if (effect.payload.fn) {
-    if (!effect.payload.fn.prototype) {
-      console.log(effect.payload.fn.prototype);
-      console.log(effect);
-      store.dispatch(setGlobalLoadingStatusAC(true));
-    }
-  } else if (effect.payload.action) {
-    if (Object.keys(effect.payload.action).length > 1) {
-      console.log(Object.keys(effect.payload.action).length > 1);
-      console.log("false", effect.payload);
-      store.dispatch(setGlobalLoadingStatusAC(false));
-    }
-  }
-
-  return next(effect);
-};
-
 let reducers = combineReducers({
   trainings: trainingsReducer,
   testsResults: testsResultsReducer,
@@ -38,8 +20,30 @@ let reducers = combineReducers({
   loading: loadingStatus,
 });
 
+var queue = [];
+
+const monitor = (effect) => {
+  if (effect.effect.payload.fn) {
+    if (!effect.effect.payload.fn.prototype) {
+      queue.push(effect.effectId);
+      if (queue.length > 0) {
+        store.dispatch(setGlobalLoadingStatusAC(true));
+      }
+    }
+  }
+};
+
+const resolved = (effectId) => {
+  if (queue.includes(effectId)) {
+    queue = queue.filter((id) => id !== effectId);
+    if (queue.length === 0) {
+      store.dispatch(setGlobalLoadingStatusAC(false));
+    }
+  }
+};
+
 const sagaMiddleWare = createSagaMiddleware({
-  effectMiddlewares: [effectMiddleware],
+  sagaMonitor: { effectTriggered: monitor, effectResolved: resolved },
 });
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
@@ -50,3 +54,4 @@ const store = createStore(
 
 sagaMiddleWare.run(rootSaga);
 export default store;
+

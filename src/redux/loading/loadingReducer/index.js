@@ -1,7 +1,7 @@
 import { SET_GLOBAL_LOADING_STATUS } from "../../constants";
 
 const initState = {
-  loading: true,
+  loading: false,
 };
 
 export default function loadingStatus(state = initState, action) {
