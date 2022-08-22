@@ -3,7 +3,7 @@ import { getVocationAPI, getVocationStatisticsAPI } from "../../../../../API";
 import changeTimeFormat from "../../../../../assets/changeTimeFormat";
 import { GET_VOCATION_STATISTICS_FROM_API } from "../../../../constants";
 import {
-  setLoadingStatus,
+  setLoadingStatusAC,
   setVocationsForVocationStatisticsPageAC,
   setVocationStatisticsAC,
 } from "../vocationStatisticsActions";
@@ -13,7 +13,7 @@ const lazyPromise = () => {
     setTimeout(async () => {
       const data = await getVocationAPI();
       resolve(data);
-    }, 4000);
+    }, 1000);
   });
 };
 
@@ -22,7 +22,7 @@ const lazyGetVocationStatisticsAPI = () => {
     setTimeout(async () => {
       const data = await getVocationStatisticsAPI();
       resolve(data);
-    }, 5000);
+    }, 2000);
   });
 };
 
@@ -44,9 +44,9 @@ function* vocationStatistics() {
 }
 
 export function* getVocationStatisticsFromAPIWorker() {
-  yield put(setLoadingStatus(true));
+  yield put(setLoadingStatusAC(true));
   yield all([call(vocations), call(vocationStatistics)]);
-  yield put(setLoadingStatus(false));
+  yield put(setLoadingStatusAC(false));
 }
 
 export default function* vocationStatisticsWatcher() {

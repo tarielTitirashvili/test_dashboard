@@ -1,0 +1,30 @@
+[
+  {
+    "id": 0,
+    "date": "24/08/2022",
+    "docN": "1s4x6dsa",
+    "DateOfIssuance": "14/08/2022",
+    "status": "აქტიური"
+  },
+  {
+    "id": 1,
+    "date": "28/07/2022",
+    "docN": "1s4x6dsa",
+    "DateOfIssuance": "12/06/2022",
+    "status": "აქტიური"
+  },
+  {
+    "id": 2,
+    "date": "24/08/2021",
+    "docN": "1s4x6dsa",
+    "DateOfIssuance": "14/08/2021",
+    "status": "აქტიური"
+  },
+  {
+    "id": 3,
+    "date": "02/10/2021",
+    "docN": "1s4x6dsa",
+    "DateOfIssuance": "21/09/2021",
+    "status": "აქტიური"
+  }
+]

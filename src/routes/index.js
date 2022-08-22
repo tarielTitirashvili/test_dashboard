@@ -13,6 +13,8 @@ import Trainings from "../pages/trainings/trainings";
 import SecretVocation from "../pages/requests/vocation/secretVocation";
 import SecretVocationStatistics from "../pages/requests/vocation/secretVocationStatistics";
 import VocationCurrentRequests from "../pages/requests/vocation/vocationCurrentRequests";
+import DrivingLicense from "../pages/requests/drivingLicense";
+import AddRequestForCompanyCar from "../pages/requests/drivingLicense/addRequestForCompanyCar";
 
 export const routes = [
   {
@@ -91,6 +93,16 @@ export const routes = [
         path: "/vocationCurrentRequests",
         title: "vocationCurrentRequests",
         component: <VocationCurrentRequests />,
+      },
+      {
+        path: "/drivingLicense",
+        title: "drivingLicense",
+        component: <DrivingLicense />,
+      },
+      {
+        path: "/addRequestForCompanyCar",
+        title: "addRequestForCompanyCar",
+        component: <AddRequestForCompanyCar />,
       },
     ],
   },

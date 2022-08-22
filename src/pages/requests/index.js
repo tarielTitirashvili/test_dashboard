@@ -16,7 +16,6 @@ export default function Requests() {
   const onclick = (path) => {
     navigate(path);
   };
-
   return (
     <Card>
       <Typography m={2} variant="h5">
@@ -55,7 +54,12 @@ export default function Requests() {
           <ListItemText primary={t("intermediateEvaluation")} />
         </ListItem>
         <Divider />
-        <ListItem button>
+        <ListItem
+          onClick={() => {
+            onclick("/request/drivingLicense");
+          }}
+          button
+        >
           <ListItemText primary={t("drivingLicense")} />
         </ListItem>
       </List>

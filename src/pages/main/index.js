@@ -14,6 +14,7 @@ import IDInfo from "./IDinfo";
 import Addressees from "./addressees";
 import CompanyNumber from "./companyNumber";
 import CorporatePhones from "./corporatePhones";
+import Loading from "../../components/loading";
 
 function Main(props) {
   const {
@@ -29,6 +30,7 @@ function Main(props) {
     setPersonDataToInitialAC,
     setCorporatePhonesAC,
     setCorporateNumberOfRelativesAC,
+    loading
   } = props;
   const { t } = useTranslation();
   React.useEffect(() => {
@@ -46,6 +48,9 @@ function Main(props) {
       return;
     }
   };
+  console.log(loading)
+
+  if(loading)return <Loading width={"100%"} height={"calc(100vh - 112px)"}/>
 
   return (
     <Grid container justifyContent="center">
@@ -101,6 +106,7 @@ const mapStateToProps = (state) => {
     legalAddress: state.main.legalAddress,
     corporatePhones: state.main.corporatePhones,
     companyNumber: state.main.companyNumber,
+    loading: state.loading.loading
   };
 };
 

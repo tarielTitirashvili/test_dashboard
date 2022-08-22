@@ -8,6 +8,7 @@ import {
   setPassedTrainingsOnSaveAC,
 } from "../../../redux/trainings/passedTrainings/passedTrainingsActions";
 import AddTableRow from "../../../components/addTableRow";
+import Loading from '../../../components/loading'
 
 const columns = [
   { field: "id", headerName: "ID", width: 90, editable: false, hide: true },
@@ -51,6 +52,7 @@ function PassedTrainings(props) {
     passedTrainings,
     role,
     setPassedTrainingsOnSaveAC,
+    loading
   } = props;
   React.useEffect(() => {
     getPassedTrainingsAC();
@@ -79,6 +81,7 @@ function PassedTrainings(props) {
       id: passedTrainings[passedTrainings.length - 1].id + 1,
     });
   };
+  if(loading) return <Loading width={"100%"} height={"calc(100vh - 112px)"} />
   return (
     <Box sx={{ display: "flex", justifyContent: "center" }}>
       <Box width={"100%"} maxWidth={"1080px"}>
@@ -107,6 +110,7 @@ const mapStateToProps = (state) => {
   return {
     passedTrainings: state.passedTrainings.passedTrainings,
     role: state.auth.role,
+    loading: state.loading.loading
   };
 };
 

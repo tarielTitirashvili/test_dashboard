@@ -1,5 +1,6 @@
 import { spawn } from "redux-saga/effects";
 import mainWatcher from "../main/mainSaga";
+import drivingLicensesWatcher from "../requests/drivingLicense/drivingLicenseSaga";
 import vocationCurrentRequestsWatcher from "../requests/vocation/vocationCurrentRequests/vocationCurrentRequestsSaga";
 import vocationStatisticsWatcher from "../requests/vocation/vocationStatistics/vocationStatisticsSaga";
 import passedTrainingsWatcher from "../trainings/passedTrainings/passedTrainingsSaga";
@@ -13,4 +14,5 @@ export default function* rooSaga() {
   yield spawn(testResultsWatcher)
   yield spawn(vocationCurrentRequestsWatcher)
   yield spawn(vocationStatisticsWatcher)
+  yield spawn(drivingLicensesWatcher)
 }

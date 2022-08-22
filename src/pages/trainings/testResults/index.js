@@ -8,6 +8,7 @@ import {
   setNewTestOnSaveAC,
 } from "../../../redux/trainings/testResults/testResultsActions";
 import AddTableRow from "../../../components/addTableRow";
+import Loading from "../../../components/loading"
 
 const columns = [
   { field: "id", headerName: "ID", width: 90, editable: false, hide: true },
@@ -37,7 +38,7 @@ const columns = [
 ];
 
 function TestResults(props) {
-  const { setNewTestOnSaveAC, getTestResultsAC, tests, role } = props;
+  const { setNewTestOnSaveAC, getTestResultsAC, tests, role, loading } = props;
   React.useEffect(() => {
     getTestResultsAC()
   }, []);
@@ -62,6 +63,8 @@ function TestResults(props) {
   const onSave = () => {
     setNewTestOnSaveAC({ ...row, id: tests[tests.length - 1].id+1 });
   };
+
+  if(loading)return<Loading width={"100%"} height={"calc(100vh - 112px)"} />
   return (
     <Box sx={{ display: "flex", justifyContent: "center" }}>
       <Box maxWidth={"1600px"} width={"100%"}>
@@ -90,6 +93,7 @@ const mapStateToProps = (state) => {
   return {
     tests: state.testsResults.tests,
     role: state.auth.role,
+    loading: state.loading.loading
   };
 };
 

@@ -11,6 +11,7 @@ import {
 } from "../../../../redux/requests/vocation/vocationCurrentRequests/vocationCurrentRequestsActions";
 import AddTableRow from "../../../../components/addTableRow";
 import VOCATION_TYPES from "../../../../DB/vocationTypes";
+import Loading from "../../../../components/loading";
 
 const columns = [
   { field: "id", headerName: "ID", width: 90, editable: false, hide: true },
@@ -21,8 +22,7 @@ const columns = [
     minWidth: 70,
     type: "date",
     editable: false,
-    renderCell: (params) =>
-      moment(params.row.date).format("DD/MM/YYYY"),
+    renderCell: (params) => moment(params.row.date).format("DD/MM/YYYY"),
   },
   {
     field: "reqType",
@@ -40,8 +40,7 @@ const columns = [
     flex: 0.4,
     minWidth: 120,
     editable: false,
-    renderCell: (params) =>
-      moment(params.row.date).format("DD/MM/YYYY"),
+    renderCell: (params) => moment(params.row.date).format("DD/MM/YYYY"),
   },
   {
     field: "endDate",
@@ -50,8 +49,7 @@ const columns = [
     minWidth: 140,
     type: "date",
     editable: false,
-    renderCell: (params) =>
-      moment(params.row.date).format("DD/MM/YYYY"),
+    renderCell: (params) => moment(params.row.date).format("DD/MM/YYYY"),
   },
   {
     field: "status",
@@ -77,6 +75,7 @@ function VocationCurrentRequirements(props) {
     getCurrentRequestsAC,
     vocationCurrentRequests,
     setNewRequestOnSaveAC,
+    loading,
   } = props;
   let navigate = useNavigate();
   const { t } = useTranslation();
@@ -113,6 +112,7 @@ function VocationCurrentRequirements(props) {
   React.useEffect(() => {
     getCurrentRequestsAC();
   }, []);
+  if (loading) return <Loading width={"100%"} height={"calc(100vh - 112px)"} />;
   return (
     <>
       <Box sx={{ display: "flex", justifyContent: "space-between", m: 3 }}>
@@ -161,6 +161,7 @@ const mapStateToProps = (state) => {
   return {
     role: state.auth.role,
     vocationCurrentRequests: state.requests.vocation.vocationCurrentRequests,
+    loading: state.loading.loading,
   };
 };
 const mapDispatchToProps = (dispatch) => {

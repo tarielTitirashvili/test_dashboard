@@ -25,7 +25,7 @@ export const getVocationStatisticsAC = () => ({
   type: GET_VOCATION_STATISTICS_FROM_API,
 });
 
-export const setLoadingStatus = (status) => ({
+export const setLoadingStatusAC = (status) => ({
   type: SET_LOADING_STATUS_FOR_VOCATION_STATISTICS,
   status
 });

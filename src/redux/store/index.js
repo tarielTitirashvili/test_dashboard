@@ -7,6 +7,26 @@ import authReducer from "../auth/authReducer";
 import createSagaMiddleware from "redux-saga";
 import rootSaga from "../rootSaga/rootSaga";
 import requestsReducers from "../requests";
+import loadingStatus from "../loading/loadingReducer";
+import { setGlobalLoadingStatusAC } from "../loading/loadingActions";
+
+const effectMiddleware = (next) => (effect) => {
+  if (effect.payload.fn) {
+    if (!effect.payload.fn.prototype) {
+      console.log(effect.payload.fn.prototype);
+      console.log(effect);
+      store.dispatch(setGlobalLoadingStatusAC(true));
+    }
+  } else if (effect.payload.action) {
+    if (Object.keys(effect.payload.action).length > 1) {
+      console.log(Object.keys(effect.payload.action).length > 1);
+      console.log("false", effect.payload);
+      store.dispatch(setGlobalLoadingStatusAC(false));
+    }
+  }
+
+  return next(effect);
+};
 
 let reducers = combineReducers({
   trainings: trainingsReducer,
@@ -15,9 +35,12 @@ let reducers = combineReducers({
   main: mainReducer,
   auth: authReducer,
   requests: requestsReducers,
+  loading: loadingStatus,
 });
 
-const sagaMiddleWare = createSagaMiddleware();
+const sagaMiddleWare = createSagaMiddleware({
+  effectMiddlewares: [effectMiddleware],
+});
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const store = createStore(

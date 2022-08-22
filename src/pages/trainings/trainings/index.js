@@ -5,6 +5,7 @@ import { Box } from "@mui/material";
 import moment from "moment";
 import Schedule from "./trainingsSchedule";
 import { getTrainingsAC } from "../../../redux/trainings/trainings/trainingsActions";
+import Loading from "../../../components/loading";
 
 const columns = [
   { field: "id", headerName: "ID", width: 90, editable: false, hide: true },
@@ -59,10 +60,11 @@ const columns = [
 ];
 
 function Trainings(props) {
-  const { trainings, getTrainingsAC } = props;
+  const { trainings, getTrainingsAC, loading } = props;
   React.useEffect(() => {
     getTrainingsAC();
   }, []);
+  if(loading)return <Loading width={"100%"} height={"calc(100vh - 112px)"} />
   return (
     <Box sx={{ display: "flex", justifyContent: "center" }}>
       <Box maxWidth={"1600px"} width={"100%"}>
@@ -83,6 +85,7 @@ function Trainings(props) {
 const mapStateToProps = (state) => {
   return {
     trainings: state.trainings.trainings,
+    loading: state.loading.loading
   };
 };
 
