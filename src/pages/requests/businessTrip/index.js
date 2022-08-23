@@ -1,12 +1,13 @@
 import { Box, Button, Typography } from "@mui/material";
 import React from "react";
-import { DataGrid } from "@mui/x-data-grid/DataGrid";
-import { getBusinessTripsAC } from "../../../redux/requests/businessTrip/BusinessTripActions";
+import { useTranslation } from "react-i18next";
+import moment from "moment";
 import { useNavigate } from "react-router-dom";
 import { connect } from "react-redux";
+import { DataGrid } from "@mui/x-data-grid/DataGrid";
+import { getBusinessTripsAC } from "../../../redux/requests/businessTrip/BusinessTripActions";
 import businessTrip from "../../../DB/businessTrip";
-import moment from "moment";
-import { useTranslation } from "react-i18next";
+import Loading from "../../../components/loading";
 
 const columns = [
   { field: "id", headerName: "ID", width: 90, editable: false, hide: true },
@@ -31,7 +32,8 @@ const columns = [
     flex: 0.7,
     minWidth: 120,
     editable: false,
-    renderCell: (params) => moment(params.row.startDate, "DD/MM/YYYY").format("DD/MM/YYYY"),
+    renderCell: (params) =>
+      moment(params.row.startDate, "DD/MM/YYYY").format("DD/MM/YYYY"),
   },
   {
     field: "endDate",
@@ -40,7 +42,8 @@ const columns = [
     flex: 0.7,
     minWidth: 120,
     editable: false,
-    renderCell: (params) => moment(params.row.endDate, "DD/MM/YYYY").format("DD/MM/YYYY"),
+    renderCell: (params) =>
+      moment(params.row.endDate, "DD/MM/YYYY").format("DD/MM/YYYY"),
   },
   {
     field: "status",
@@ -58,12 +61,14 @@ const columns = [
   },
 ];
 
-function BusinessTrip() {
+function BusinessTrip(props) {
+  const { role, loading, getBusinessTripsAC } = props;
   const { t } = useTranslation();
   const navigate = useNavigate();
   React.useEffect(() => {
     getBusinessTripsAC();
   }, []);
+  if (loading) return <Loading width={"100%"} height={"calc(100vh - 112px)"} />;
   return (
     <Box>
       <Typography variant="h6">{t("bankCarDrivingLicense")}</Typography>
@@ -74,7 +79,7 @@ function BusinessTrip() {
             navigate("/request/addRequestForBusinessTrip");
           }}
         >
-          {t("addRequestForBankCar")}
+          {t("AddRequest")}
         </Button>
       </Box>
       <DataGrid
@@ -93,7 +98,6 @@ function BusinessTrip() {
 const mapStateToProps = (state) => {
   return {
     role: state.auth.role,
-    drivingLicenses: state.requests.businessTrip.BusinessTrips,
     loading: state.loading.loading,
   };
 };

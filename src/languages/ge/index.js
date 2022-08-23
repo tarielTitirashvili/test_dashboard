@@ -3,7 +3,6 @@ const GEORGIAN_TEXTS_FOR_APP = {
   language: "ენა",
   additional: "დამატებითი",
   insurance: "დაზღვევა",
-  vocation: "დასვენება",
   IPC: "IPC აქციები",
   survey: "გამოკითხვა",
   PCB: "PCB კლუბები",
@@ -77,6 +76,11 @@ const GEORGIAN_TEXTS_FOR_APP = {
   drivingLicenseId:"მართვის მოწმობის ნომერი",
   IssuanceDateOfDriversLicense:'მართვის მოწმობის გაცემის თარიღი',
   numberOfCard: "ბარათის ნომერი",
+  completionDate:"შევსების თარიღი",
+  tripGoal:"მივლინების მიზანი",
+  PermanentResidence: "დროებითი საცხოვრებელი",
+  academy: "აკადემია",
+  hotelFlat:"	სასტუმრო/დაქირავებული ბინა"
 };
 
 export default GEORGIAN_TEXTS_FOR_APP;

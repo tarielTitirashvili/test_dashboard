@@ -3,7 +3,6 @@ const ENGLISH_TEXTS_FOR_APP = {
   language: "Language",
   additional: "Additional",
   insurance: "Insurance",
-  vocation: "vocation",
   IPC: "IPC",
   survey: "Survey",
   PCB: "PCB",
@@ -14,7 +13,7 @@ const ENGLISH_TEXTS_FOR_APP = {
   request: "Request",
   HRDocs: "HRDocs",
   MidtermEvaluation: "Midterm Evaluation",
-  fullName: "fullName",
+  fullName: "full Name",
   status: "status",
   office: "office",
   position: "Position",
@@ -76,7 +75,12 @@ const ENGLISH_TEXTS_FOR_APP = {
   readAgreement: "Agreement",
   drivingLicenseId: "driving License Id",
   IssuanceDateOfDriversLicense: 'Date of issuance of driver\'s license',
-  numberOfCard: "number of card"
+  numberOfCard: "number of card",
+  completionDate:"Completion Date",
+  tripGoal:"Trip goal",
+  PermanentResidence: "Permanent residence",
+  academy: "Academy",
+  hotelFlat: "hotel/ rent flat"
 };
 
 export default ENGLISH_TEXTS_FOR_APP;

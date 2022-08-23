@@ -2,8 +2,8 @@ import React from "react";
 import { Card, Typography, Box } from "@mui/material";
 import { useTranslation } from "react-i18next";
 import moment from "moment";
-import { countries } from "../../../DB/country";
-import { places } from "../../../DB/place";
+import countries from "../../../DB/country";
+import places from "../../../DB/place";
 import Controls from "../../../components/controls";
 import { maritalStatus } from "../../../DB/maritalStatus";
 
@@ -34,11 +34,7 @@ export default function PersonMainInfo(props) {
       <Typography m={1} fontSize={"1rem"} fontWeight={"bold"} variant="h3">
         {t("main")}
       </Typography>
-      <Box
-        display={"flex"}
-        justifyContent={"space-between"}
-        p={1}
-      >
+      <Box display={"flex"} justifyContent={"space-between"} p={1}>
         <Controls.Input
           label={t("fullName")}
           name="fullName"
