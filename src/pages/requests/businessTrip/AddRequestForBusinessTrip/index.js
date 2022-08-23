@@ -7,11 +7,13 @@ import {
 } from "../../../../redux/main/mainActions";
 import { connect } from "react-redux";
 import Loading from "../../../../components/loading";
-import { Box, Typography } from "@mui/material";
+import { Box, Card, Typography } from "@mui/material";
 import TitleWithText from "../../../../components/titleWithText";
 import Controls from "../../../../components/controls";
 import TRIP_GOAL from "../../../../DB/businessTripGoal";
+import PEOPLE from "../../../../DB/people";
 import TripRoute from "./tripRoute";
+import TRANSPORT from "../../../../DB/transport";
 
 function AddRequestForBusinessTrip(props) {
   const { getDataFromAPIAC, setPersonDataToInitialAC, role, basics, loading } =
@@ -31,8 +33,14 @@ function AddRequestForBusinessTrip(props) {
       },
     ],
     endRoute: branch,
+    substitutePerson: "",
+    startDate: `${moment(Date.now()).format("YYYY-MM-DDThh:mm:ss")}`,
+    endData: `${moment(Date.now()).format("YYYY-MM-DDThh:mm:ss")}`,
+    peekHours: false,
+    transport: "",
+    head: "",
+    comment: "",
   });
-
   const { t } = useTranslation();
   React.useEffect(() => {
     setTripData({
@@ -44,13 +52,18 @@ function AddRequestForBusinessTrip(props) {
 
   const onChange = (e) => {
     if (e.target) {
-      const { name, value } = e.target;
-      setTripData({ ...tripData, [`${name}`]: value });
+      const { name, value, checked } = e.target;
+      setTripData({
+        ...tripData,
+        [`${name}`]: checked === undefined ? value : checked,
+      });
     } else {
       const { name, value } = e;
       setTripData({
         ...tripData,
-        [`${name}`]: moment(value, "DD/MM/YYYY").format("YYYY-MM-DDThh:mm:ss"),
+        [`${name}`]: moment(value, "DD/MM/YYYY hh:mm").format(
+          "YYYY-MM-DDThh:mm:ss"
+        ),
       });
     }
   };
@@ -87,7 +100,73 @@ function AddRequestForBusinessTrip(props) {
         საზღვარგარეთ მივლინების შემთხვევაში, გთხოვთ სრულად მიუთითით ის მარშრუტი
         რაც ფრენის დეტალებშია მოცემული
       </Typography>
-      <TripRoute tripData={tripData} setTripData={setTripData} onChange={onChange} />
+      <TripRoute
+        tripData={tripData}
+        setTripData={setTripData}
+        onChange={onChange}
+      />
+
+      <Card sx={{ p: 3, m: 2 }}>
+        <Box display={"flex"} width={"70%"} justifyContent={"space-between"}>
+          <Controls.DatePicker
+            label={t("startDate")}
+            value={tripData.startDate}
+            withHours={tripData.peekHours}
+            name={"startDate"}
+            onChange={onChange}
+          />
+          <Controls.CheckBox
+            margin={2}
+            label={t("peekHours")}
+            name={"peekHours"}
+            value={tripData.peekHours}
+            onChange={onChange}
+          />
+        </Box>
+        <Box display={"flex"} width={"70%"} justifyContent={"space-between"}>
+          <Controls.DatePicker
+            label={t("endDate")}
+            value={tripData.endData}
+            name={"endData"}
+            withHours={tripData.peekHours}
+            onChange={onChange}
+          />
+          <Controls.Select
+            label={t("substitutePerson")}
+            name="substitutePerson"
+            value={tripData.substitutePerson}
+            onChange={onChange}
+            options={PEOPLE}
+          />
+        </Box>
+        <Box display={"flex"} width={"70%"} justifyContent={"space-between"}>
+          <Controls.Select
+            label={t("transport")}
+            name="transport"
+            value={tripData.transport}
+            onChange={onChange}
+            options={TRANSPORT}
+          />
+          <Controls.Select
+            label={t("head")}
+            name="head"
+            value={tripData.head}
+            onChange={onChange}
+            options={PEOPLE}
+          />
+        </Box>
+        <Box>
+          <Controls.TextArea
+            label={t("comment")}
+            name="comment"
+            value={tripData.comment}
+            onChange={onChange}
+          />
+        </Box>
+      </Card>
+      <Card>
+        
+      </Card>
     </Box>
   );
 }

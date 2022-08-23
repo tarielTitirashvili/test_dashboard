@@ -80,7 +80,11 @@ const ENGLISH_TEXTS_FOR_APP = {
   tripGoal:"Trip goal",
   PermanentResidence: "Permanent residence",
   academy: "Academy",
-  hotelFlat: "hotel/ rent flat"
+  hotelFlat: "hotel/ rent flat",
+  substitutePerson: 'substitute person',
+  peekHours: "peek Hours",
+  transport: "transport",
+  head:"head"
 };
 
 export default ENGLISH_TEXTS_FOR_APP;

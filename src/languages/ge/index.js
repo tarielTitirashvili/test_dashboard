@@ -80,7 +80,11 @@ const GEORGIAN_TEXTS_FOR_APP = {
   tripGoal:"მივლინების მიზანი",
   PermanentResidence: "დროებითი საცხოვრებელი",
   academy: "აკადემია",
-  hotelFlat:"	სასტუმრო/დაქირავებული ბინა"
+  hotelFlat:"	სასტუმრო/დაქირავებული ბინა",
+  substitutePerson: 'შემცვლელი პირი',
+  peekHours: "საათების მითითება",
+  transport: "ტრანსპორტი",
+  head: "ხელმძღვანელი"
 };
 
 export default GEORGIAN_TEXTS_FOR_APP;
