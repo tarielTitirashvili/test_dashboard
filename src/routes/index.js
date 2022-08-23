@@ -15,6 +15,9 @@ import SecretVocationStatistics from "../pages/requests/vocation/secretVocationS
 import VocationCurrentRequests from "../pages/requests/vocation/vocationCurrentRequests";
 import DrivingLicense from "../pages/requests/drivingLicense";
 import AddRequestForCompanyCar from "../pages/requests/drivingLicense/addRequestForCompanyCar";
+import RequestsIPC from "../pages/requests/IPC";
+import BusinessTrip from "../pages/requests/businessTrip";
+import AddRequestForBusinessTrip from "../pages/requests/businessTrip/AddRequestForBusinessTrip";
 
 export const routes = [
   {
@@ -103,6 +106,21 @@ export const routes = [
         path: "/addRequestForCompanyCar",
         title: "addRequestForCompanyCar",
         component: <AddRequestForCompanyCar />,
+      },
+      {
+        path: "/IPC",
+        title: "IPC",
+        component: <RequestsIPC />,
+      },
+      {
+        path: "/businessTrip",
+        title: "businessTrip",
+        component: <BusinessTrip />,
+      },
+      {
+        path: "/addRequestForBusinessTrip",
+        title: "addRequestForBusinessTrip",
+        component: <AddRequestForBusinessTrip />,
       },
     ],
   },

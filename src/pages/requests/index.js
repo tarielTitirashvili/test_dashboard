@@ -25,7 +25,12 @@ export default function Requests() {
         {t("requestType")}
       </Typography>
       <List component="nav" aria-label="mailbox folders">
-        <ListItem button>
+        <ListItem
+          onClick={() => {
+            onclick("/request/IPC");
+          }}
+          button
+        >
           <ListItemText primary={t("IPC")} />
         </ListItem>
         <Divider />
@@ -38,7 +43,12 @@ export default function Requests() {
           <ListItemText primary={t("vocation")} />
         </ListItem>
         <Divider />
-        <ListItem button>
+        <ListItem
+          onClick={() => {
+            onclick("/request/businessTrip");
+          }}
+          button
+        >
           <ListItemText primary={t("businessTrip")} />
         </ListItem>
         <Divider />
