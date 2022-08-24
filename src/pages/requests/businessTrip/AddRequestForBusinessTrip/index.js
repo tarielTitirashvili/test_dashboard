@@ -1,19 +1,22 @@
 import React from "react";
 import moment from "moment";
 import { useTranslation } from "react-i18next";
+import { useNavigate } from "react-router-dom";
+import { connect } from "react-redux";
 import {
   getDataFromAPIAC,
   setPersonDataToInitialAC,
 } from "../../../../redux/main/mainActions";
-import { connect } from "react-redux";
 import Loading from "../../../../components/loading";
-import { Box, Card, Typography } from "@mui/material";
+import { Box, Button, Card, Typography } from "@mui/material";
 import TitleWithText from "../../../../components/titleWithText";
 import Controls from "../../../../components/controls";
 import TRIP_GOAL from "../../../../DB/businessTripGoal";
 import PEOPLE from "../../../../DB/people";
 import TripRoute from "./tripRoute";
 import TRANSPORT from "../../../../DB/transport";
+import CURRENCIES from "../../../../DB/currencies";
+import METHODS_OF_RECEIVING_ADVANCE from "../../../../DB/methodOfReceivingAdvance";
 
 function AddRequestForBusinessTrip(props) {
   const { getDataFromAPIAC, setPersonDataToInitialAC, role, basics, loading } =
@@ -40,7 +43,18 @@ function AddRequestForBusinessTrip(props) {
     transport: "",
     head: "",
     comment: "",
+    AdvanceDaily: 0,
+    AdvanceDailyCurrency: "",
+    AdvanceHotel: 0,
+    AdvanceHotelCurrency: "",
+    AdvanceTransport: 0,
+    AdvanceTransportCurrency: "",
+    AdvanceOther: 0,
+    AdvanceOtherCurrency: "",
+    AdvanceComment: "",
+    methodOfReceivingAdvance: "",
   });
+  const navigate = useNavigate();
   const { t } = useTranslation();
   React.useEffect(() => {
     setTripData({
@@ -55,7 +69,7 @@ function AddRequestForBusinessTrip(props) {
       const { name, value, checked } = e.target;
       setTripData({
         ...tripData,
-        [`${name}`]: checked === undefined ? value : checked,
+        [`${name}`]: value,
       });
     } else {
       const { name, value } = e;
@@ -66,6 +80,13 @@ function AddRequestForBusinessTrip(props) {
         ),
       });
     }
+  };
+  const onChangeCheckBox = (e) => {
+    const { name, value, checked } = e.target;
+    setTripData({
+      ...tripData,
+      [`${name}`]: checked === undefined ? value : checked,
+    });
   };
 
   React.useEffect(() => {
@@ -106,7 +127,7 @@ function AddRequestForBusinessTrip(props) {
         onChange={onChange}
       />
 
-      <Card sx={{ p: 3, m: 2 }}>
+      <Card elevation={3} sx={{ p: 3, m: 2 }}>
         <Box display={"flex"} width={"70%"} justifyContent={"space-between"}>
           <Controls.DatePicker
             label={t("startDate")}
@@ -120,7 +141,7 @@ function AddRequestForBusinessTrip(props) {
             label={t("peekHours")}
             name={"peekHours"}
             value={tripData.peekHours}
-            onChange={onChange}
+            onChange={onChangeCheckBox}
           />
         </Box>
         <Box display={"flex"} width={"70%"} justifyContent={"space-between"}>
@@ -164,8 +185,148 @@ function AddRequestForBusinessTrip(props) {
           />
         </Box>
       </Card>
-      <Card>
-        
+      <Card elevation={3} sx={{ p: 3, m: 2 }}>
+        <Box
+          sx={{
+            bgcolor: "#55FF33",
+            p: 1,
+            borderRadius: "1rem",
+            width: "280px",
+          }}
+        >
+          <Typography variant="h6"> {t("Advance")}</Typography>
+        </Box>
+        <Box
+          sx={{
+            bgcolor: "#55FF33",
+            mt: 2,
+            p: 1,
+            borderRadius: "1rem",
+            width: "280px",
+          }}
+        >
+          <Typography variant="h6" sx={{ fontSize: "1rem" }}>
+            {t("moneyTypes")}
+          </Typography>
+        </Box>
+        <Box display={"flex"} justifyContent={"space-between"} mt={2}>
+          <Box>
+            <Typography
+              sx={{ background: "#C6FFBB", borderRadius: "1rem", p: 1 }}
+            >
+              {t("AdvanceDaily")}
+            </Typography>
+            <Box display={"flex"}>
+              <Controls.Input
+                name="AdvanceDaily"
+                value={tripData.AdvanceDaily}
+                type={"number"}
+                width={"176px"}
+                onChange={onChange}
+              />
+              <Controls.Select
+                name="AdvanceDailyCurrency"
+                value={tripData.AdvanceDailyCurrency}
+                width={"176px"}
+                onChange={onChange}
+                options={CURRENCIES}
+              />
+            </Box>
+          </Box>
+          <Box>
+            <Typography
+              sx={{ background: "#C6FFBB", borderRadius: "1rem", p: 1 }}
+            >
+              {t("AdvanceDaily")}
+            </Typography>
+            <Box display={"flex"}>
+              <Controls.Input
+                name="AdvanceHotel"
+                value={tripData.AdvanceHotel}
+                type={"number"}
+                width={"176px"}
+                onChange={onChange}
+              />
+              <Controls.Select
+                name="AdvanceHotelCurrency"
+                value={tripData.AdvanceHotelCurrency}
+                width={"176px"}
+                onChange={onChange}
+                options={CURRENCIES}
+              />
+            </Box>
+          </Box>
+        </Box>
+        <Box display={"flex"} justifyContent={"space-between"} mt={2}>
+          <Box>
+            <Typography
+              sx={{ background: "#C6FFBB", borderRadius: "1rem", p: 1 }}
+            >
+              {t("AdvanceDaily")}
+            </Typography>
+            <Box display={"flex"}>
+              <Controls.Input
+                name="AdvanceTransport"
+                value={tripData.AdvanceTransport}
+                type={"number"}
+                width={"176px"}
+                onChange={onChange}
+              />
+              <Controls.Select
+                name="AdvanceTransportCurrency"
+                value={tripData.AdvanceTransportCurrency}
+                width={"176px"}
+                onChange={onChange}
+                options={CURRENCIES}
+              />
+            </Box>
+          </Box>
+          <Box>
+            <Typography
+              sx={{ background: "#C6FFBB", borderRadius: "1rem", p: 1 }}
+            >
+              {t("AdvanceDaily")}
+            </Typography>
+            <Box display={"flex"}>
+              <Controls.Input
+                name="AdvanceOther"
+                value={tripData.AdvanceOther}
+                type={"number"}
+                width={"176px"}
+                onChange={onChange}
+              />
+              <Controls.Select
+                name="AdvanceOtherCurrency"
+                value={tripData.AdvanceOtherCurrency}
+                width={"176px"}
+                onChange={onChange}
+                options={CURRENCIES}
+              />
+            </Box>
+          </Box>
+        </Box>
+        <Controls.TextArea
+          label={t("comment")}
+          name="AdvanceComment"
+          value={tripData.AdvanceComment}
+          onChange={onChange}
+        />
+        <Controls.Select
+          label={t("methodOfReceivingAdvance")}
+          name="methodOfReceivingAdvance"
+          value={tripData.methodOfReceivingAdvance}
+          width={"260px"}
+          onChange={onChange}
+          options={METHODS_OF_RECEIVING_ADVANCE}
+        />
+        <Box>
+          <Button sx={{ margin: 2 }} variant="contained" color="success" onClick={()=>{navigate("/request")}}>
+            {t("save")}
+          </Button>
+          <Button sx={{ margin: 2 }} variant="contained" onClick={()=>{navigate(-1)}}>
+            {t("back")}
+          </Button>
+        </Box>
       </Card>
     </Box>
   );

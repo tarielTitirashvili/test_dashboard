@@ -84,7 +84,14 @@ const ENGLISH_TEXTS_FOR_APP = {
   substitutePerson: 'substitute person',
   peekHours: "peek Hours",
   transport: "transport",
-  head:"head"
+  head:"head",
+  Advance: "Advance",
+  moneyTypes: "Types of money",
+  AdvanceDaily:"Advance Daily",
+  AdvanceHotel:"Advance Hotel",
+  other: "other",
+  methodOfReceivingAdvance: "The preferred method of receiving an advance",
+  delete: 'Delete',
 };
 
 export default ENGLISH_TEXTS_FOR_APP;

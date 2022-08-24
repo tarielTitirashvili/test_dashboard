@@ -84,7 +84,14 @@ const GEORGIAN_TEXTS_FOR_APP = {
   substitutePerson: 'შემცვლელი პირი',
   peekHours: "საათების მითითება",
   transport: "ტრანსპორტი",
-  head: "ხელმძღვანელი"
+  head: "ხელმძღვანელი",
+  Advance: "ავანსი",
+  moneyTypes: "თანხის ტიპები",
+  AdvanceDaily:"დღიური თანხა",
+  AdvanceHotel:"სასტუმრო",
+  other: "სხვა",
+  methodOfReceivingAdvance: "ავანსის მიღების სასურველი მეთოდი",
+  delete: 'წაშლა',
 };
 
 export default GEORGIAN_TEXTS_FOR_APP;

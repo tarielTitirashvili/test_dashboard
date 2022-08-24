@@ -68,7 +68,7 @@ export default function TripRoute(props) {
   };
   const { t } = useTranslation();
   return (
-    <Card sx={{ p: 3, m: 2 }}>
+    <Card elevation={3} sx={{ p: 3, m: 2 }}>
       <Box sx={{ width: "60%" }}>
         <Typography variant="h6">{t("PermanentResidence")}</Typography>
         <Box display={"flex"} width={"100%"}>
@@ -119,7 +119,7 @@ export default function TripRoute(props) {
           variant="contained"
           color="success"
         >
-          Add
+          {t("add")}
         </Button>
         <Button
           sx={{ margin: 2 }}
@@ -127,7 +127,7 @@ export default function TripRoute(props) {
           variant="contained"
           color="error"
         >
-          delete
+          {t("delete")}
         </Button>
         <Controls.Select
           margin={1}
