@@ -9,6 +9,8 @@ import rootSaga from "../rootSaga/rootSaga";
 import requestsReducers from "../requests";
 import loadingStatus from "../loading/loadingReducer";
 import { setGlobalLoadingStatusAC } from "../loading/loadingActions";
+import errorReducer from "../error/errorReducer";
+import { setErrorAC } from "../error/errorActions";
 
 let reducers = combineReducers({
   trainings: trainingsReducer,
@@ -18,6 +20,7 @@ let reducers = combineReducers({
   auth: authReducer,
   requests: requestsReducers,
   loading: loadingStatus,
+  error: errorReducer
 });
 
 var queue = [];
@@ -33,7 +36,7 @@ const monitor = (effect) => {
   }
 };
 
-const resolved = (effectId) => {
+const resolved = (effectId, eff) => {
   if (queue.includes(effectId)) {
     queue = queue.filter((id) => id !== effectId);
     if (queue.length === 0) {
@@ -42,8 +45,25 @@ const resolved = (effectId) => {
   }
 };
 
+const rejected = (effectId, effect) => {
+  // console.log("rejected", effectId, effect);
+  if (queue.includes(effectId)) {
+    queue = queue.filter((id) => id !== effectId);
+    store.dispatch(setErrorAC(effect.response.data.message))
+    // console.log(queue);
+    // console.log(effect.response.data.message);
+    if (queue.length === 0) {
+      store.dispatch(setGlobalLoadingStatusAC(false));
+    }
+  }
+};
+
 const sagaMiddleWare = createSagaMiddleware({
-  sagaMonitor: { effectTriggered: monitor, effectResolved: resolved },
+  sagaMonitor: {
+    effectTriggered: monitor,
+    effectResolved: resolved,
+    effectRejected: rejected,
+  },
 });
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
@@ -54,4 +74,3 @@ const store = createStore(
 
 sagaMiddleWare.run(rootSaga);
 export default store;
-

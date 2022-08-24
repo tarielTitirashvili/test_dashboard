@@ -32,6 +32,7 @@ import Loading from "../components/loading";
 import ENGLISH_TEXTS_FOR_APP from "../languages/en";
 import GEORGIAN_TEXTS_FOR_APP from "../languages/ge";
 import ALL_LANGUAGES from "../languages";
+import Error from "../components/error";
 
 i18n
   .use(initReactI18next)
@@ -153,6 +154,7 @@ export default function MainLayout() {
         </CustomizedDrawer>
         <Box id="content" component="main" sx={{ flexGrow: 1, p: 3 }}>
           <CustomizedDrawerHeader />
+          <Error />
           <Routes>
             {routes.map((route) => {
               const result = [];

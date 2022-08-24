@@ -51,3 +51,7 @@ export const getDrivingLicensesAPI = async () => {
 export const getBusinessTripsAPI = async () => {
   return await instance.get("getBusinessTrip");
 };
+
+export const getBusinessTripsErrorAPI = async () => {
+  return await instance.get("getBusinessTripError");
+};

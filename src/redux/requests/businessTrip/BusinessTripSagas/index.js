@@ -1,11 +1,11 @@
 import { call, put, takeLeading } from "redux-saga/effects";
-import { getBusinessTripsAPI } from "../../../../API";
+import { getBusinessTripsAPI, getBusinessTripsErrorAPI } from "../../../../API";
 import changeTimeFormat from "../../../../assets/changeTimeFormat";
 import { GET_BUSINESS_TRIPS_FROM_API_TO_STATE } from "../../../constants";
 import { setBusinessTripsFromServerAC } from "../BusinessTripActions";
 
 function* businessTrip() {
-  const trips = yield call(getBusinessTripsAPI);
+  const trips = yield call(getBusinessTripsErrorAPI);
   const formateLicenses = trips.data.map((trip) => {
     return {
       ...trip,
