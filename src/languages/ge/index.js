@@ -92,6 +92,7 @@ const GEORGIAN_TEXTS_FOR_APP = {
   other: "სხვა",
   methodOfReceivingAdvance: "ავანსის მიღების სასურველი მეთოდი",
   delete: 'წაშლა',
+  AdvanceOngoingRequests:"მივლინება : მიმდინარე მოთხოვნები"
 };
 
 export default GEORGIAN_TEXTS_FOR_APP;

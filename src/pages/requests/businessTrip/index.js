@@ -17,6 +17,7 @@ const columns = [
     flex: 1,
     minWidth: 340,
     editable: false,
+    renderCell: (params) => moment(params.row.startDate).format("DD/MM/YYYY"),
   },
   {
     field: "tripGoal",
@@ -32,8 +33,7 @@ const columns = [
     flex: 0.7,
     minWidth: 120,
     editable: false,
-    renderCell: (params) =>
-      moment(params.row.startDate, "DD/MM/YYYY").format("DD/MM/YYYY"),
+    renderCell: (params) => moment(params.row.startDate).format("DD/MM/YYYY"),
   },
   {
     field: "endDate",
@@ -42,8 +42,7 @@ const columns = [
     flex: 0.7,
     minWidth: 120,
     editable: false,
-    renderCell: (params) =>
-      moment(params.row.endDate, "DD/MM/YYYY").format("DD/MM/YYYY"),
+    renderCell: (params) => moment(params.row.endDate).format("DD/MM/YYYY"),
   },
   {
     field: "status",
@@ -62,7 +61,7 @@ const columns = [
 ];
 
 function BusinessTrip(props) {
-  const { role, loading, getBusinessTripsAC } = props;
+  const { role, loading, getBusinessTripsAC, businessTrips } = props;
   const { t } = useTranslation();
   const navigate = useNavigate();
   React.useEffect(() => {
@@ -71,7 +70,7 @@ function BusinessTrip(props) {
   if (loading) return <Loading width={"100%"} height={"calc(100vh - 112px)"} />;
   return (
     <Box>
-      <Typography variant="h6">{t("bankCarDrivingLicense")}</Typography>
+      <Typography variant="h6">{t("AdvanceOngoingRequests")}</Typography>
       <Box mt={2} mb={2}>
         <Button
           variant="contained"
@@ -84,7 +83,7 @@ function BusinessTrip(props) {
       </Box>
       <DataGrid
         className="MuiDataGrid-virtualScrollerContent--overflowed"
-        rows={businessTrip}
+        rows={businessTrips}
         columns={columns}
         pageSize={15}
         autoHeight
@@ -98,6 +97,7 @@ function BusinessTrip(props) {
 const mapStateToProps = (state) => {
   return {
     role: state.auth.role,
+    businessTrips: state.requests.businessTrip.BusinessTrips,
     loading: state.loading.loading,
   };
 };

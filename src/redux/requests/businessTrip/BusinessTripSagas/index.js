@@ -1,28 +1,29 @@
 import { call, put, takeLeading } from "redux-saga/effects";
-import { getDrivingLicensesAPI } from "../../../../API";
+import { getBusinessTripsAPI } from "../../../../API";
 import changeTimeFormat from "../../../../assets/changeTimeFormat";
 import { GET_BUSINESS_TRIPS_FROM_API_TO_STATE } from "../../../constants";
-import { setDivingLicensesFromServerAC } from "../drivingLicenseActions";
+import { setBusinessTripsFromServerAC } from "../BusinessTripActions";
 
-function* drivingLicenses() {
-  const licenses = yield call(getDrivingLicensesAPI);
-  const formateLicenses = licenses.data.map((vocation) => {
+function* businessTrip() {
+  const trips = yield call(getBusinessTripsAPI);
+  const formateLicenses = trips.data.map((trip) => {
     return {
-      ...vocation,
-      DateOfIssuance: changeTimeFormat(vocation.DateOfIssuance),
-      date: changeTimeFormat(vocation.date),
+      ...trip,
+      startDate: changeTimeFormat(trip.startDate),
+      endDate: changeTimeFormat(trip.endDate),
+      date: changeTimeFormat(trip.date),
     };
   });
-    yield put(setDivingLicensesFromServerAC(formateLicenses));
+  yield put(setBusinessTripsFromServerAC(formateLicenses));
 }
 
-export function* getDrivingLicenseFromAPIWorker() {
-  yield call(drivingLicenses);
+export function* getBusinessTripFromAPIWorker() {
+  yield call(businessTrip);
 }
 
-export default function* drivingLicensesWatcher() {
+export default function* businessTripWatcher() {
   yield takeLeading(
     GET_BUSINESS_TRIPS_FROM_API_TO_STATE,
-    getDrivingLicenseFromAPIWorker
+    getBusinessTripFromAPIWorker
   );
 }

@@ -47,3 +47,7 @@ export const getVocationCurrentRequestsAPI = async () => {
 export const getDrivingLicensesAPI = async () => {
   return await instance.get("getCarDrivingLicense");
 };
+
+export const getBusinessTripsAPI = async () => {
+  return await instance.get("getBusinessTrip");
+};

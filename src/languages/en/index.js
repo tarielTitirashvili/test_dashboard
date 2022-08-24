@@ -92,6 +92,7 @@ const ENGLISH_TEXTS_FOR_APP = {
   other: "other",
   methodOfReceivingAdvance: "The preferred method of receiving an advance",
   delete: 'Delete',
+  AdvanceOngoingRequests:"Advance: ongoing requests"
 };
 
 export default ENGLISH_TEXTS_FOR_APP;
