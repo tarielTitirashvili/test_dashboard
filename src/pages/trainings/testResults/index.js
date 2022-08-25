@@ -6,6 +6,7 @@ import moment from "moment";
 import {
   getTestResultsAC,
   setNewTestOnSaveAC,
+  setTestResultsAC,
 } from "../../../redux/trainings/testResults/testResultsActions";
 import AddTableRow from "../../../components/addTableRow";
 import Loading from "../../../components/loading"
@@ -38,9 +39,10 @@ const columns = [
 ];
 
 function TestResults(props) {
-  const { setNewTestOnSaveAC, getTestResultsAC, tests, role, loading } = props;
+  const { setNewTestOnSaveAC, getTestResultsAC, tests, role, loading, setTestResultsAC } = props;
   React.useEffect(() => {
     getTestResultsAC()
+    return()=>setTestResultsAC([])
   }, []);
   const [row, setRow] = React.useState({
     test: "",
@@ -104,6 +106,9 @@ const mapDispatchToProps = (dispatch) => {
     },
     getTestResultsAC(){
       dispatch(getTestResultsAC())
+    },
+    setTestResultsAC(tests){
+      dispatch(setTestResultsAC(tests))
     }
   };
 };

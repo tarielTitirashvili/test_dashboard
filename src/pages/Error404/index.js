@@ -3,6 +3,9 @@ import { IconButton, Typography, Box } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import KeyboardBackspaceIcon from "@mui/icons-material/KeyboardBackspace";
 import { NavLink } from "react-router-dom";
+import PersonPinIcon from "@mui/icons-material/PersonPin";
+import { useTranslation } from "react-i18next";
+import { useNavigate } from "react-router-dom";
 
 const Error404Container = styled("div")({
   justifyContent: "center",
@@ -12,21 +15,28 @@ const Error404Container = styled("div")({
 });
 
 export default function Error404() {
+  const { t } = useTranslation();
+
+  const navigate = useNavigate();
   return (
     <Error404Container>
       <Box>
-        <Typography variant="h1" component="div" gutterBottom align="center">
+        <Typography variant="h2"  gutterBottom align="center">
           404
         </Typography>
-        <Typography variant="h3" component="div" gutterBottom>
-          გვერდი ვერ მოიძებნა
+        <Typography variant="h5"  gutterBottom>
+          {t("couldNotFindPage")}
         </Typography>
         <NavLink to="/">
           <IconButton>
-            <KeyboardBackspaceIcon />
-            ძირითადი
+            <PersonPinIcon />
+            {t("main")}
           </IconButton>
         </NavLink>
+        <IconButton onClick={() => navigate(-1)}>
+          <KeyboardBackspaceIcon />
+          {t("back")}
+        </IconButton>
       </Box>
     </Error404Container>
   );

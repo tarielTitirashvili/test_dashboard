@@ -13,11 +13,13 @@ import StartEndDate from "./startEndDate";
 import Advance from "./Advance";
 import PersonInfo from "./personInfo";
 
+
+
 function AddRequestForBusinessTrip(props) {
   const { getDataFromAPIAC, setPersonDataToInitialAC, basics, loading } =
     props;
   const { branch } = basics;
-  const [tripData, setTripData] = React.useState({
+  const initialData = {
     tripGoal: TRIP_GOAL[0].value,
     startRoute: branch,
     academy: false,
@@ -47,7 +49,8 @@ function AddRequestForBusinessTrip(props) {
     AdvanceOtherCurrency: "",
     AdvanceComment: "",
     methodOfReceivingAdvance: "",
-  });
+  }
+  const [tripData, setTripData] = React.useState(initialData);
 
   React.useEffect(() => {
     setTripData({
@@ -86,6 +89,7 @@ function AddRequestForBusinessTrip(props) {
     getDataFromAPIAC();
     return () => {
       setPersonDataToInitialAC();
+      setTripData(initialData)
     };
   }, []);
   if (loading) return <Loading width={"100%"} height={"calc(100vh - 112px)"} />;

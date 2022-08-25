@@ -10,14 +10,16 @@ import Requests from "../pages/requests";
 import PassedTrainings from "../pages/trainings/passedTrainings";
 import TestResults from "../pages/trainings/testResults";
 import Trainings from "../pages/trainings/trainings";
-import SecretVocation from "../pages/requests/vocation/secretVocation";
-import SecretVocationStatistics from "../pages/requests/vocation/secretVocationStatistics";
+import SecretVocation from "../pages/requests/vocation/vocation";
+import VocationStatistics from "../pages/requests/vocation/vocationStatistics";
 import VocationCurrentRequests from "../pages/requests/vocation/vocationCurrentRequests";
 import DrivingLicense from "../pages/requests/drivingLicense";
 import AddRequestForCompanyCar from "../pages/requests/drivingLicense/addRequestForCompanyCar";
 import RequestsIPC from "../pages/requests/IPC";
 import BusinessTrip from "../pages/requests/businessTrip";
 import AddRequestForBusinessTrip from "../pages/requests/businessTrip/AddRequestForBusinessTrip";
+import CorpNumber from "../pages/requests/corpNumber/corpNumber";
+import CorpNumberRequest from "../pages/requests/corpNumber/addRequest";
 
 export const routes = [
   {
@@ -90,7 +92,7 @@ export const routes = [
       {
         path: "/vocationStatistics",
         title: "vocationStatistics",
-        component: <SecretVocationStatistics />,
+        component: <VocationStatistics />,
       },
       {
         path: "/vocationCurrentRequests",
@@ -121,6 +123,16 @@ export const routes = [
         path: "/addRequestForBusinessTrip",
         title: "addRequestForBusinessTrip",
         component: <AddRequestForBusinessTrip />,
+      },
+      {
+        path: "/corpNumber",
+        title: "corpNumber",
+        component: <CorpNumber />,
+      },
+      {
+        path: "/CorpNumberRequest",
+        title: "CorpNumberRequest",
+        component: <CorpNumberRequest />,
       },
     ],
   },

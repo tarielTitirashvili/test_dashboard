@@ -8,14 +8,15 @@ import modalStyle from "../../../../assets/modalStyle";
 import moment from "moment";
 
 export default function AddRequestForCompanyCar() {
-  const [open, setOpen] = React.useState(false);
-  const [contractStatus, setContractStatus] = React.useState(false);
-  const [drivingReqInfo, setDrivingReqInfo] = React.useState({
+  const initialState = {
     drivingLicenseId: "",
     date: `${moment(Date.now()).format("YYYY-MM-DDThh:mm:ss")}`,
     numberOfCard: "",
     file: {},
-  });
+    contractStatus: false,
+  };
+  const [open, setOpen] = React.useState(false);
+  const [drivingReqInfo, setDrivingReqInfo] = React.useState(initialState);
   const navigate = useNavigate();
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -34,8 +35,9 @@ export default function AddRequestForCompanyCar() {
   };
 
   const onChange = (e) => {
-    setContractStatus(e.target.checked);
+    setDrivingReqInfo({ ...drivingReqInfo, contractStatus: e.target.checked });
   };
+
   const onFileSelect = (e) => {
     setDrivingReqInfo({
       ...drivingReqInfo,
@@ -43,6 +45,11 @@ export default function AddRequestForCompanyCar() {
     });
   };
   const { t } = useTranslation();
+
+  React.useEffect(() => {
+    return () => setDrivingReqInfo(initialState);
+  }, []);
+
   return (
     <Box>
       <Controls.Input
@@ -126,13 +133,17 @@ export default function AddRequestForCompanyCar() {
         </Box>
         <Controls.CheckBox
           label={t("contractWarning")}
-          value={contractStatus}
+          value={drivingReqInfo.contractStatus}
           onChange={onChange}
         />
       </Box>
-      <Box width={'60%'} display={"flex"} justifyContent={"space-between"} >
-        <Button variant="contained" onClick={()=>navigate("/request")}>{t("save")}</Button>
-        <Button variant="contained" onClick={()=>navigate(-1)}>{t("back")}</Button>
+      <Box width={"60%"} display={"flex"} justifyContent={"space-between"}>
+        <Button variant="contained" onClick={() => navigate("/request")}>
+          {t("save")}
+        </Button>
+        <Button variant="contained" onClick={() => navigate(-1)}>
+          {t("back")}
+        </Button>
       </Box>
     </Box>
   );

@@ -92,7 +92,9 @@ const GEORGIAN_TEXTS_FOR_APP = {
   other: "სხვა",
   methodOfReceivingAdvance: "ავანსის მიღების სასურველი მეთოდი",
   delete: 'წაშლა',
-  AdvanceOngoingRequests:"მივლინება : მიმდინარე მოთხოვნები"
+  AdvanceOngoingRequests:"მივლინება : მიმდინარე მოთხოვნები",
+  corpPhoneOngoingRequests: 'კორპორატიული ნომერი : მიმდინარე მოთხოვნები',
+  couldNotFindPage: "გვერდი ვერ მოიძებნა",
 };
 
 export default GEORGIAN_TEXTS_FOR_APP;

@@ -1,6 +1,7 @@
 import { all, call, spawn } from "redux-saga/effects";
 import mainWatcher from "../main/mainSaga";
 import businessTripWatcher from "../requests/businessTrip/BusinessTripSagas";
+import corpPhonesWatcher from "../requests/corpNumber/corpNumberSagas";
 import drivingLicensesWatcher from "../requests/drivingLicense/drivingLicenseSaga";
 import vocationCurrentRequestsWatcher from "../requests/vocation/vocationCurrentRequests/vocationCurrentRequestsSaga";
 import vocationStatisticsWatcher from "../requests/vocation/vocationStatistics/vocationStatisticsSaga";
@@ -18,6 +19,7 @@ export default function* rootSaga() {
     vocationStatisticsWatcher,
     drivingLicensesWatcher,
     businessTripWatcher,
+    corpPhonesWatcher,
   ];
 
   yield all(

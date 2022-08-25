@@ -55,3 +55,7 @@ export const getBusinessTripsAPI = async () => {
 export const getBusinessTripsErrorAPI = async () => {
   return await instance.get("getBusinessTripError");
 };
+
+export const getCorpNumberErrorAPI = async () => {
+  return await instance.get("getCorpNumber");
+};

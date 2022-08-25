@@ -1,7 +1,7 @@
 import { Box, Button, Typography } from "@mui/material";
 import React from "react";
 import { connect } from "react-redux";
-import { getVocationStatisticsAC } from "../../../redux/requests/drivingLicense/drivingLicenseActions";
+import { getVocationStatisticsAC, setDivingLicensesFromServerAC } from "../../../redux/requests/drivingLicense/drivingLicenseActions";
 import Loading from "../../../components/loading";
 import moment from "moment";
 import { DataGrid } from "@mui/x-data-grid";
@@ -45,11 +45,12 @@ const columns = [
 ];
 
 function DrivingLicense(props) {
-  const { getVocationStatisticsAC, drivingLicenses, loading } = props;
+  const { getVocationStatisticsAC, drivingLicenses, loading, setDivingLicensesFromServerAC } = props;
   const navigate = useNavigate();
   const { t } = useTranslation();
   React.useEffect(() => {
     getVocationStatisticsAC();
+    return ()=>setDivingLicensesFromServerAC([])
   }, []);
 
   if (loading) return <Loading width={"100%"} height={"calc(100vh - 112px)"} />;
@@ -91,6 +92,9 @@ const mapDispatchToProps = (dispatch) => {
     getVocationStatisticsAC() {
       dispatch(getVocationStatisticsAC());
     },
+    setDivingLicensesFromServerAC(drivingLicenses){
+      dispatch(setDivingLicensesFromServerAC(drivingLicenses))
+    }
   };
 };
 export default connect(mapStateToProps, mapDispatchToProps)(DrivingLicense);

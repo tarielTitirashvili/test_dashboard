@@ -92,7 +92,9 @@ const ENGLISH_TEXTS_FOR_APP = {
   other: "other",
   methodOfReceivingAdvance: "The preferred method of receiving an advance",
   delete: 'Delete',
-  AdvanceOngoingRequests:"Advance: ongoing requests"
+  AdvanceOngoingRequests:"Advance: ongoing requests",
+  corpPhoneOngoingRequests: 'Corp Phone: Ongoing Requests',
+  couldNotFindPage: "could Not Find Page",
 };
 
 export default ENGLISH_TEXTS_FOR_APP;

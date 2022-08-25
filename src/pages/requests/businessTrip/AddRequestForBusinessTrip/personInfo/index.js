@@ -3,6 +3,7 @@ import moment from "moment";
 import React from "react";
 import { useTranslation } from "react-i18next";
 import Controls from "../../../../../components/controls";
+import PersonBasicInfo from "../../../../../components/personBasicInfo";
 import TitleWithText from "../../../../../components/titleWithText";
 import TRIP_GOAL from "../../../../../DB/businessTripGoal";
 
@@ -16,14 +17,8 @@ export default function PersonInfo(props) {
       <Typography mb={2} fontWeight={"bolder"} variant="h6">
         {t("businessTrip")}
       </Typography>
-      <TitleWithText
-        title={t("completionDate")}
-        text={`${moment(Date.now()).format("DD/MM/YYYY")}`}
-      />
-      <TitleWithText title={t("fullName")} text={fullName} />
-      <TitleWithText title={t("position")} text={Position} />
-      <TitleWithText title={t("office")} text={branch} />
-      <TitleWithText title={t("personalN")} text={PersonalN} />
+      <PersonBasicInfo basics={basics} />
+
       <Controls.Select
         label={t("tripGoal")}
         name="tripGoal"

@@ -8,14 +8,15 @@ import { useTranslation } from "react-i18next";
 import VOCATION_TYPES from "../../../../DB/vocationTypes";
 
 export default function Vocation() {
-  const [request, setRequest] = React.useState({
+  const initialState = {
     reqType: VOCATION_TYPES[0].value,
     startDate: `${moment(Date.now()).format("YYYY-MM-DDThh:mm:ss")}`,
     endDate: `${moment(Date.now()).format("YYYY-MM-DDThh:mm:ss")}`,
     replPerson: PEOPLE_FOR_OPTIONS[0].value,
     leader: PEOPLE_FOR_OPTIONS[0].value,
     comment: "",
-  });
+  };
+  const [request, setRequest] = React.useState(initialState);
   const onRowChange = (e) => {
     if (e.target) {
       const { name, value } = e.target;
@@ -30,6 +31,9 @@ export default function Vocation() {
   };
   const navigate = useNavigate();
   const { t } = useTranslation();
+  React.useEffect(() => {
+    return () => setRequest(initialState);
+  }, []);
   return (
     <Box display={"flex"} justifyContent={"center"}>
       <Paper elevation={3} sx={{ width: "75%", p: 4 }}>

@@ -6,14 +6,21 @@ import { useNavigate } from "react-router-dom";
 import { Box, Button, Typography } from "@mui/material";
 import Loading from "../../../../components/loading";
 import { connect } from "react-redux";
-import { getVocationStatisticsAC } from "../../../../redux/requests/vocation/vocationStatistics/vocationStatisticsActions";
+import {
+  getVocationStatisticsAC,
+  setVocationsForVocationStatisticsPageAC,
+  setVocationStatisticsAC,
+} from "../../../../redux/requests/vocation/vocationStatistics/vocationStatisticsActions";
 
 function SecretVocationStatistics(props) {
-  const { vocations, vocationStatistics, getVocationStatisticsAC, loading } = props;
+  const { vocations, vocationStatistics, getVocationStatisticsAC, loading, setVocationStatisticsAC, setVocationsForVocationStatisticsPageAC } =
+    props;
   const { t } = useTranslation();
 
   React.useEffect(() => {
     getVocationStatisticsAC();
+    return ()=>setVocationStatisticsAC([]), setVocationsForVocationStatisticsPageAC([])
+    
   }, []);
   let navigate = useNavigate();
 
@@ -71,7 +78,7 @@ const mapStateToProps = (state) => {
   return {
     vocations: state.requests.vocationStatistics.vocations,
     vocationStatistics: state.requests.vocationStatistics.vocationStatistics,
-    loading: state.loading.loading
+    loading: state.loading.loading,
   };
 };
 
@@ -79,6 +86,12 @@ const mapDispatchToProps = (dispatch) => {
   return {
     getVocationStatisticsAC() {
       dispatch(getVocationStatisticsAC());
+    },
+    setVocationStatisticsAC(vocationStatistics) {
+      dispatch(setVocationStatisticsAC(vocationStatistics));
+    },
+    setVocationsForVocationStatisticsPageAC(vocations) {
+      dispatch(setVocationsForVocationStatisticsPageAC(vocations));
     },
   };
 };

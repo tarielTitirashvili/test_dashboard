@@ -52,7 +52,12 @@ export default function Requests() {
           <ListItemText primary={t("businessTrip")} />
         </ListItem>
         <Divider />
-        <ListItem button>
+        <ListItem
+          button
+          onClick={() => {
+            onclick("/request/corpNumber");
+          }}
+        >
           <ListItemText primary={t("CORPORATE_PHONES")} />
         </ListItem>
         <Divider />

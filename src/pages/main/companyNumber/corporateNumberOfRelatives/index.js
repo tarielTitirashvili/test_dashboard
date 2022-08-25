@@ -60,7 +60,6 @@ export default function CorporateNumberOfRelatives(props) {
       });
     }
   };
-
   const onSave = () => {
     setCorporateNumberOfRelativesAC({
       ...row,

@@ -67,7 +67,6 @@ function BusinessTrip(props) {
   const { t } = useTranslation();
   const navigate = useNavigate();
   React.useEffect(() => {
-    // debugger
     getBusinessTripsAC();
     return () => {
       setBusinessTripsFromServerAC([]);

@@ -7,6 +7,7 @@ import { connect } from "react-redux";
 import { useTranslation } from "react-i18next";
 import {
   getCurrentRequestsAC,
+  setCurrentRequestsAC,
   setNewRequestOnSaveAC,
 } from "../../../../redux/requests/vocation/vocationCurrentRequests/vocationCurrentRequestsActions";
 import AddTableRow from "../../../../components/addTableRow";
@@ -75,8 +76,10 @@ function VocationCurrentRequirements(props) {
     getCurrentRequestsAC,
     vocationCurrentRequests,
     setNewRequestOnSaveAC,
+    setCurrentRequestsAC,
     loading,
   } = props;
+  
   let navigate = useNavigate();
   const { t } = useTranslation();
   const [row, setRow] = React.useState({
@@ -109,9 +112,12 @@ function VocationCurrentRequirements(props) {
   const onClick = (path) => {
     navigate(path);
   };
+
   React.useEffect(() => {
     getCurrentRequestsAC();
+    return () => setCurrentRequestsAC([]);
   }, []);
+  
   if (loading) return <Loading width={"100%"} height={"calc(100vh - 112px)"} />;
   return (
     <>
@@ -171,6 +177,9 @@ const mapDispatchToProps = (dispatch) => {
     },
     setNewRequestOnSaveAC(newRequest) {
       dispatch(setNewRequestOnSaveAC(newRequest));
+    },
+    setCurrentRequestsAC(vocationCurrentRequests) {
+      dispatch(setCurrentRequestsAC(vocationCurrentRequests));
     },
   };
 };

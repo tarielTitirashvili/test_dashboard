@@ -5,6 +5,7 @@ import moment from "moment";
 import { Box } from "@mui/material";
 import {
   getPassedTrainingsAC,
+  setPassedTrainingsAC,
   setPassedTrainingsOnSaveAC,
 } from "../../../redux/trainings/passedTrainings/passedTrainingsActions";
 import AddTableRow from "../../../components/addTableRow";
@@ -56,6 +57,7 @@ function PassedTrainings(props) {
   } = props;
   React.useEffect(() => {
     getPassedTrainingsAC();
+    return()=>setPassedTrainingsAC([])
   }, []);
   const [row, setRow] = React.useState({
     training: "",
@@ -122,6 +124,9 @@ const mapDispatchToProps = (dispatch) => {
     getPassedTrainingsAC() {
       dispatch(getPassedTrainingsAC());
     },
+    setPassedTrainingsAC(passedTrainings){
+      dispatch(setPassedTrainingsAC(passedTrainings))
+    }
   };
 };
 

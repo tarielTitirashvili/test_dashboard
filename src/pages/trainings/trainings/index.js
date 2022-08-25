@@ -4,7 +4,10 @@ import { DataGrid } from "@mui/x-data-grid";
 import { Box } from "@mui/material";
 import moment from "moment";
 import Schedule from "./trainingsSchedule";
-import { getTrainingsAC } from "../../../redux/trainings/trainings/trainingsActions";
+import {
+  getTrainingsAC,
+  setTrainingsAC,
+} from "../../../redux/trainings/trainings/trainingsActions";
 import Loading from "../../../components/loading";
 
 const columns = [
@@ -60,11 +63,12 @@ const columns = [
 ];
 
 function Trainings(props) {
-  const { trainings, getTrainingsAC, loading } = props;
+  const { trainings, getTrainingsAC, loading, setTrainingsAC } = props;
   React.useEffect(() => {
     getTrainingsAC();
+    return()=>setTrainingsAC([])
   }, []);
-  if(loading)return <Loading width={"100%"} height={"calc(100vh - 112px)"} />
+  if (loading) return <Loading width={"100%"} height={"calc(100vh - 112px)"} />;
   return (
     <Box sx={{ display: "flex", justifyContent: "center" }}>
       <Box maxWidth={"1600px"} width={"100%"}>
@@ -85,7 +89,7 @@ function Trainings(props) {
 const mapStateToProps = (state) => {
   return {
     trainings: state.trainings.trainings,
-    loading: state.loading.loading
+    loading: state.loading.loading,
   };
 };
 
@@ -93,6 +97,9 @@ const mapDispatchToProps = (dispatch) => {
   return {
     getTrainingsAC() {
       dispatch(getTrainingsAC());
+    },
+    setTrainingsAC(trainings) {
+      dispatch(setTrainingsAC(trainings));
     },
   };
 };
