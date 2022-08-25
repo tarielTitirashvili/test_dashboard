@@ -5,6 +5,7 @@ import { GET_BUSINESS_TRIPS_FROM_API_TO_STATE } from "../../../constants";
 import { setBusinessTripsFromServerAC } from "../BusinessTripActions";
 
 function* businessTrip() {
+  
   const trips = yield call(getBusinessTripsErrorAPI);
   const formateLicenses = trips.data.map((trip) => {
     return {
@@ -22,6 +23,7 @@ export function* getBusinessTripFromAPIWorker() {
 }
 
 export default function* businessTripWatcher() {
+  // debugger
   yield takeLeading(
     GET_BUSINESS_TRIPS_FROM_API_TO_STATE,
     getBusinessTripFromAPIWorker

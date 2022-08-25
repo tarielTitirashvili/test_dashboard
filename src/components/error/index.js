@@ -24,6 +24,7 @@ function Error(props) {
       handleClick();
     }
   }, [error]);
+  
   return (
     <Stack sx={{ width: "100%" }} spacing={2}>
       {error && (
@@ -32,9 +33,9 @@ function Error(props) {
             <Alert
               onClose={handleClose}
               severity="error"
-              sx={{ width: "100%" }}
+              sx={{ width: "100%", p: 1 }}
             >
-                {error}
+              {error}
             </Alert>
           </Snackbar>
         </>

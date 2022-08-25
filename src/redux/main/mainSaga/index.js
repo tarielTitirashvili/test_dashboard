@@ -25,6 +25,7 @@ export function* setCorporatePhoneWorker(newNumber) {
 }
 
 export default function* mainWatcher() {
+  console.log('231')
   yield takeLeading(GET_DATA_FROM_API, getPersonFromAPIWorker);
   yield takeLeading(
     SET_USER_DATA_TO_INITIAL_DATA,

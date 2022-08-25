@@ -5,8 +5,10 @@ import moment from "moment";
 import { useNavigate } from "react-router-dom";
 import { connect } from "react-redux";
 import { DataGrid } from "@mui/x-data-grid/DataGrid";
-import { getBusinessTripsAC } from "../../../redux/requests/businessTrip/BusinessTripActions";
-import businessTrip from "../../../DB/businessTrip";
+import {
+  getBusinessTripsAC,
+  setBusinessTripsFromServerAC,
+} from "../../../redux/requests/businessTrip/BusinessTripActions";
 import Loading from "../../../components/loading";
 
 const columns = [
@@ -65,7 +67,11 @@ function BusinessTrip(props) {
   const { t } = useTranslation();
   const navigate = useNavigate();
   React.useEffect(() => {
+    // debugger
     getBusinessTripsAC();
+    return () => {
+      setBusinessTripsFromServerAC([]);
+    };
   }, []);
   if (loading) return <Loading width={"100%"} height={"calc(100vh - 112px)"} />;
   return (
@@ -105,6 +111,9 @@ const mapDispatchToProps = (dispatch) => {
   return {
     getBusinessTripsAC() {
       dispatch(getBusinessTripsAC());
+    },
+    setBusinessTripsFromServerAC(BusinessTrips) {
+      dispatch(setBusinessTripsFromServerAC(BusinessTrips));
     },
   };
 };

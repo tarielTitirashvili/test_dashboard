@@ -1,4 +1,4 @@
-import { spawn } from "redux-saga/effects";
+import { all, call, spawn } from "redux-saga/effects";
 import mainWatcher from "../main/mainSaga";
 import businessTripWatcher from "../requests/businessTrip/BusinessTripSagas";
 import drivingLicensesWatcher from "../requests/drivingLicense/drivingLicenseSaga";
@@ -8,13 +8,30 @@ import passedTrainingsWatcher from "../trainings/passedTrainings/passedTrainings
 import testResultsWatcher from "../trainings/testResults/testResultsSaga";
 import trainingsWatcher from "../trainings/trainings/trainingsSaga";
 
-export default function* rooSaga() {
-  yield spawn(mainWatcher);
-  yield spawn(trainingsWatcher)
-  yield spawn(passedTrainingsWatcher)
-  yield spawn(testResultsWatcher)
-  yield spawn(vocationCurrentRequestsWatcher)
-  yield spawn(vocationStatisticsWatcher)
-  yield spawn(drivingLicensesWatcher)
-  yield spawn(businessTripWatcher)
+export default function* rootSaga() {
+  const sagas = [
+    mainWatcher,
+    trainingsWatcher,
+    passedTrainingsWatcher,
+    testResultsWatcher,
+    vocationCurrentRequestsWatcher,
+    vocationStatisticsWatcher,
+    drivingLicensesWatcher,
+    businessTripWatcher,
+  ];
+
+  yield all(
+    sagas.map((saga) =>
+      spawn(function* () {
+        while (true) {
+          try {
+            yield call(saga);
+            break;
+          } catch (e) {
+            console.log(e);
+          }
+        }
+      })
+    )
+  );
 }

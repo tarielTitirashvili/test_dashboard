@@ -7,6 +7,9 @@ export const setBusinessTripsFromServerAC = (BusinessTrips) => ({
   type: SET_BUSINESS_TRIPS_FROM_API_TO_STATE,
   BusinessTrips,
 });
-export const getBusinessTripsAC = () => ({
-  type: GET_BUSINESS_TRIPS_FROM_API_TO_STATE,
-});
+export const getBusinessTripsAC = () => {
+  // debugger
+  return {
+    type: GET_BUSINESS_TRIPS_FROM_API_TO_STATE,
+  };
+};

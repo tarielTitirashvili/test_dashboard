@@ -26,6 +26,7 @@ let reducers = combineReducers({
 var queue = [];
 
 const monitor = (effect) => {
+  console.log("monitor", effect);
   if (effect.effect.payload.fn) {
     if (!effect.effect.payload.fn.prototype) {
       queue.push(effect.effectId);
@@ -37,6 +38,7 @@ const monitor = (effect) => {
 };
 
 const resolved = (effectId, eff) => {
+  console.log("resolved", effectId, eff);
   if (queue.includes(effectId)) {
     queue = queue.filter((id) => id !== effectId);
     if (queue.length === 0) {
@@ -46,7 +48,7 @@ const resolved = (effectId, eff) => {
 };
 
 const rejected = (effectId, effect) => {
-  // console.log("rejected", effectId, effect);
+  console.log("rejected", effectId, effect);
   if (queue.includes(effectId)) {
     queue = queue.filter((id) => id !== effectId);
     store.dispatch(setErrorAC(effect.response.data.message))
