@@ -1,5 +1,4 @@
 import React from "react";
-import { useTranslation } from "react-i18next";
 import { DataGrid } from "@mui/x-data-grid";
 import { columnsStatistics, columnsVocations } from "./columns";
 import { useNavigate } from "react-router-dom";
@@ -11,11 +10,11 @@ import {
   setVocationsForVocationStatisticsPageAC,
   setVocationStatisticsAC,
 } from "../../../../redux/requests/vocation/vocationStatistics/vocationStatisticsActions";
+import { t } from "i18next";
 
 function SecretVocationStatistics(props) {
   const { vocations, vocationStatistics, getVocationStatisticsAC, loading, setVocationStatisticsAC, setVocationsForVocationStatisticsPageAC } =
     props;
-  const { t } = useTranslation();
 
   React.useEffect(() => {
     getVocationStatisticsAC();
@@ -24,7 +23,7 @@ function SecretVocationStatistics(props) {
   }, []);
   let navigate = useNavigate();
 
-  if (loading) return <Loading width={"100%"} height={"calc(100vh - 112px)"} />;
+  if (loading) return <Loading />;
   return (
     <Box>
       <Box ml={17}>

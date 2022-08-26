@@ -1,13 +1,11 @@
-import { Typography } from "@mui/material";
+import { t } from "i18next";
 import moment from "moment";
 import React from "react";
-import { useTranslation } from "react-i18next";
 import TitleWithText from "../titleWithText";
 
 export default function PersonBasicInfo(props) {
   const { basics } = props;
   const { fullName, Position, branch, PersonalN } = basics;
-  const { t } = useTranslation();
   return (
     <div>
       

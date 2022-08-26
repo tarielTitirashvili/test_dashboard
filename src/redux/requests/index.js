@@ -4,6 +4,7 @@ import vocationStatisticsReducer from "./vocation/vocationStatistics/vocationSta
 import drivingLicenseReducer from "./drivingLicense/drivingLicenseReducer";
 import businessTripReducer from "./businessTrip/businessTripReducer";
 import corpNumberReducer from "./corpNumber/corpNumberReducer";
+import midtermEvaluationReducer from "./midtermEvaluation/midtermEvaluationReducer";
 
 const requestsReducers = combineReducers({
   vocation: vocationCurrentRequestsReducer,
@@ -11,6 +12,7 @@ const requestsReducers = combineReducers({
   drivingLicense: drivingLicenseReducer,
   businessTrip: businessTripReducer,
   corpNumber: corpNumberReducer,
+  midtermEvaluation: midtermEvaluationReducer,
 });
 
 export default requestsReducers;

@@ -95,6 +95,10 @@ const GEORGIAN_TEXTS_FOR_APP = {
   AdvanceOngoingRequests:"მივლინება : მიმდინარე მოთხოვნები",
   corpPhoneOngoingRequests: 'კორპორატიული ნომერი : მიმდინარე მოთხოვნები',
   couldNotFindPage: "გვერდი ვერ მოიძებნა",
+  numberOwner: 'ნომრის მფლობელი',
+  number: 'ნომერი',
+  PleaseBringMeTheNumber: "გთხოვთ მომაწოდოთ ნომერი",
+  upload: "ატვირთვა"
 };
 
 export default GEORGIAN_TEXTS_FOR_APP;

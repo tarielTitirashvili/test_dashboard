@@ -1,9 +1,9 @@
 import React from "react";
 import { Box, Card, Typography } from "@mui/material";
 import moment from "moment";
-import { useTranslation } from "react-i18next";
 import Controls from "../../../components/controls";
 import { docType } from "../../../DB/docType";
+import { t } from "i18next";
 
 export default function IDInfo(props) {
   const { onChange, identity } = props;
@@ -16,7 +16,6 @@ export default function IDInfo(props) {
   const validUntil = moment(validFor, "DD/MM/YYYY").format(
     "YYYY-MM-DDThh:mm:ss"
   );
-  const { t } = useTranslation();
   return (
     <Card sx={{padding: 2}} variant="outlined">
       <Typography m={1} fontSize={"1rem"} fontWeight={"bold"} variant="h3">

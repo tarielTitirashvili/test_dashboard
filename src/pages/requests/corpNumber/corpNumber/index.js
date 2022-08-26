@@ -2,13 +2,13 @@ import { Button, Typography } from "@mui/material";
 import { DataGrid } from "@mui/x-data-grid";
 import moment from "moment";
 import React from "react";
-import { useTranslation } from "react-i18next";
 import { connect } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import FlexContainer from "../../../../components/styledComponents/FlexContainer";
-import TableContainer from "../../../../components/styledComponents/TableContainer";
 import { getCorpNumbersAC } from "../../../../redux/requests/corpNumber/corpNumberActions";
 import Loading from "../../../../components/loading"
+import TableContainer from "../../../../styledComponents/TableContainer"
+import FlexContainer from "../../../../styledComponents/FlexContainer"
+import { t } from "i18next";
 
 const columns = [
   { field: "id", headerName: "ID", width: 90, editable: false, hide: true },
@@ -49,7 +49,6 @@ function CorpNumber(props) {
   React.useEffect(() => {
     getCorpNumbersAC();
   }, []);
-  const { t } = useTranslation();
   const navigate = useNavigate();
   if(loading) return <Loading />
   return (

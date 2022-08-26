@@ -6,13 +6,12 @@ import {
   ListItemText,
   Typography,
 } from "@mui/material";
+import { t } from "i18next";
 import React from "react";
-import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 
 export default function Requests() {
   let navigate = useNavigate();
-  const { t } = useTranslation();
   const onclick = (path) => {
     navigate(path);
   };
@@ -65,7 +64,12 @@ export default function Requests() {
           <ListItemText primary={t("visitCard")} />
         </ListItem>
         <Divider />
-        <ListItem button>
+        <ListItem
+          onClick={() => {
+            onclick("/request/midtermEvaluation");
+          }}
+          button
+        >
           <ListItemText primary={t("intermediateEvaluation")} />
         </ListItem>
         <Divider />

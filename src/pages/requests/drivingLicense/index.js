@@ -5,8 +5,8 @@ import { getVocationStatisticsAC, setDivingLicensesFromServerAC } from "../../..
 import Loading from "../../../components/loading";
 import moment from "moment";
 import { DataGrid } from "@mui/x-data-grid";
-import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
+import { t } from "i18next";
 
 const columns = [
   { field: "id", headerName: "ID", width: 90, editable: false, hide: true },
@@ -47,13 +47,12 @@ const columns = [
 function DrivingLicense(props) {
   const { getVocationStatisticsAC, drivingLicenses, loading, setDivingLicensesFromServerAC } = props;
   const navigate = useNavigate();
-  const { t } = useTranslation();
   React.useEffect(() => {
     getVocationStatisticsAC();
     return ()=>setDivingLicensesFromServerAC([])
   }, []);
 
-  if (loading) return <Loading width={"100%"} height={"calc(100vh - 112px)"} />;
+  if (loading) return <Loading  />;
   return (
     <Box>
       <Typography variant="h6">{t("bankCarDrivingLicense")}</Typography>

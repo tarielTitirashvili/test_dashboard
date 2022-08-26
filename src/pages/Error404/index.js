@@ -4,8 +4,8 @@ import { styled } from "@mui/material/styles";
 import KeyboardBackspaceIcon from "@mui/icons-material/KeyboardBackspace";
 import { NavLink } from "react-router-dom";
 import PersonPinIcon from "@mui/icons-material/PersonPin";
-import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
+import { t } from "i18next";
 
 const Error404Container = styled("div")({
   justifyContent: "center",
@@ -15,7 +15,6 @@ const Error404Container = styled("div")({
 });
 
 export default function Error404() {
-  const { t } = useTranslation();
 
   const navigate = useNavigate();
   return (

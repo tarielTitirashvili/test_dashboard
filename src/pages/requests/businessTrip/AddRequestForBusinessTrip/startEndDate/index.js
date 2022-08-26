@@ -1,13 +1,12 @@
 import { Box, Card } from "@mui/material";
+import { t } from "i18next";
 import React from "react";
-import { useTranslation } from "react-i18next";
 import Controls from "../../../../../components/controls";
 import PEOPLE_FOR_OPTIONS from "../../../../../DB/people";
 import TRANSPORT from "../../../../../DB/transport";
 
 export default function StartEndDate(props) {
   const { tripData, onChange, onChangeCheckBox } = props;
-  const { t } = useTranslation();
   return (
     <Card elevation={3} sx={{ p: 3, m: 2 }}>
       <Box display={"flex"} width={"70%"} justifyContent={"space-between"}>

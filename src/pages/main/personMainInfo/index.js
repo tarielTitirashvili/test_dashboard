@@ -1,11 +1,11 @@
 import React from "react";
 import { Card, Typography, Box } from "@mui/material";
-import { useTranslation } from "react-i18next";
 import moment from "moment";
 import countries from "../../../DB/country";
 import places from "../../../DB/place";
 import Controls from "../../../components/controls";
 import { maritalStatus } from "../../../DB/maritalStatus";
+import { t } from "i18next";
 
 export default function PersonMainInfo(props) {
   const { basic, onChange } = props;
@@ -25,7 +25,6 @@ export default function PersonMainInfo(props) {
     status,
     personalMail,
   } = basic;
-  const { t } = useTranslation();
   const localOnchange = (e) => onChange(e, "basic");
 
   const born = moment(dateOfBirth, "DD/MM/YYYY").format("YYYY-MM-DDThh:mm:ss");

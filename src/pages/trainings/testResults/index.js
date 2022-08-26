@@ -9,7 +9,7 @@ import {
   setTestResultsAC,
 } from "../../../redux/trainings/testResults/testResultsActions";
 import AddTableRow from "../../../components/addTableRow";
-import Loading from "../../../components/loading"
+import Loading from "../../../components/loading";
 
 const columns = [
   { field: "id", headerName: "ID", width: 90, editable: false, hide: true },
@@ -39,10 +39,17 @@ const columns = [
 ];
 
 function TestResults(props) {
-  const { setNewTestOnSaveAC, getTestResultsAC, tests, role, loading, setTestResultsAC } = props;
+  const {
+    setNewTestOnSaveAC,
+    getTestResultsAC,
+    tests,
+    role,
+    loading,
+    setTestResultsAC,
+  } = props;
   React.useEffect(() => {
-    getTestResultsAC()
-    return()=>setTestResultsAC([])
+    getTestResultsAC();
+    return () => setTestResultsAC([]);
   }, []);
   const [row, setRow] = React.useState({
     test: "",
@@ -63,10 +70,10 @@ function TestResults(props) {
   };
 
   const onSave = () => {
-    setNewTestOnSaveAC({ ...row, id: tests[tests.length - 1].id+1 });
+    setNewTestOnSaveAC({ ...row, id: tests[tests.length - 1].id + 1 });
   };
 
-  if(loading)return<Loading width={"100%"} height={"calc(100vh - 112px)"} />
+  if (loading) return <Loading />;
   return (
     <Box sx={{ display: "flex", justifyContent: "center" }}>
       <Box maxWidth={"1600px"} width={"100%"}>
@@ -95,7 +102,7 @@ const mapStateToProps = (state) => {
   return {
     tests: state.testsResults.tests,
     role: state.auth.role,
-    loading: state.loading.loading
+    loading: state.loading.loading,
   };
 };
 
@@ -104,12 +111,12 @@ const mapDispatchToProps = (dispatch) => {
     setNewTestOnSaveAC(newTest) {
       dispatch(setNewTestOnSaveAC(newTest));
     },
-    getTestResultsAC(){
-      dispatch(getTestResultsAC())
+    getTestResultsAC() {
+      dispatch(getTestResultsAC());
     },
-    setTestResultsAC(tests){
-      dispatch(setTestResultsAC(tests))
-    }
+    setTestResultsAC(tests) {
+      dispatch(setTestResultsAC(tests));
+    },
   };
 };
 

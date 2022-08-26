@@ -20,6 +20,7 @@ import BusinessTrip from "../pages/requests/businessTrip";
 import AddRequestForBusinessTrip from "../pages/requests/businessTrip/AddRequestForBusinessTrip";
 import CorpNumber from "../pages/requests/corpNumber/corpNumber";
 import CorpNumberRequest from "../pages/requests/corpNumber/addRequest";
+import MidtermEvaluationRequests from "../pages/requests/MidtermEvaluationRequests";
 
 export const routes = [
   {
@@ -133,6 +134,11 @@ export const routes = [
         path: "/CorpNumberRequest",
         title: "CorpNumberRequest",
         component: <CorpNumberRequest />,
+      },
+      {
+        path: "/midtermEvaluation",
+        title: "MidtermEvaluation",
+        component: <MidtermEvaluationRequests />,
       },
     ],
   },

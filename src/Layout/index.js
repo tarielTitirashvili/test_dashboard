@@ -15,8 +15,8 @@ import { Navigate, Route, Routes } from "react-router-dom";
 import MenuIcon from "@mui/icons-material/Menu";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import Cookies from "js-cookie";
-import i18n from "i18next";
-import { initReactI18next, useTranslation } from "react-i18next";
+import i18n, { t } from "i18next";
+import { initReactI18next } from "react-i18next";
 import LanguageDetector from "i18next-browser-languagedetector";
 import HttpApi from "i18next-http-backend";
 import { routes } from "../routes";
@@ -54,7 +54,6 @@ export default function MainLayout() {
   const currentLanguageCode = Cookies.get("i18next") || "ge";
   const [open, setOpen] = React.useState(false);
   const [langOpen, setLangOpen] = React.useState(false);
-  const { t } = useTranslation();
 
   const sortRef = React.useRef(null);
   const clickOutside = (e) => {

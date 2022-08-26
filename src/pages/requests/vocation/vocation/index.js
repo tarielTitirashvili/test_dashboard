@@ -1,10 +1,10 @@
 import { Box, Button, Paper } from "@mui/material";
+import { t } from "i18next";
 import moment from "moment";
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import Controls from "../../../../components/controls";
 import PEOPLE_FOR_OPTIONS from "../../../../DB/people";
-import { useTranslation } from "react-i18next";
 import VOCATION_TYPES from "../../../../DB/vocationTypes";
 
 export default function Vocation() {
@@ -30,7 +30,6 @@ export default function Vocation() {
     }
   };
   const navigate = useNavigate();
-  const { t } = useTranslation();
   React.useEffect(() => {
     return () => setRequest(initialState);
   }, []);

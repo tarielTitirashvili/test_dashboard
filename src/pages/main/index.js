@@ -1,7 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
 import { Grid } from "@mui/material";
-import { useTranslation } from "react-i18next";
 import {
   setUserDataDetailAC,
   setPersonDataToInitialAC,
@@ -15,6 +14,7 @@ import Addressees from "./addressees";
 import CompanyNumber from "./companyNumber";
 import CorporatePhones from "./corporatePhones";
 import Loading from "../../components/loading";
+import { t } from "i18next";
 
 function Main(props) {
   const {
@@ -32,7 +32,6 @@ function Main(props) {
     setCorporateNumberOfRelativesAC,
     loading,
   } = props;
-  const { t } = useTranslation();
   React.useEffect(() => {
     getDataFromAPIAC();
     return () => {
@@ -49,7 +48,7 @@ function Main(props) {
     }
   };
 
-  if (loading) return <Loading width={"100%"} height={"calc(100vh - 112px)"} />;
+  if (loading) return <Loading />;
 
   return (
     <Grid container justifyContent="center">

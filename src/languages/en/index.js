@@ -95,6 +95,11 @@ const ENGLISH_TEXTS_FOR_APP = {
   AdvanceOngoingRequests:"Advance: ongoing requests",
   corpPhoneOngoingRequests: 'Corp Phone: Ongoing Requests',
   couldNotFindPage: "could Not Find Page",
+  numberOwner: "number owner",
+  number: 'number',
+  PleaseBringMeTheNumber: "Please bring me the number",
+  upload: "upload"
+
 };
 
 export default ENGLISH_TEXTS_FOR_APP;

@@ -4,7 +4,6 @@ import { DataGrid } from "@mui/x-data-grid";
 import moment from "moment";
 import { useNavigate } from "react-router-dom";
 import { connect } from "react-redux";
-import { useTranslation } from "react-i18next";
 import {
   getCurrentRequestsAC,
   setCurrentRequestsAC,
@@ -13,6 +12,7 @@ import {
 import AddTableRow from "../../../../components/addTableRow";
 import VOCATION_TYPES from "../../../../DB/vocationTypes";
 import Loading from "../../../../components/loading";
+import { t } from "i18next";
 
 const columns = [
   { field: "id", headerName: "ID", width: 90, editable: false, hide: true },
@@ -81,7 +81,6 @@ function VocationCurrentRequirements(props) {
   } = props;
   
   let navigate = useNavigate();
-  const { t } = useTranslation();
   const [row, setRow] = React.useState({
     date: `${moment(Date.now()).format("YYYY-MM-DDThh:mm:ss")}`,
     reqType: VOCATION_TYPES[0].value,
@@ -118,7 +117,7 @@ function VocationCurrentRequirements(props) {
     return () => setCurrentRequestsAC([]);
   }, []);
   
-  if (loading) return <Loading width={"100%"} height={"calc(100vh - 112px)"} />;
+  if (loading) return <Loading />;
   return (
     <>
       <Box sx={{ display: "flex", justifyContent: "space-between", m: 3 }}>

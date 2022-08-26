@@ -92,7 +92,7 @@ function AddRequestForBusinessTrip(props) {
       setTripData(initialData)
     };
   }, []);
-  if (loading) return <Loading width={"100%"} height={"calc(100vh - 112px)"} />;
+  if (loading) return <Loading />;
   return (
     <Box p={1}>
       <PersonInfo basics={basics} tripData={tripData} onChange={onChange} />

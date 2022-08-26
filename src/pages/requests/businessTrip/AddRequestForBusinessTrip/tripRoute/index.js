@@ -1,10 +1,10 @@
 import { Box, Button, Card, Typography } from "@mui/material";
 import React from "react";
-import { useTranslation } from "react-i18next";
 import Controls from "../../../../../components/controls";
 import places from "../../../../../DB/place";
 import HOTELS from "../../../../../DB/hotels";
 import PLACES from "../../../../../DB/place";
+import { t } from "i18next";
 
 export default function TripRoute(props) {
   const { tripData, setTripData, onChange } = props;
@@ -66,7 +66,6 @@ export default function TripRoute(props) {
       tripRoute: [...data],
     });
   };
-  const { t } = useTranslation();
   return (
     <Card elevation={3} sx={{ p: 3, m: 2 }}>
       <Box sx={{ width: "60%" }}>

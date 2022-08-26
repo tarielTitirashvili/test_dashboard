@@ -1,6 +1,5 @@
 import { Box, Button, Typography } from "@mui/material";
 import React from "react";
-import { useTranslation } from "react-i18next";
 import moment from "moment";
 import { useNavigate } from "react-router-dom";
 import { connect } from "react-redux";
@@ -10,6 +9,7 @@ import {
   setBusinessTripsFromServerAC,
 } from "../../../redux/requests/businessTrip/BusinessTripActions";
 import Loading from "../../../components/loading";
+import { t } from "i18next";
 
 const columns = [
   { field: "id", headerName: "ID", width: 90, editable: false, hide: true },
@@ -64,7 +64,6 @@ const columns = [
 
 function BusinessTrip(props) {
   const { role, loading, getBusinessTripsAC, businessTrips } = props;
-  const { t } = useTranslation();
   const navigate = useNavigate();
   React.useEffect(() => {
     getBusinessTripsAC();

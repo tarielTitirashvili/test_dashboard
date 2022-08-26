@@ -83,7 +83,7 @@ function PassedTrainings(props) {
       id: passedTrainings[passedTrainings.length - 1].id + 1,
     });
   };
-  if(loading) return <Loading width={"100%"} height={"calc(100vh - 112px)"} />
+  if(loading) return <Loading />
   return (
     <Box sx={{ display: "flex", justifyContent: "center" }}>
       <Box width={"100%"} maxWidth={"1080px"}>

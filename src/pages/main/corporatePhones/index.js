@@ -1,8 +1,8 @@
 import React from "react";
 import { DataGrid } from "@mui/x-data-grid";
 import { Card, Typography } from "@mui/material";
-import { useTranslation } from "react-i18next";
 import AddTableRow from "../../../components/addTableRow";
+import { t } from "i18next";
 
 const columns = [
   { field: "id", headerName: "ID", width: 90, editable: false, hide: true },
@@ -41,7 +41,6 @@ const columns = [
 
 export default function CorporatePhones(props) {
   const { corporatePhonesData, role, setCorporatePhonesAC } = props;
-  const { t } = useTranslation();
   const [row, setRow] = React.useState({
     Firstname: "",
     Lastname: "",

@@ -3,9 +3,9 @@ import CloseIcon from "@mui/icons-material/Close";
 import { Box, Button, IconButton, Modal, Typography } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import Controls from "../../../../components/controls";
-import { useTranslation } from "react-i18next";
 import modalStyle from "../../../../assets/modalStyle";
 import moment from "moment";
+import { t } from "i18next";
 
 export default function AddRequestForCompanyCar() {
   const initialState = {
@@ -44,7 +44,6 @@ export default function AddRequestForCompanyCar() {
       file: e.target.files[0],
     });
   };
-  const { t } = useTranslation();
 
   React.useEffect(() => {
     return () => setDrivingReqInfo(initialState);
@@ -76,7 +75,7 @@ export default function AddRequestForCompanyCar() {
       />
       <Box>
         <Button variant="contained" component="label">
-          Upload
+          {t("upload")}
           <input
             hidden
             onChange={onFileSelect}

@@ -9,8 +9,8 @@ export default function Loading(props) {
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        width: `${width ? width : "100vw"}`,
-        height: `${height ? height : "100vh"}`,
+        width: `${width ? width : "100%"}`,
+        height: `${height ? height : "calc(100vh - 112px)"}`,
         p: 0,
         m: 0,
       }}

@@ -1,16 +1,13 @@
 import { Typography } from "@mui/material";
-import moment from "moment";
+import { t } from "i18next";
 import React from "react";
-import { useTranslation } from "react-i18next";
 import Controls from "../../../../../components/controls";
 import PersonBasicInfo from "../../../../../components/personBasicInfo";
-import TitleWithText from "../../../../../components/titleWithText";
 import TRIP_GOAL from "../../../../../DB/businessTripGoal";
 
 export default function PersonInfo(props) {
   const { basics, tripData, onChange } = props;
   const { fullName, Position, branch, PersonalN } = basics;
-  const { t } = useTranslation();
 
   return (
     <>
@@ -20,7 +17,6 @@ export default function PersonInfo(props) {
       <PersonBasicInfo basics={basics} />
 
       <Controls.Select
-        label={t("tripGoal")}
         name="tripGoal"
         width={"450px"}
         value={tripData.tripGoal}

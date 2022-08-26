@@ -20,7 +20,7 @@ let reducers = combineReducers({
   auth: authReducer,
   requests: requestsReducers,
   loading: loadingStatus,
-  error: errorReducer
+  error: errorReducer,
 });
 
 var queue = [];

@@ -1,6 +1,6 @@
 import { Box, Card, Typography } from "@mui/material";
+import { t } from "i18next";
 import React from "react";
-import { useTranslation } from "react-i18next";
 import Controls from "../../../components/controls";
 import CorporateNumberOfRelatives from "./corporateNumberOfRelatives";
 
@@ -20,7 +20,6 @@ export default function CompanyNumber(props) {
     serviceGroup,
     corporateNumberOfRelatives,
   } = companyNumber;
-  const { t } = useTranslation();
 
   const localOnchange = (e) => {
     return onChange(e, "companyNumber");

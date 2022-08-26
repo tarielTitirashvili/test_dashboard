@@ -1,7 +1,7 @@
 import { Box, Button, Card, Typography } from "@mui/material";
+import { t } from "i18next";
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { useTranslation } from "react-i18next";
 import Controls from "../../../../../components/controls";
 import CURRENCIES from "../../../../../DB/currencies";
 import METHODS_OF_RECEIVING_ADVANCE from "../../../../../DB/methodOfReceivingAdvance";
@@ -9,7 +9,6 @@ import METHODS_OF_RECEIVING_ADVANCE from "../../../../../DB/methodOfReceivingAdv
 export default function Advance(props) {
   const { tripData, onChange } = props;
   const navigate = useNavigate();
-  const { t } = useTranslation();
 
   return (
     <Card elevation={3} sx={{ p: 3, m: 2 }}>

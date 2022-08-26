@@ -8,14 +8,13 @@ import {
   ListItemText,
   Box,
 } from "@mui/material";
-import { useTranslation } from "react-i18next";
 import { NavLink } from "react-router-dom";
 import { routes } from "../../routes";
 import { CustomizedAccordionSummary } from "./navElemUi";
+import { t } from "i18next";
 
 export default function NavElements() {
   const [expanded, setExpanded] = React.useState("");
-  const { t } = useTranslation();
 
   const handleChange = (panel) => {
     setExpanded(panel);

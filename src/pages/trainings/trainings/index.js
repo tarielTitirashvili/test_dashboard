@@ -68,7 +68,7 @@ function Trainings(props) {
     getTrainingsAC();
     return()=>setTrainingsAC([])
   }, []);
-  if (loading) return <Loading width={"100%"} height={"calc(100vh - 112px)"} />;
+  if (loading) return <Loading />;
   return (
     <Box sx={{ display: "flex", justifyContent: "center" }}>
       <Box maxWidth={"1600px"} width={"100%"}>
